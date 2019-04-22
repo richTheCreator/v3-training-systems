@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,800"');
+
+html, .root {
+  font-size: 18px;
+  line-height: 36px;
+}
+body, .article {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 2rem;
+  margin: auto;
+}
+h1, .h1 {
+  font-size: 4.6111111rem;
+  line-height: 1.3em;
+  margin-top: 2rem;
+  font-weight: 800;
+  color: white;
+  font-style: italic;
+  margin-bottom: 4rem;
+}
+h2, .h2 {
+  font-size: 2.7777778rem;
+  line-height: 4rem;
+  margin-top: 2rem;
+  font-weight: 800;
+  color: white;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+h3, .h3 {
+  font-size: 1.6666667rem;
+  line-height: 2rem;
+  margin-top: 2rem;
+  font-weight: 800;
+  color: white;
+  font-style: italic;
+  margin-bottom: 0rem;
+}
+h4, .h4 {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+h5, .h5 {
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 0rem;
+}
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+/* Let's make sure all's aligned */
+hr, .hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+a, b, i, strong, em, small, code {
+  line-height: 0;
+  font-weight: 800;
+}
+sub, sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}

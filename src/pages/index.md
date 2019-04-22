@@ -3,8 +3,9 @@ templateKey: index-page
 title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
-  title: Fitness for your lifestyle
-  image: /img/AustinFit-KevinGraves.jpg
+  title: FITNESS FOR YOUR LIFESTYLE
+  bg__image: /img/AustinFit-KevinGraves.jpg
+  dots__image: /img/dots.png
   blurbs:
     OT:
       title: Online Training
