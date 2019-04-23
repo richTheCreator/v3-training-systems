@@ -4,9 +4,9 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import theme from './static/styles/theme'
 
-export const wrapRootElement = ({ element }) => {
+export const wrapPageElement = ({ element, props }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider {...props} theme={theme}>
       {element}
     </ThemeProvider>
   )
