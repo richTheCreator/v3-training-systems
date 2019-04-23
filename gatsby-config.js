@@ -8,10 +8,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
-    'gatsby-plugin-sass',
-    `gatsby-plugin-styled-components`,
-
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -34,8 +30,15 @@ module.exports = {
         name: 'images'
       }
     },
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: process.env.NODE_ENV !== `production`,
+        fileName: false
+      }
+    },
     {
       resolve: 'gatsby-transformer-remark',
       options: {
