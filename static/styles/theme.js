@@ -27,10 +27,9 @@ const colors = {
 }
 
 const breakpoints = [
-  '32em',
   '48em',
   '64em',
-  '80em'
+  '75em'
 ]
 
 breakpoints.sm = breakpoints[0]

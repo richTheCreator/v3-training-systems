@@ -8,24 +8,25 @@ import {
 import styled from 'styled-components'
 import ReactFitText from 'react-fittext'
 import {
-  Flex,
-  Box
-} from '@rebass/grid'
+  Row,
+  Col
+} from 'react-flexbox-grid'
 import {
   color,
   space,
   width,
+  fontSize,
   themeGet
 } from 'styled-system'
 import {
   media
 } from '../../static/styles/breakpoints'
 import Layout from '../components/Layout'
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-console.log('color', color)
-
-const HeroContainer = styled(Flex)
+const HeroContainer = styled(Row)
 `
+  ${color}
   background-size: contain;
   min-height:100vh;
   background-image: url(${props => props.background});
@@ -33,13 +34,31 @@ const HeroContainer = styled(Flex)
   ${media.sm`background-position: top;`};
   ${media.md`background-position: right;`};
 `
-
-const BlueBox = styled(Box)
+const Legend = styled(Col)
 `
-  background-color:Blue;
-  height:200px;
+  ${color}
+  ${space}
 `
+const dotStyle = {
+  position: 'absolute',
+  top: '-25%',
+  right: '35%',
+  zIndex: '-1'
+}
 
+const LegendWrapper = styled(Row)
+`
+  width: 100%;
+  align-self: flex-end;
+  height: 25vh;
+  z-index: 1;
+  position: relative;
+`
+const HeroTitle = styled(Col)
+`
+  ${space}
+  align-self: flex-end;
+`
 export const IndexPageTemplate = ({
   hero
 }) => (
@@ -51,13 +70,22 @@ export const IndexPageTemplate = ({
         hero.bg__image}
     bg='black'
   >
-    <Box width={[1, 1 , 1, 1 / 2]}>
+    <HeroTitle p={[4, 4, 5]} xs={12} sm={10} md={9}>
       <ReactFitText>
         <h1>
-          {hero.title}
+          {hero.title.split(' ').slice(0, 2).join(' ')} <br />
+          {hero.title.split(' ').slice(2, 4).join(' ')}
         </h1>
       </ReactFitText>
-    </Box>
+    </HeroTitle>
+    <LegendWrapper>
+      <Legend p={5} bg='accent' xs={7} />
+      <PreviewCompatibleImage
+        isFixed
+        imageInfo={hero.dots__image}
+        style={dotStyle}
+      />
+    </LegendWrapper>
   </HeroContainer>
 )
 
@@ -94,8 +122,8 @@ export const pageQuery = graphql `
           }
           dots__image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+              fixed(width: 200) {
+                ...GatsbyImageSharpFixed
               }
             }
           }
