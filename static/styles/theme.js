@@ -13,7 +13,7 @@ const fontWeights = [
 ]
 
 // Colors
-const colors = {
+const color = {
   accent: '#FF5353',
   black: '#000',
   darkGrey: '#9C9C9C',
@@ -52,7 +52,7 @@ export default {
   fontWeights,
   lineHeights,
   fontSizes,
-  colors,
+  color,
   breakpoints,
   space
 }
