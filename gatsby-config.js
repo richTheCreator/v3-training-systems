@@ -33,13 +33,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        displayName: process.env.NODE_ENV !== `production`,
-        fileName: false
-      }
-    },
-    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -80,6 +73,7 @@ module.exports = {
         purgeOnly: ['/all.sass'] // applies purging only on the bulma css file
       }
     }, // must be after other CSS plugins
+    `gatsby-plugin-styled-components`,
     'gatsby-plugin-netlify' // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
