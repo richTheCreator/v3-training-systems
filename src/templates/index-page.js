@@ -5,7 +5,9 @@ import {
   // Link,
   graphql
 } from 'gatsby'
-import styled from 'styled-components'
+import styled, {
+  withTheme
+} from 'styled-components'
 import ReactFitText from 'react-fittext'
 import {
   Row,
@@ -59,18 +61,19 @@ const HeroTitle = styled(Col)
   ${space}
   align-self: flex-end;
 `
+
 export const IndexPageTemplate = ({
   hero
 }) => (
   <HeroContainer
     alignItems='center'
+    bg={'black'}
     background={
       hero.bg__image.childImageSharp ?
         hero.bg__image.childImageSharp.fluid.src :
         hero.bg__image}
-    bg='black'
   >
-    <HeroTitle p={[4, 4, 5]} xs={12} sm={10} md={9}>
+    <HeroTitle p={[4, 4, 5]} xs={12} sm={10} md={7}>
       <ReactFitText>
         <h1>
           {hero.title.split(' ').slice(0, 2).join(' ')} <br />
@@ -79,7 +82,7 @@ export const IndexPageTemplate = ({
       </ReactFitText>
     </HeroTitle>
     <LegendWrapper>
-      <Legend p={5} bg='accent' xs={7} />
+      <Legend p={5} bg={'white'} xs={7} />
       <PreviewCompatibleImage
         isFixed
         imageInfo={hero.dots__image}
@@ -105,7 +108,7 @@ const IndexPage = ({
   )
 }
 
-export default IndexPage
+export default withTheme(IndexPage)
 
 export const pageQuery = graphql `
   query IndexPageTemplate {
