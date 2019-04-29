@@ -4,11 +4,11 @@ const textStyles = ['fontSize', 'fontWeight', 'fontStyle', 'color', 'lineHeight'
 
 export const H1 = system({
   is: 'H1',
-  fontSize: 12,
+  fontSize: [10, 11, 12],
   fontWeight: 3,
   fontStyle: 'italic',
   color: 'white',
-  lineHeight: 9,
+  lineHeight: [7, 8, 9],
   letterSpacing: 0
 }, ...textStyles)
 

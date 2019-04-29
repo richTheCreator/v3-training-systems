@@ -1,9 +1,6 @@
 import React from 'react'
-import {
-  graphql
-} from 'gatsby'
 import styled from 'styled-components'
-import ReactFitText from 'react-fittext'
+// import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
 import {
   color,
@@ -68,13 +65,11 @@ const Hero = ({
         ? hero.bg__image.childImageSharp.fluid.src
         : hero.bg__image}
   >
-    <HeroTitle p={[4, 4, 5]} xs={12} sm={10} md={8}>
-      <ReactFitText>
-        <H1>
-          {hero.title.split(' ').slice(0, 2).join(' ')} <br />
-          {hero.title.split(' ').slice(2, 4).join(' ')}
-        </H1>
-      </ReactFitText>
+    <HeroTitle p={[4, 4, 5]} xs={12} sm={10} md={9}>
+      <H1>
+        {hero.title.split(' ').slice(0, 2).join(' ')} <br />
+        {hero.title.split(' ').slice(2, 4).join(' ')}
+      </H1>
     </HeroTitle>
     <LegendWrapper>
       <Legend p={[3, 5, 5]} bg={'white'} xs={7} >
