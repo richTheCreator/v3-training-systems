@@ -1,23 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,800"');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,800i');
 
-html, .root {
-  font-size: 18px;
-  line-height: 36px;
-}
 body, .article {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
-  line-height: 2rem;
   margin: auto;
 }
-h1, .h1 {
-  /* font-size: 4.6111111rem */
+/* h1, .h1 {
+  font-size: 4.6111111rem;
   line-height: 1.3em;
   margin-top: 2rem;
   font-weight: 800;
   color: white;
   font-style: italic;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 h2, .h2 {
   font-size: 2.7777778rem;
@@ -58,8 +52,6 @@ ul ul, ol ol, ul ol, ol ul {
   margin-top: 0rem;
   margin-bottom: 0rem;
 }
-
-/* Let's make sure all's aligned */
 hr, .hr {
   border: 1px solid;
   margin: -1px 0;
@@ -78,4 +70,4 @@ sup {
 }
 sub {
   bottom: -0.25em;
-}
+} */
