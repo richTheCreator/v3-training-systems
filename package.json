@@ -4,6 +4,7 @@
   "version": "1.1.3",
   "author": "Austin Green",
   "dependencies": {
+    "@rebass/components": "^4.0.0-1",
     "@rebass/grid": "^6.0.0",
     "babel-plugin-styled-components": "^1.10.0",
     "bulma": "^0.7.0",

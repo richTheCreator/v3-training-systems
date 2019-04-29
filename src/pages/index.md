@@ -17,7 +17,8 @@ hero:
       title: 8wk Program
       text: Packaged Routines
 about:
-  tile: Kevin Graves
+  title: KEVIN GRAVES
+  flex__image: /img/KG-Flex.png
   bio: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
   callouts:
     1:
