@@ -21,16 +21,16 @@ about:
   flex__image: /img/KG-Flex.png
   bio: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
   callouts:
-    1:
+    first:
       count: '10+'
       desc: Years Experience
-    2:
+    second:
       count: '2X'
       desc: Natural Competitor
-    3:
+    third:
       count: '1K+'
       desc: Clients Trained
-    4:
+    fourth:
       count: '18'
       desc: Pro Athletes Trained
 transformations:
