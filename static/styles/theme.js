@@ -52,6 +52,11 @@ const fontWeights = [
   800  // 3 - Extra Bold
 ]
 
+const heights = [
+  '100%',
+  '100vh'
+]
+
 // Colors
 const colors = {
   accent: '#FF5353',
@@ -91,6 +96,7 @@ export default {
   fontSizes,
   breakpoints,
   letterSpacings,
+  heights,
   space,
   colors
 }

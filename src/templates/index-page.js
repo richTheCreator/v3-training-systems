@@ -54,9 +54,27 @@ export const pageQuery = graphql `
         about {
           title
           bio
+          callouts {
+            first {
+              count
+              desc
+            }
+            second {
+              count
+              desc
+            }
+            third {
+              count
+              desc
+            }
+            fourth {
+              count
+              desc
+            }
+          }
           flex__image {
             childImageSharp {
-              fluid(maxHeight: 600, quality: 100) {
+              fluid(maxWidth: 600, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }

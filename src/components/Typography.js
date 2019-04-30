@@ -60,10 +60,10 @@ export const H6 = system({
 
 export const Body1 = system({
   is: 'p',
-  fontSize: 6,
+  fontSize: 7,
   fontWeight: 0,
   color: 'darkGrey',
-  lineHeight: 4,
+  lineHeight: 5,
   letterSpacing: 7
 }, ...textStyles)
 
@@ -180,4 +180,3 @@ const space = [
   48, // 6
   64  // 7
 ]
-
