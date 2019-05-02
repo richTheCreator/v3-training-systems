@@ -1,7 +1,4 @@
 import React from 'react'
-import {
-  graphql
-} from 'gatsby'
 import styled from 'styled-components'
 import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
@@ -11,7 +8,6 @@ import {
   backgroundPosition,
   flexDirection
 } from 'styled-system'
-import { H1 } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 const HeroContainer = styled(Row)

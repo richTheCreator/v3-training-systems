@@ -71,7 +71,7 @@ const colors = {
   }
 }
 
-const breakpoints = ['48em', '64em', '75em']
+const breakpoints = ['576px', '768px', '992px', '1200px']
 
 breakpoints.sm = breakpoints[0]
 breakpoints.md = breakpoints[1]

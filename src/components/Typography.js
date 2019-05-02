@@ -1,6 +1,6 @@
 import system from '@rebass/components'
 
-const textStyles = ['fontSize', 'fontWeight', 'fontStyle', 'color', 'lineHeight', 'letterSpacing', 'space']
+const textStyles = ['fontSize', 'textAlign', 'fontWeight', 'fontStyle', 'color', 'lineHeight', 'letterSpacing', 'space']
 
 export const H1 = system({
   is: 'H1',
@@ -14,7 +14,7 @@ export const H1 = system({
 
 export const H2 = system({
   is: 'H2',
-  fontSize: 11,
+  fontSize: [10, 10, 11],
   fontWeight: 3,
   color: 'black',
   lineHeight: 8,
