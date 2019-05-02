@@ -12,6 +12,7 @@ import {
   fontSize,
   height,
   alignSelf,
+  maxWidth,
   space,
   flexDirection
 } from 'styled-system'
@@ -22,15 +23,9 @@ const Sections = styled(Col)`
   ${alignSelf}
   ${space}
 `
-const AboutWrapper = styled(Row)`
-  ${space}
-  ${color}
-  height:100%
-`
 
 const AboutContainer = styled(Row)`
-  max-width:1400px;
-  margin:auto;
+  ${maxWidth}
   ${space}
 `
 const CalloutContainer = styled(Col)`
@@ -49,17 +44,17 @@ const Callout = ({ count, desc }) => (
 const About = ({
   about
 }) => (
-  <SectionWrapper bg='lightGrey'>
-    <AboutContainer mt={7} mb={7}>
-      <Sections m='auto' alignSelf={'center'} lg={6} md={5} sm={6} xs={10}>
+  <SectionWrapper justifyContent='center' bg='lightGrey'>
+    <AboutContainer maxWidth={1} mt={7} mb={7}>
+      <Sections m='auto' alignSelf={'center'} lg={5} md={5} sm={6} xs={10}>
         <PreviewCompatibleImage
           imageInfo={about.flex__image}
           imgStyle={{ objectFit: 'contain' }}
-          style={{maxHeight: '600px'}}
+          style={{maxHeight: '90vh'}}
         />
       </Sections>
-      <Sections alignSelf='center' bg='lightGrey' lg={6} md={7} sm={12} xs={12}>
-        <Overline textAlign={['center', 'center', 'left', 'left']} color={'darkGrey'}>
+      <Sections m='auto' alignSelf='center' bg='lightGrey' lg={6} md={7} sm={12} xs={12}>
+        <Overline textAlign={['center', 'center', 'left', 'left']} color={'accent'}>
           MEET YOUR TRAINER
         </Overline>
         <H2 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
