@@ -65,8 +65,8 @@ const Hero = ({
         ? hero.bg__image.childImageSharp.fluid.src
         : hero.bg__image}
   >
-    <HeroTitle p={[4, 4, 5, 6]} xs={12} sm={10} md={8}>
-      <ReactFitText maxFontSize={100}>
+    <HeroTitle p={[3, 4, 5, 7]} xs={12} sm={10} md={8} lg={8}>
+      <ReactFitText maxFontSize={125} minFontSize={42}>
         <h1 className='heroTitle'>
           {hero.title.split(' ').slice(0, 2).join(' ')} <br />
           {hero.title.split(' ').slice(2, 4).join(' ')}

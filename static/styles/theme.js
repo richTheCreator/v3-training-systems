@@ -52,10 +52,9 @@ const fontWeights = [
   800  // 3 - Extra Bold
 ]
 
-const heights = [
-  '100%',
-  '100vh'
-]
+const heights = [ '100%', '100vh' ]
+
+const maxWidths = [ '1400px', '1800px' ]
 
 // Colors
 const colors = {
@@ -96,6 +95,7 @@ export default {
   fontSizes,
   breakpoints,
   letterSpacings,
+  maxWidths,
   heights,
   space,
   colors
