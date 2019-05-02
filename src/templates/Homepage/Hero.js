@@ -14,6 +14,7 @@ const HeroContainer = styled(Row)
 `
   ${color}
   ${backgroundPosition}
+  ${space}
   background-size: contain;
   min-height:100vh;
   background-image: url(${props => props.background});
@@ -64,7 +65,7 @@ const Hero = ({
         ? hero.bg__image.childImageSharp.fluid.src
         : hero.bg__image}
   >
-    <HeroTitle p={[4, 5, 7]} xs={12} sm={10} md={8}>
+    <HeroTitle p={[4, 4, 5, 6]} xs={12} sm={10} md={8}>
       <ReactFitText maxFontSize={100}>
         <h1 className='heroTitle'>
           {hero.title.split(' ').slice(0, 2).join(' ')} <br />
