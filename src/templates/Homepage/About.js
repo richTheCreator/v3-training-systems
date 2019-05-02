@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
 import { Overline, H2, Body1, H4, Body2 } from '../../components/Typography'
+import { SectionWrapper } from '../../components/Containers'
 import {
   color,
   fontSize,
@@ -37,7 +38,7 @@ const CalloutContainer = styled(Col)`
 `
 
 const Callout = ({ count, desc }) => (
-  <CalloutContainer xs={6} p={3}>
+  <CalloutContainer xs={6} p={2}>
     <Row>
       <H4 m={0} pr={3}> {count} </H4>
       <Body2> {desc} </Body2>
@@ -48,20 +49,20 @@ const Callout = ({ count, desc }) => (
 const About = ({
   about
 }) => (
-  <AboutWrapper bg='lightGrey' p={5}>
+  <SectionWrapper bg='lightGrey'>
     <AboutContainer mt={7} mb={7}>
-      <Sections alignSelf={'center'} lg={6} md={5} sm={7}>
+      <Sections m='auto' alignSelf={'center'} lg={6} md={5} sm={6} xs={8}>
         <PreviewCompatibleImage
           imageInfo={about.flex__image}
           imgStyle={{ objectFit: 'contain' }}
           style={{maxHeight: '600px'}}
         />
       </Sections>
-      <Sections alignSelf='center' bg='lightGrey' lg={6} md={7} sm={12}>
-        <Overline color={'darkGrey'}>
+      <Sections alignSelf='center' bg='lightGrey' lg={6} md={7} sm={12} xs={12}>
+        <Overline textAlign={['center', 'center', 'left', 'left']} color={'darkGrey'}>
           MEET YOUR TRAINER
         </Overline>
-        <H2 mt={0} mb={5}>
+        <H2 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
           {about.title}
         </H2>
         <Body1 color={'darkGrey'}> {about.bio} </Body1>
@@ -73,7 +74,7 @@ const About = ({
         </Row>
       </Sections>
     </AboutContainer>
-  </AboutWrapper>
+  </SectionWrapper>
 
 )
 
