@@ -14,10 +14,10 @@ export const H1 = system({
 
 export const H2 = system({
   is: 'H2',
-  fontSize: [10, 10, 11],
+  fontSize: [9, 10, 11],
   fontWeight: 3,
   color: 'black',
-  lineHeight: 8,
+  lineHeight: [6, 7, 8],
   letterSpacing: 1,
   marginBottom: 4
 }, ...textStyles)

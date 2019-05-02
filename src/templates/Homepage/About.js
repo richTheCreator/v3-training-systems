@@ -51,7 +51,7 @@ const About = ({
 }) => (
   <SectionWrapper bg='lightGrey'>
     <AboutContainer mt={7} mb={7}>
-      <Sections m='auto' alignSelf={'center'} lg={6} md={5} sm={6} xs={8}>
+      <Sections m='auto' alignSelf={'center'} lg={6} md={5} sm={6} xs={10}>
         <PreviewCompatibleImage
           imageInfo={about.flex__image}
           imgStyle={{ objectFit: 'contain' }}
