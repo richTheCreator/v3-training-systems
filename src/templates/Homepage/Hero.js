@@ -72,11 +72,11 @@ const Ico_Arrow = styled.svg`
   width: 24px;
 `
 const ServiceItemM = ({ title }) => (
-  <Row middle='xs' className='hidden-xl hidden-lg hidden-md'>
-    <Body1 pr={3} color='darkGrey'> {title} </Body1>
+  <Row middle='xs' style={{ width: '100%' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
+    <Body2 pr={3} color='darkGrey'> {title} </Body2>
     <Ico_Arrow>
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.49 31.49'>
-        <path d='M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z' fill='#1e201d' />
+        <path d='M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z' fill='#FF5353' />
       </svg>
     </Ico_Arrow>
   </Row>
@@ -87,7 +87,7 @@ const Hero = ({
 }) => (
   <HeroContainer
     backgroundSize={['cover', 'cover', 'contain']}
-    backgroundPosition={['top', 'right', 'right']}
+    backgroundPosition={['top', 'top', 'right', 'right']}
     bg={'black'}
     background={
       hero.bg__image.childImageSharp
@@ -103,7 +103,7 @@ const Hero = ({
       </ReactFitText>
     </HeroTitle>
     <LegendWrapper>
-      <Legend p={[4, 5, 6]} bg='white' md={10} sm={8} xs={10} >
+      <Legend p={[4, 5, 6]} bg='white' md={10} sm={6} xs={8} >
         <LegendItems
           alignItems={['flex-start', 'flex-start', 'center', 'center']}
           flexDirection={['column', 'column', 'row', 'row']}
@@ -117,8 +117,8 @@ const Hero = ({
           <ServiceItem title={hero.blurbs.PT.title} text={hero.blurbs.PT.text} />
           <ServiceItem title={hero.blurbs.ET.title} text={hero.blurbs.ET.text} />
           <ServiceItemM title={hero.blurbs.OT.title} className='hidden-lg hidden-md' />
-          <ServiceItemM title={hero.blurbs.OT.title} className='hidden-lg hidden-md' />
-          <ServiceItemM title={hero.blurbs.OT.title} className='hidden-lg hidden-md' />
+          <ServiceItemM title={hero.blurbs.PT.title} className='hidden-lg hidden-md' />
+          <ServiceItemM title={hero.blurbs.ET.title} className='hidden-lg hidden-md' />
         </LegendItems>
       </Legend>
     </LegendWrapper>
