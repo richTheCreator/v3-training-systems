@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
 import { Overline, H2, Body1, H4, Body2 } from '../../components/Typography'
-import { SectionWrapper } from '../../components/Containers'
+import { SectionWrapper, SectionMax } from '../../components/Containers'
 import {
   color,
   fontSize,
@@ -23,7 +23,6 @@ const Sections = styled(Col)`
   ${alignSelf}
   ${space}
 `
-
 const AboutContainer = styled(Row)`
   ${maxWidth}
   ${space}
@@ -31,7 +30,6 @@ const AboutContainer = styled(Row)`
 const CalloutContainer = styled(Col)`
   ${space}
 `
-
 const Callout = ({ count, desc }) => (
   <CalloutContainer xs={6} p={2}>
     <Row>
@@ -45,7 +43,7 @@ const About = ({
   about
 }) => (
   <SectionWrapper justifyContent='center' bg='lightGrey'>
-    <AboutContainer maxWidth={1} mt={7} mb={7}>
+    <SectionMax>
       <Sections m='auto' alignSelf={'center'} lg={5} md={5} sm={6} xs={10}>
         <PreviewCompatibleImage
           imageInfo={about.flex__image}
@@ -68,7 +66,7 @@ const About = ({
           <Callout count={about.callouts.fourth.count} desc={about.callouts.fourth.desc} />
         </Row>
       </Sections>
-    </AboutContainer>
+    </SectionMax>
   </SectionWrapper>
 
 )

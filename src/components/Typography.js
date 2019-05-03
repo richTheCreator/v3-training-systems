@@ -69,7 +69,7 @@ export const Body1 = system({
 
 export const Body2 = system({
   is: 'p',
-  fontSize: 4,
+  fontSize: 6,
   fontWeight: 0,
   color: 'darkGrey',
   lineHeight: 1,
@@ -100,7 +100,7 @@ export const Button = system({
   fontWeight: 3,
   color: 'accent',
   lineHeight: 0,
-  letterSpacing: 8
+  letterSpacing: 9
 }, ...textStyles)
 
 export const Caption = system({
