@@ -49,6 +49,14 @@ export const pageQuery = graphql `
               title
               text
             }
+            PT {
+              title
+              text
+            }
+            ET {
+              title
+              text
+            }
           }
         }
         about {

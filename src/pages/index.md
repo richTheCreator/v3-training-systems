@@ -13,7 +13,7 @@ hero:
     PT:
       title: 1:1 Sessions
       text: In person training
-    8W:
+    ET:
       title: 8wk Program
       text: Packaged Routines
 about:
