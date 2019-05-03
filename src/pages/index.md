@@ -19,7 +19,7 @@ hero:
 about:
   title: KEVIN GRAVES
   flex__image: /img/KG-Flex.png
-  bio: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
+  bio: When other websites give you text, they’re not sending the best. They’re not sending you, they’re sending words that have lots of problems and they’re bringing those problems with us. They’re bringing mistakes. They’re bringing misspellings. They’re typists… And some, I assume, are good words. We have so many things that we have to do better... and certainly ipsum is one of them.
   callouts:
     first:
       count: '10+'
