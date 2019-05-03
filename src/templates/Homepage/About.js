@@ -32,10 +32,8 @@ const CalloutContainer = styled(Col)`
 `
 const Callout = ({ count, desc }) => (
   <CalloutContainer xs={6} p={2}>
-    <Row>
-      <H4 m={0} pr={3}> {count} </H4>
-      <Body2> {desc} </Body2>
-    </Row>
+    <H4 m={0} pr={3}> {count} </H4>
+    <Body2> {desc} </Body2>
   </CalloutContainer>
 )
 
