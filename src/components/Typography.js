@@ -72,7 +72,7 @@ export const Body2 = system({
   fontSize: 6,
   fontWeight: 0,
   color: 'darkGrey',
-  lineHeight: 1,
+  lineHeight: 4,
   letterSpacing: 5
 }, ...textStyles)
 
