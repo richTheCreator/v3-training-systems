@@ -44,11 +44,18 @@ const LegendItems = styled(Row)
   height:100%;
   width:100%
 `
+const Overlay = styled(Row)
+`
+  width: 100%;
+  min-height:100%;
+  background-color:rgba(0,0,0,.40)
+`
 
 const LegendWrapper = styled(Row)
 `
   width: 100%;
   align-self: flex-end;
+  justify-content:center;
   z-index: 1;
   position: relative;
 `
@@ -86,7 +93,7 @@ const Hero = ({
   hero
 }) => (
   <HeroContainer
-    backgroundSize={['cover', 'cover', 'contain']}
+    backgroundSize={'cover'}
     backgroundPosition={['top', 'top', 'right', 'right']}
     bg={'black'}
     background={
@@ -94,34 +101,36 @@ const Hero = ({
         ? hero.bg__image.childImageSharp.fluid.src
         : hero.bg__image}
   >
-    <HeroTitle p={[3, 4, 5, 7]} xs={12} sm={10} md={8} lg={8}>
-      <ReactFitText maxFontSize={125} minFontSize={42}>
-        <h1 className='heroTitle'>
-          {hero.title.split(' ').slice(0, 2).join(' ')} <br />
-          {hero.title.split(' ').slice(2, 4).join(' ')}
-        </h1>
-      </ReactFitText>
-    </HeroTitle>
-    <LegendWrapper>
-      <Legend p={[4, 5, 6]} bg='white' md={10} sm={6} xs={8} >
-        <LegendItems
-          alignItems={['flex-start', 'flex-start', 'center', 'center']}
-          flexDirection={['column', 'column', 'row', 'row']}
-          >
-          <PreviewCompatibleImage
-            isFixed
-            imageInfo={hero.dots__image}
-            style={dotStyle}
-          />
-          <ServiceItem title={hero.blurbs.OT.title} text={hero.blurbs.OT.text} />
-          <ServiceItem title={hero.blurbs.PT.title} text={hero.blurbs.PT.text} />
-          <ServiceItem title={hero.blurbs.ET.title} text={hero.blurbs.ET.text} />
-          <ServiceItemM title={hero.blurbs.OT.title} className='hidden-lg hidden-md' />
-          <ServiceItemM title={hero.blurbs.PT.title} className='hidden-lg hidden-md' />
-          <ServiceItemM title={hero.blurbs.ET.title} className='hidden-lg hidden-md' />
-        </LegendItems>
-      </Legend>
-    </LegendWrapper>
+    <Overlay xs>
+      <HeroTitle p={[3, 4, 5, 7]} xs={12}>
+        <p style={{textAlign: 'center', fontSize: 'calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300)))'}} className='heroSubtitle'>
+          {hero.subtitle}
+        </p>
+        <svg class='outlinedFont' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
+          <text x='50%' y='60%' text-anchor='middle'>{hero.title}</text>
+        </svg>
+      </HeroTitle>
+      <LegendWrapper>
+        <Legend p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
+          <LegendItems
+            alignItems={['flex-start', 'flex-start', 'center', 'center']}
+            flexDirection={['column', 'column', 'row', 'row']}
+            >
+            <PreviewCompatibleImage
+              isFixed
+              imageInfo={hero.dots__image}
+              style={dotStyle}
+            />
+            <ServiceItem title={hero.blurbs.OT.title} text={hero.blurbs.OT.text} />
+            <ServiceItem title={hero.blurbs.PT.title} text={hero.blurbs.PT.text} />
+            <ServiceItem title={hero.blurbs.ET.title} text={hero.blurbs.ET.text} />
+            <ServiceItemM title={hero.blurbs.OT.title} className='hidden-lg hidden-md' />
+            <ServiceItemM title={hero.blurbs.PT.title} className='hidden-lg hidden-md' />
+            <ServiceItemM title={hero.blurbs.ET.title} className='hidden-lg hidden-md' />
+          </LegendItems>
+        </Legend>
+      </LegendWrapper>
+    </Overlay>
   </HeroContainer>
 )
 

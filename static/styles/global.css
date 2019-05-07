@@ -5,7 +5,15 @@ body, .article {
   margin: auto;
 }
 
-.heroTitle {
+.outlinedFont {
+  font-weight: 800;
+  fill: transparent;
+  stroke: white;
+  font-style: italic;
+  stroke-width: .3px;
+}
+
+.heroSubtitle {
   margin-top: 2rem;
   font-weight: 800;
   color: white;
