@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
 import {
   color,
@@ -8,10 +7,15 @@ import {
   backgroundPosition,
   justifyContent,
   flexDirection,
+  fontWeight,
+  minHeight,
+  height,
   alignItems,
-  backgroundSize
+  backgroundSize,
+  letterSpacing
 } from 'styled-system'
-import { Subtitle1, Body2, Body1, Button } from '../../components/Typography'
+import { Subtitle1, Body2, Button } from '../../components/Typography'
+import { Overlay } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 const HeroContainer = styled(Row)
@@ -20,7 +24,7 @@ const HeroContainer = styled(Row)
   ${backgroundPosition}
   ${space}
   ${backgroundSize}
-  min-height:100vh;
+  ${minHeight}
   background-image: url(${props => props.background});
   background-repeat:no-repeat;
 `
@@ -42,21 +46,15 @@ const LegendItems = styled(Row)
 `
   ${flexDirection}
   ${alignItems}
-  height:100%;
+  ${height}
   width:100%
-`
-const Overlay = styled(Row)
-`
-  width: 100%;
-  min-height:100%;
-  background-color:rgba(0,0,0,.40)
 `
 
 const LegendWrapper = styled(Row)
 `
+${justifyContent}
   width: 100%;
   align-self: flex-end;
-  ${justifyContent}
   z-index: 1;
   position: relative;
 `
@@ -65,20 +63,30 @@ const HeroTitle = styled(Col)
   ${space}
   align-self: flex-end;
 `
+const Type_SubTitle = styled.p`
+  ${space}
+  ${fontWeight}
+  ${color}
+  ${letterSpacing}
+  text-align: center;
+  font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (1600 - 300))); 
+  font-style: italic;
+  
+`
+const Ico_Arrow = styled.svg`
+  ${color}
+  height: 24px;
+  width: 24px;
+`
 
 const ServiceItem = ({ title, text }) => (
-  <Col className='hidden-xs hidden-sm' xs>
+  <Col className='hidden-xs hidden-sm' style={{textAlign: 'center'}} xs>
     <Subtitle1 color='black'>{title} </Subtitle1>
     <Body2 color='darkGrey'> {text} </Body2>
     <Button> VIEW </Button>
   </Col>
 )
 
-const Ico_Arrow = styled.svg`
-  ${color}
-  height: 24px;
-  width: 24px;
-`
 const ServiceItemM = ({ title }) => (
   <Row middle='xs' style={{ width: '100%' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
     <Body2 pr={3} color='darkGrey'> {title} </Body2>
@@ -94,6 +102,7 @@ const Hero = ({
   hero
 }) => (
   <HeroContainer
+    minHeight={1}
     backgroundSize={'cover'}
     backgroundPosition={['top', 'top', 'right', 'right']}
     bg={'black'}
@@ -104,9 +113,9 @@ const Hero = ({
   >
     <Overlay xs>
       <HeroTitle p={[0, 4, 5, 7]} xs={12}>
-        <p style={{textAlign: 'center', marginBottom: '24px', fontSize: 'calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300)))'}} className='heroSubtitle'>
+        <Type_SubTitle mb={4} color='white' fontWeight={3} letterSpacing={[9, 11, 11, 12]}>
           {hero.subtitle}
-        </p>
+        </Type_SubTitle>
         <svg class='outlinedFont' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
           <text x='50%' y='60%' text-anchor='middle'>{hero.title}</text>
         </svg>
@@ -114,9 +123,10 @@ const Hero = ({
       <LegendWrapper justifyContent={['flex-start', 'center', 'center']}>
         <Legend p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
           <LegendItems
+            height={0}
             alignItems={['flex-start', 'flex-start', 'center', 'center']}
             flexDirection={['column', 'column', 'row', 'row']}
-            >
+          >
             <PreviewCompatibleImage
               isFixed
               imageInfo={hero.dots__image}

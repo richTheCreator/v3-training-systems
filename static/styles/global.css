@@ -16,14 +16,6 @@ body, .article {
   margin:auto;
 }
 
-.heroSubtitle {
-  margin-top: 2rem;
-  font-weight: 800;
-  color: white;
-  font-style: italic;
-  margin-bottom: 2rem;
-}
-
 /*  FLEXBOX GRID OVERRIDES  */
 
 .row {

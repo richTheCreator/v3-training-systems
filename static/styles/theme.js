@@ -36,13 +36,16 @@ const letterSpacings = [
   '-1.5px', // 0
   '-0.5px', // 1
   '.1px',   // 2
-  0,      // 3
+  0,        // 3
   '.15px',  // 4
   '.25px',  // 5
   '.4px',   // 6
   '.5px',   // 7
   '1.25px', // 8
-  2       // 9
+  2,        // 9
+  4,        // 10
+  6,        // 11
+  9         // 12
 ]
 
 const fontWeights = [
@@ -60,15 +63,15 @@ const maxWidths = [ '1400px', '1800px' ]
 const colors = {
   accent: '#FF5353',
   black: '#000',
+  black50: 'rgba(0,0,0,.5)',
   darkGrey: '#4e4e4e',
   lightGrey: '#EDEDED',
   red: '#F05D5E',
   white: '#FFF',
-  disabled: '#DADEDF', // or opacity .3 of greyBlue
-  opacity: {
-    ghost: '.1'
-  }
+  disabled: '#DADEDF' // or opacity .3 of greyBlue
 }
+
+const minHeights = ['100%', '100vh']
 
 const breakpoints = ['576px', '768px', '992px', '1200px']
 
@@ -90,6 +93,7 @@ const space = [
 
 export default {
   fonts,
+  minHeights,
   fontWeights,
   lineHeights,
   fontSizes,
