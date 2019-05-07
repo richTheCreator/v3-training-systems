@@ -3,7 +3,6 @@ import {
   graphql
 } from 'gatsby'
 import styled from 'styled-components'
-import ReactFitText from 'react-fittext'
 import { Row, Col } from 'react-flexbox-grid'
 import { Overline, H2, Body1, H4, Body2 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'

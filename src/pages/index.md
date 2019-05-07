@@ -3,8 +3,9 @@ templateKey: index-page
 title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
-  title: FITNESS FOR YOUR LIFESTYLE
-  bg__image: /img/AustinFit-KevinGraves.jpg
+  subtitle: YOU CAME. YOU SAW. YOU...
+  title: CONQUERED
+  bg__image: /img/workout.jpg
   dots__image: /img/dots.png
   blurbs:
     OT:
@@ -36,9 +37,12 @@ about:
 transformations:
   title: Kevin Graves
   body: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
-packages:
-  1:
-    title: Online training
+services:
+  assets:
+    dots__image: /img/dots.png
+  OT:
+    title: ONLINE TRAINING
+    service__image: /img/fitness-men-roundrock.jpeg
     desc: A training experience crafted to your environment & lifestyle
     includes: ['Weekly video check-ins', 'Routines tailored to your goals', 'Daily fitness & macro tracking', 'Access to exclusive FB page']
 ---
