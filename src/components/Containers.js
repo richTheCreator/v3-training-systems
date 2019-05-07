@@ -2,7 +2,7 @@ import system from '@rebass/components'
 import styled from 'styled-components'
 import { Row } from 'react-flexbox-grid'
 
-const containerStyles = ['color', 'space', 'height', 'justifyContent', 'maxWidth']
+const containerStyles = ['color', 'space', 'height', 'justifyContent', 'maxWidth', 'width', 'minHeight']
 
 const FlexRow = styled(Row)`
 `
@@ -18,6 +18,13 @@ export const SectionMax = system({
   maxWidth: 1,
   mt: 7,
   mb: 7
+}, ...containerStyles)
+
+export const Overlay = system({
+  extend: FlexRow,
+  minHeight: 0,
+  width: '100%',
+  bg: 'black50'
 }, ...containerStyles)
 
 // const fontSizes = [

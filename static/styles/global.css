@@ -11,14 +11,9 @@ body, .article {
   stroke: white;
   font-style: italic;
   stroke-width: .3px;
-}
-
-.heroSubtitle {
-  margin-top: 2rem;
-  font-weight: 800;
-  color: white;
-  font-style: italic;
-  margin-bottom: 2rem;
+  display: block;
+  max-width: 1200px;
+  margin:auto;
 }
 
 /*  FLEXBOX GRID OVERRIDES  */
