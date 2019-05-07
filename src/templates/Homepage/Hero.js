@@ -6,6 +6,7 @@ import {
   color,
   space,
   backgroundPosition,
+  justifyContent,
   flexDirection,
   alignItems,
   backgroundSize
@@ -55,7 +56,7 @@ const LegendWrapper = styled(Row)
 `
   width: 100%;
   align-self: flex-end;
-  justify-content:center;
+  ${justifyContent}
   z-index: 1;
   position: relative;
 `
@@ -102,15 +103,15 @@ const Hero = ({
         : hero.bg__image}
   >
     <Overlay xs>
-      <HeroTitle p={[3, 4, 5, 7]} xs={12}>
-        <p style={{textAlign: 'center', fontSize: 'calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300)))'}} className='heroSubtitle'>
+      <HeroTitle p={[0, 4, 5, 7]} xs={12}>
+        <p style={{textAlign: 'center', marginBottom: '24px', fontSize: 'calc(18px + (48 - 18) * ((100vw - 300px) / (1600 - 300)))'}} className='heroSubtitle'>
           {hero.subtitle}
         </p>
         <svg class='outlinedFont' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
           <text x='50%' y='60%' text-anchor='middle'>{hero.title}</text>
         </svg>
       </HeroTitle>
-      <LegendWrapper>
+      <LegendWrapper justifyContent={['flex-start', 'center', 'center']}>
         <Legend p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
           <LegendItems
             alignItems={['flex-start', 'flex-start', 'center', 'center']}

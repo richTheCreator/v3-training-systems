@@ -11,6 +11,9 @@ body, .article {
   stroke: white;
   font-style: italic;
   stroke-width: .3px;
+  display: block;
+  max-width: 1200px;
+  margin:auto;
 }
 
 .heroSubtitle {
