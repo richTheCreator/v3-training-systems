@@ -71,7 +71,7 @@ const colors = {
   disabled: '#DADEDF' // or opacity .3 of greyBlue
 }
 
-const minHeights = ['100%', '100vh']
+const minHeights = ['100%', '100vh', '85vh']
 
 const breakpoints = ['576px', '768px', '992px', '1200px']
 

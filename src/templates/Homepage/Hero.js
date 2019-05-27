@@ -16,9 +16,12 @@ import {
   letterSpacing,
   width
 } from 'styled-system'
+import Bowser from 'bowser'
 import { Subtitle1, Body2, Button } from '../../components/Typography'
 import { Overlay } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
+
+const browser = Bowser.getParser(window.navigator.userAgent)
 
 const HeroContainer = styled(Row)
 `
@@ -47,7 +50,7 @@ const ServiceItem = ({ title, text, style }) => (
 )
 
 const ServiceItemM = ({ title, style }) => (
-  <Row middle='xs' style={{ ...style, width: '100%' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
+  <Row middle='xs' style={{ ...style, width: '100%', textTransform: 'uppercase' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
     <Subtitle1 pr={3} color='darkGrey'> {title} </Subtitle1>
     <Ico_Arrow>
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.49 31.49'>
@@ -90,6 +93,18 @@ const dotStyle = {
   zIndex: '-1'
 }
 
+const outlinedFont = {
+  fontWeight: 800,
+  fill: 'transparent',
+  stroke: 'white',
+  fontStyle: 'italic',
+  strokeWidth: '.3px',
+  display: 'block',
+  maxWidth: '1200px',
+  margin: 'auto',
+  strokeDasharray: browser.isBrowser('Safari') ? 1000 : 500
+}
+
 const LegendItems = styled(Row)
 `
   ${flexDirection}
@@ -128,8 +143,8 @@ const AnimatedTitles = ({ hero }) => {
   // animation configs
   const dashRef = useRef()
   const dash = useSpring({
-    from: { dash: 500 },
-    to: { dash: 430 },
+    from: { dash: browser.isBrowser('Safari') ? 1000 : 500 },
+    to: { dash: browser.isBrowser('Safari') ? 0 : 430 },
     config: {duration: 1200},
     delay: 500,
     ref: dashRef
@@ -168,18 +183,18 @@ const AnimatedTitles = ({ hero }) => {
       <HeroTitle p={[0, 4, 5, 7]} xs={12}>
         <Row style={{ justifyContent: 'center' }}>
           {fadeIn.map((props, index) =>
-            <AnimatedSubtitle style={props} mb={4} color='white' fontWeight={3} letterSpacing={9}>
+            <AnimatedSubtitle native style={props} mb={4} color='white' fontWeight={3} letterSpacing={9}>
               {splitSub[index]}
             </AnimatedSubtitle>
           )
           }
         </Row>
-        <animated.svg strokeDashoffset={dash.dash} class='outlinedFont' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
+        <animated.svg native strokeDashoffset={dash.dash} style={outlinedFont} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
           <text x='50%' y='60%' text-anchor='middle'>{hero.title}</text>
         </animated.svg>
       </HeroTitle>
       <LegendWrapper justifyContent={'flex-start'}>
-        <AnimatedLegend style={legendWidth} p={[4, 5, 6]} bg='white' md={10} sm={10} xs={8} >
+        <AnimatedLegend native style={legendWidth} p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
           <LegendItems
             height={0}
             alignItems={['flex-start', 'flex-start', 'center', 'center']}
@@ -192,7 +207,7 @@ const AnimatedTitles = ({ hero }) => {
               style={dotStyle}
             />
             {trail.map((props, index) =>
-              <LegendItemsWidth width={['100%', '100%', 'auto', 'auto']}>
+              <LegendItemsWidth native width={['100%', '100%', 'auto', 'auto']}>
                 <AnimatedServiceItem
                   style={props}
                   title={hero.blurbs[index].pkg.title}
@@ -216,7 +231,7 @@ const Hero = ({
 }) => {
   return (
     <HeroContainer
-      minHeight={1}
+      minHeight={[2, 2, 1, 1]}
       backgroundSize={'cover'}
       backgroundPosition={['top', 'top', 'right', 'right']}
       bg={'black'}
