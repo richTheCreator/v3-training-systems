@@ -19,7 +19,7 @@ const IndexPage = ({
     <Layout>
       <Hero hero={frontmatter.hero} />
       <About about={frontmatter.about} />
-      <Services services={frontmatter.services} hero={frontmatter.hero}/>
+      <Services services={frontmatter.services} hero={frontmatter.hero} />
     </Layout>
   )
 }
@@ -48,15 +48,15 @@ export const pageQuery = graphql `
             }
           }
           blurbs {
-            OT {
+            pkg {
               title
               text
             }
-            PT {
+            pkg {
               title
               text
             }
-            ET {
+            pkg {
               title
               text
             }

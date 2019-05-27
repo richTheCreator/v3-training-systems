@@ -24,7 +24,7 @@ export const Overlay = system({
   extend: FlexRow,
   minHeight: 0,
   width: '100%',
-  bg: 'black50'
+  bg: 'black70'
 }, ...containerStyles)
 
 // const fontSizes = [

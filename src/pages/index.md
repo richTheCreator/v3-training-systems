@@ -8,15 +8,15 @@ hero:
   bg__image: /img/workout.jpg
   dots__image: /img/dots.png
   blurbs:
-    OT:
-      title: Online Training
-      text: Tailored to you
-    PT:
-      title: 1:1 Sessions
-      text: In person training
-    ET:
-      title: 8wk Program
-      text: Packaged Routines
+    - pkg:
+        title: Online Training
+        text: Tailored to you
+    - pkg:
+        title: 1:1 Sessions
+        text: In person training
+    - pkg:
+        title: 8wk Program
+        text: Packaged Routines
 about:
   title: KEVIN GRAVES
   flex__image: /img/KG-Flex.png

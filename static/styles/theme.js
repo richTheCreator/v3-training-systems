@@ -63,7 +63,7 @@ const maxWidths = [ '1400px', '1800px' ]
 const colors = {
   accent: '#FF5353',
   black: '#000',
-  black50: 'rgba(0,0,0,.5)',
+  black70: 'rgba(0,0,0,.7)',
   darkGrey: '#4e4e4e',
   lightGrey: '#EDEDED',
   red: '#F05D5E',
