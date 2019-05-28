@@ -1,6 +1,6 @@
-import React, { Component, useState, useRef } from 'react'
+import React, { Component, useRef } from 'react'
 import styled from 'styled-components'
-import { useSpring, useTransition, useTrail, animated, useChain, config } from 'react-spring'
+import { useSpring, useTrail, animated, useChain, config } from 'react-spring'
 import { Row, Col } from 'react-flexbox-grid'
 import {
   color,
@@ -21,6 +21,13 @@ import { Subtitle1, Body2, Button } from '../../components/Typography'
 import { Overlay } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
+const dotStyle = {
+  position: 'absolute',
+  top: '-25%',
+  right: '-10%',
+  zIndex: '-1'
+}
+
 const HeroContainer = styled(Row)
 `
   ${color}
@@ -39,57 +46,18 @@ const Legend = styled(Col)
   max-width:1000px;
   position:relative
 `
-const ServiceItem = ({ title, text, style }) => (
-  <Col className='hidden-xs hidden-sm' style={style} xs>
-    <Subtitle1 color='black'>{title} </Subtitle1>
-    <Body2 color='darkGrey'> {text} </Body2>
-    <Button> VIEW </Button>
-  </Col>
-)
-
-const ServiceItemM = ({ title, style }) => (
-  <Row middle='xs' style={{ ...style, width: '100%', textTransform: 'uppercase' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
-    <Subtitle1 pr={3} color='darkGrey'> {title} </Subtitle1>
-    <Ico_Arrow>
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.49 31.49'>
-        <path d='M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z' fill='#FF5353' />
-      </svg>
-    </Ico_Arrow>
-  </Row>
-)
 
 const Type_SubTitle = styled(animated.p)`
-  ${space}
-  ${fontWeight}
-  ${color}
-  ${letterSpacing}
-  text-align: center;
-  font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (1600 - 300)));
-  font-style: italic;
-  display:inline-block;
-  min-width:10px;
+${space}
+${fontWeight}
+${color}
+${letterSpacing}
+text-align: center;
+font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (1600 - 300)));
+font-style: italic;
+display:inline-block;
+min-width:10px;
 `
-
-// HOC to forwardRef to components from Libs
-function makeClassComponent (WrappedComponent) {
-  return class extends React.Component {
-    render () {
-      return <WrappedComponent {...this.props} />
-    }
-  }
-}
-
-const AnimatedLegend = animated(makeClassComponent(Legend))
-const AnimatedServiceItem = animated(makeClassComponent(ServiceItem))
-const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
-const AnimatedSubtitle = animated(makeClassComponent(Type_SubTitle))
-
-const dotStyle = {
-  position: 'absolute',
-  top: '-25%',
-  right: '-10%',
-  zIndex: '-1'
-}
 
 const LegendItems = styled(Row)
 `
@@ -114,6 +82,7 @@ const HeroTitle = styled(Col)
   ${space}
   align-self: flex-end;
 `
+
 const LegendItemsWidth = styled.div
 `
   ${width}
@@ -124,15 +93,46 @@ const Ico_Arrow = styled.svg`
   height: 24px;
   width: 24px;
 `
+const ServiceItem = ({ title, text, style }) => (
+  <Col className='hidden-xs hidden-sm' style={style} xs>
+    <Subtitle1 color='black'>{title} </Subtitle1>
+    <Body2 color='darkGrey'> {text} </Body2>
+    <Button> VIEW </Button>
+  </Col>
+)
+
+const ServiceItemM = ({ title, style }) => (
+  <Row middle='xs' style={{ ...style, width: '100%', textTransform: 'uppercase' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
+    <Subtitle1 pr={3} color='darkGrey'> {title} </Subtitle1>
+    <Ico_Arrow>
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.49 31.49'>
+        <path d='M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z' fill='#FF5353' />
+      </svg>
+    </Ico_Arrow>
+  </Row>
+)
+
+// HOC to forwardRef to components from Libs
+function makeClassComponent (WrappedComponent) {
+  return class extends React.Component {
+    render () {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+}
+
+const AnimatedLegend = animated(makeClassComponent(Legend))
+const AnimatedServiceItem = animated(makeClassComponent(ServiceItem))
+const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
+const AnimatedSubtitle = animated(makeClassComponent(Type_SubTitle))
 
 const AnimatedTitles = ({ hero, browser }) => {
-  console.log('passed browser', browser)
   // animation configs
   const dashRef = useRef()
   const dash = useSpring({
     from: { dash: browser.isBrowser('Safari') ? 1700 : 500 },
     to: { dash: browser.isBrowser('Safari') ? 0 : 430 },
-    config: {duration: 1500},
+    config: { duration: 1500 },
     delay: 500,
     ref: dashRef
   })
@@ -258,7 +258,6 @@ class Hero extends Component {
           <AnimatedTitles hero={hero} browser={this.state.browser} />
         }
       </HeroContainer>
-
     )
   }
 }
