@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { Component, useState, useRef } from 'react'
 import styled from 'styled-components'
 import { useSpring, useTransition, useTrail, animated, useChain, config } from 'react-spring'
 import { Row, Col } from 'react-flexbox-grid'
@@ -20,8 +20,6 @@ import Bowser from 'bowser'
 import { Subtitle1, Body2, Button } from '../../components/Typography'
 import { Overlay } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
-
-const browser = Bowser.getParser(window.navigator.userAgent)
 
 const HeroContainer = styled(Row)
 `
@@ -93,18 +91,6 @@ const dotStyle = {
   zIndex: '-1'
 }
 
-const outlinedFont = {
-  fontWeight: 800,
-  fill: 'transparent',
-  stroke: 'white',
-  fontStyle: 'italic',
-  strokeWidth: '.3px',
-  display: 'block',
-  maxWidth: '1200px',
-  margin: 'auto',
-  strokeDasharray: browser.isBrowser('Safari') ? 1000 : 500
-}
-
 const LegendItems = styled(Row)
 `
   ${flexDirection}
@@ -139,7 +125,8 @@ const Ico_Arrow = styled.svg`
   width: 24px;
 `
 
-const AnimatedTitles = ({ hero }) => {
+const AnimatedTitles = ({ hero, browser }) => {
+  console.log('passed browser', browser)
   // animation configs
   const dashRef = useRef()
   const dash = useSpring({
@@ -177,6 +164,18 @@ const AnimatedTitles = ({ hero }) => {
   })
 
   useChain([fadeInRef, legendWidthRef, trailRef, dashRef], [0, 0, 0.3, 1])
+
+  const outlinedFont = {
+    fontWeight: 800,
+    fill: 'transparent',
+    stroke: 'white',
+    fontStyle: 'italic',
+    strokeWidth: '.3px',
+    display: 'block',
+    maxWidth: '1200px',
+    margin: 'auto',
+    strokeDasharray: browser.isBrowser('Safari') ? 1000 : 500
+  }
 
   return (
     <Overlay xs>
@@ -226,24 +225,42 @@ const AnimatedTitles = ({ hero }) => {
   )
 }
 
-const Hero = ({
-  hero
-}) => {
-  return (
-    <HeroContainer
-      minHeight={[2, 2, 1, 1]}
-      backgroundSize={'cover'}
-      backgroundPosition={['top', 'top', 'right', 'right']}
-      bg={'black'}
-      background={
-        hero.bg__image.childImageSharp
-          ? hero.bg__image.childImageSharp.fluid.src
-          : hero.bg__image}
-    >
-      <AnimatedTitles hero={hero} />
-    </HeroContainer>
+class Hero extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      browser: undefined
+    }
+  }
 
-  )
+  componentWillMount () {
+    if (typeof window !== 'undefined') {
+      const browser = Bowser.getParser(window.navigator.userAgent)
+      this.setState({ browser })
+      console.log('did', browser)
+    }
+  }
+
+  render () {
+    const { hero } = this.props
+    return (
+      <HeroContainer
+        minHeight={[2, 2, 1, 1]}
+        backgroundSize={'cover'}
+        backgroundPosition={['top', 'top', 'right', 'right']}
+        bg={'black'}
+        background={
+          hero.bg__image.childImageSharp
+            ? hero.bg__image.childImageSharp.fluid.src
+            : hero.bg__image}
+      >
+        {this.state.browser !== undefined &&
+          <AnimatedTitles hero={hero} browser={this.state.browser} />
+        }
+      </HeroContainer>
+
+    )
+  }
 }
 
 export default Hero
