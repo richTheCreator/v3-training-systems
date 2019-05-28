@@ -130,9 +130,9 @@ const AnimatedTitles = ({ hero, browser }) => {
   // animation configs
   const dashRef = useRef()
   const dash = useSpring({
-    from: { dash: browser.isBrowser('Safari') ? 1000 : 500 },
+    from: { dash: browser.isBrowser('Safari') ? 1700 : 500 },
     to: { dash: browser.isBrowser('Safari') ? 0 : 430 },
-    config: {duration: 1200},
+    config: {duration: 1500},
     delay: 500,
     ref: dashRef
   })
@@ -174,7 +174,7 @@ const AnimatedTitles = ({ hero, browser }) => {
     display: 'block',
     maxWidth: '1200px',
     margin: 'auto',
-    strokeDasharray: browser.isBrowser('Safari') ? 1000 : 500
+    strokeDasharray: browser.isBrowser('Safari') ? 1700 : 500
   }
 
   return (
