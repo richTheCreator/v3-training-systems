@@ -17,6 +17,12 @@ body, .article {
   stroke-dasharray:1000;
 }
 
+.block-reveal-base {
+  height: 100%;
+  width: 100%;
+  animation-fill-mode: both;
+}
+
 /*  FLEXBOX GRID OVERRIDES  */
 
 .row {

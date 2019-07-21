@@ -23,13 +23,29 @@ const numberStyle = {
   opacity: 0.1
 }
 
-const Services = ({
-  services,
-  hero
-}) => (
-  <Row style={{ justifyContent: 'center', alignItems: 'center', margin: 'auto', padding: '64px', backgroundColor: 'black', height: '100vh'}}>
+const ServiceItemM = ({ services, hero }) => (
+  <Row className='hidden-xl hidden-lg' style={{ justifyContent: 'center', alignItems: 'center', margin: 'auto', width: '100%', backgroundColor: 'black'}}>
+    <Col style={{ position: 'relative' }} xs={12}>
+      <PreviewCompatibleImage
+        imageInfo={services.OT.service__image}
+      />
+    </Col>
+    <Col xs={12} style={{ zIndex: 10000 }}>
+      <H2 style={{ marginTop: '-5%' }} color={'white'} mb={0}> {services.OT.title}</H2>
+      <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
+      <div>
+        {services.OT.includes.map((item) =>
+          <Body2 color={'white'}> {item} </Body2>
+        )}
+      </div>
+    </Col>
+  </Row>
+)
+
+const ServiceItem = ({ services, hero }) => (
+  <Row className='hidden-xs hidden-sm hidden-md' style={{ justifyContent: 'center', alignItems: 'center', margin: 'auto', padding: '64px', backgroundColor: 'black', width: '100%', height: '100vh'}}>
     <Col style={{maxWidth: '400px'}} lg={5}>
-      <H2 color={'white'} mb={0}> {services.OT.title}</H2>
+      <H2 color={'white'} mb={0}> {services.OT.title} </H2>
       <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
       <div>
         {services.OT.includes.map((item) =>
@@ -47,64 +63,17 @@ const Services = ({
         isFixed
         style={{position: 'absolute', bottom: '-10%', left: '-5%'}}
         />
-
     </Col>
   </Row>
+)
+
+const Services = ({ services, hero }) => (
+  <SectionWrapper bg='black'>
+    <ServiceItemM services={services} hero={hero} />
+    <ServiceItem services={services} hero={hero} />
+  </SectionWrapper>
 
 )
 
 export default Services
 
-// <Col style={{backgroundColor: 'black'}}>
-//   <Col className='hidden-xs hidden-sm'>
-//     <GridContainer margin='auto' bg={'black'} p={7} height={0}>
-//       <Title>
-//         <H2 color={'white'} mb={0}> {services.OT.title}</H2>
-//       </Title>
-//       <Body>
-//         <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
-//       </Body>
-//       <ListItems>
-//         {services.OT.includes.map((item) =>
-//           <Body2 color={'white'}> {item} </Body2>
-//       )}
-//       </ListItems>
-//       <CTA />
-//       <Number>
-//         <ReactFitText maxFontSize={100} minFontSize={210}>
-//           <h1 style={numberStyle} className='heroTitle'> 0 {'\n'} 1</h1>
-//         </ReactFitText>
-//       </Number>
-//       <ServiceImage>
-//         <PreviewCompatibleImage
-//           imageInfo={services.OT.service__image}
-//           style={{height: '100%'}}
-//       />
-//       </ServiceImage>
-//       <OverlapImage />
-//     </GridContainer>
-//   </Col>
-//   <Col className='hidden-xl hidden-lg hidden-md'>
-//     <GridContainerM maxWidth={0} bg={'black'} p={5} height={1}>
-//       <TitleM>
-//         <H2 color={'white'} mb={0}> {services.OT.title}</H2>
-//       </TitleM>
-//       <BodyM>
-//         <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
-//       </BodyM>
-//       <ListItemsM>
-//         {services.OT.includes.map((item) =>
-//           <Body2 color={'white'}> {item} </Body2>
-//     )}
-//       </ListItemsM>
-//       <CTAM />
-//       <ServiceImageM>
-//         <PreviewCompatibleImage
-//           imageInfo={services.OT.service__image}
-//           style={{height: '100%'}}
-//     />
-//       </ServiceImageM>
-//       <OverlapImageM />
-//     </GridContainerM>
-//   </Col>
-// </Col>
