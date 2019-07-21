@@ -1,6 +1,7 @@
 import React, { Component, useRef } from 'react'
 import styled from 'styled-components'
-import { useSpring, useTrail, animated, useChain, config } from 'react-spring'
+import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
+import { Spring, Keyframes, animated as animated2 } from 'react-spring/renderprops'
 import { Row, Col } from 'react-flexbox-grid'
 import {
   color,
@@ -17,9 +18,9 @@ import {
   width
 } from 'styled-system'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button } from '../../components/Typography'
-import { Overlay } from '../../components/Containers'
+import { Subtitle1, Body2, Button, H1, H4 } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
+import BlockReveal from '../../components/Animation'
 
 const dotStyle = {
   position: 'absolute',
@@ -44,16 +45,31 @@ const Legend = styled(Col)
   ${color}
   ${space}
   max-width:1000px;
-  position:relative
+  position:relative;
+  transform-origin: left;
 `
 
-const Type_SubTitle = styled(animated.p)`
+const Type_SubTitle = styled.p `
 ${space}
 ${fontWeight}
 ${color}
 ${letterSpacing}
+-webkit-text-stroke-width: .8px;
+-webkit-text-stroke-color: white;
 text-align: center;
-font-size: calc(18px + (30 - 18) * ((100vw - 300px) / (1600 - 300)));
+font-size: calc(18px + (40 - 18) * ((100vw - 300px) / (1600 - 300)));
+font-style: italic;
+display:inline-block;
+min-width:10px;
+`
+const Type_Title = styled.h1`
+${space}
+${fontWeight}
+${color}
+letter-spacing:-5px;
+line-height:100%;
+text-align: center;
+font-size: calc(60px + (120 - 24) * ((100vw - 300px) / (1600 - 300)));
 font-style: italic;
 display:inline-block;
 min-width:10px;
@@ -111,6 +127,53 @@ const ServiceItemM = ({ title, style }) => (
     </Ico_Arrow>
   </Row>
 )
+const blockBase = {
+  position: 'absolute',
+  bottom: 0,
+  top: 0,
+  left: 0,
+  right: 0
+}
+
+const Chain = Keyframes.Spring({
+  // Slots can take arrays/chains,
+  showAndHide: [{ x: 0, origin: 'left', from: { x: 1, origin: 'right' } }]
+
+})
+
+// const BlockRevealSpring = ({ bgColor, children, direction, delay }) => (
+//   <div style={{ position: 'relative', display: 'inline-block' }}>
+//     <Chain native state='showAndHide'>
+//       {({ x, origin }) => (
+//         <animated2.div
+//           className='block-reveal-base'
+//           style={{
+//             backgroundColor: bgColor || '#EDEDED',
+//             animationDelay: delay,
+//             ...blockBase,
+//             transformOrigin: origin.interpolate(origin => `${origin}`),
+//             transform: x.interpolate(x => `scaleX(${x})`)
+//           }} />
+//       )}
+//     </Chain>
+//     {children}
+//   </div>
+// )
+
+// const BlockRevealSpring = ({ bgColor, children, direction, delay }) => (
+//   <div style={{ position: 'relative', display: 'inline-block' }}>
+//     <animated.div
+//       className='block-reveal-base'
+//       style={{
+//         ...blockAnim,
+//         ...blockBase,
+//         backgroundColor: bgColor || '#EDEDED',
+//         animationDelay: delay
+//       }}
+//     />
+//     {children}
+//   </div>
+// )
 
 // HOC to forwardRef to components from Libs
 function makeClassComponent (WrappedComponent) {
@@ -121,37 +184,38 @@ function makeClassComponent (WrappedComponent) {
   }
 }
 
+const AnimatedSubtitle = animated(makeClassComponent(Type_SubTitle))
+// const AnimatedBlockReveal = animated(makeClassComponent(BlockRevealSpring))
 const AnimatedLegend = animated(makeClassComponent(Legend))
 const AnimatedServiceItem = animated(makeClassComponent(ServiceItem))
 const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
-const AnimatedSubtitle = animated(makeClassComponent(Type_SubTitle))
 
 const AnimatedTitles = ({ hero, browser }) => {
   // animation configs
-  const dashRef = useRef()
-  const dash = useSpring({
-    from: { dash: browser.isBrowser('Safari') ? 1700 : 500 },
-    to: { dash: browser.isBrowser('Safari') ? 0 : 430 },
-    config: { duration: 1500 },
-    delay: 500,
-    ref: dashRef
-  })
-
-  const splitSub = hero.subtitle.split(/(\s+)/)
   const fadeInRef = useRef()
-  const fadeIn = useTrail(splitSub.length, {
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    config: config.default,
-    ref: fadeInRef
-  })
+
+  // const fadeIn = useTrail(splitSub.length, {
+  //   from: { opacity: 0 },
+  //   to: { opacity: 1 },
+  //   config: config.default,
+  //   ref: fadeInRef
+  // })
 
   const legendWidthRef = useRef()
   const legendWidth = useSpring({
-    from: { opacity: 0, transform: 'translate3d(0,100%,0)' },
-    to: { opacity: 1, transform: 'translate3d(0, 0, 0)' },
+    from: { opacity: 0, transform: 'scaleX(0)' },
+    to: { opacity: 1, transform: 'scaleX(1)' },
     config: { duration: 500 },
     ref: legendWidthRef
+
+  })
+  const blockRevealRef = useRef()
+  const blockReveal = useSpring({
+    from: { opacity: 1, transform: 'scaleX(0)' },
+    to: { opacity: 1, transform: 'scaleX(1)' },
+    config: { duration: 300 },
+    ref: blockRevealRef
+
   })
 
   const trailRef = useRef()
@@ -163,34 +227,29 @@ const AnimatedTitles = ({ hero, browser }) => {
     ref: trailRef
   })
 
-  useChain([fadeInRef, legendWidthRef, trailRef, dashRef], [0, 0, 0.3, 1])
+  const blockAnim = useSpring({
+    to: async (next, cancel) => {
+      await next({ transform: 'scaleX(1)', width: '100%' })
+      await next({ transform: 'scaleX(0)'})
+    },
+    from: { transformOrigin: 'right', width: '0%', transform: 'scaleX(1)' }
+  })
 
-  const outlinedFont = {
-    fontWeight: 800,
-    fill: 'transparent',
-    stroke: 'white',
-    fontStyle: 'italic',
-    strokeWidth: '.3px',
-    display: 'block',
-    maxWidth: '1200px',
-    margin: 'auto',
-    strokeDasharray: browser.isBrowser('Safari') ? 1700 : 500
-  }
+  useChain([blockRevealRef, fadeInRef, legendWidthRef, trailRef], [0, 0, 0.3, 1])
 
   return (
-    <Overlay xs>
-      <HeroTitle p={[0, 4, 5, 7]} xs={12}>
-        <Row style={{ justifyContent: 'center' }}>
-          {fadeIn.map((props, index) =>
-            <AnimatedSubtitle native style={props} mb={4} color='white' fontWeight={3} letterSpacing={9}>
-              {splitSub[index]}
-            </AnimatedSubtitle>
-          )
-          }
+    <Row xs>
+      <HeroTitle p={[3, 4, 5, 7]} xs={12}>
+        <BlockReveal>
+          <Type_SubTitle color={'transparent'} m={0}>{hero.subtitle}</Type_SubTitle>
+        </BlockReveal>
+        <Row>
+          <BlockReveal delay={300} bgColor={'#FF5353'}>
+            <Type_Title m={0} color={'white'}>
+              {hero.title}
+            </Type_Title>
+          </BlockReveal>
         </Row>
-        <animated.svg native strokeDashoffset={dash.dash} style={outlinedFont} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'>
-          <text x='50%' y='60%' text-anchor='middle'>{hero.title}</text>
-        </animated.svg>
       </HeroTitle>
       <LegendWrapper justifyContent={'flex-start'}>
         <AnimatedLegend native style={legendWidth} p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
@@ -200,11 +259,6 @@ const AnimatedTitles = ({ hero, browser }) => {
             flexDirection={['column', 'column', 'row', 'row']}
             justifyContent={'space-around'}
           >
-            <PreviewCompatibleImage
-              isFixed
-              imageInfo={hero.dots__image}
-              style={dotStyle}
-            />
             {trail.map((props, index) =>
               <LegendItemsWidth native width={['100%', '100%', 'auto', 'auto']}>
                 <AnimatedServiceItem
@@ -218,10 +272,15 @@ const AnimatedTitles = ({ hero, browser }) => {
                 />
               </LegendItemsWidth>
             )}
+            <PreviewCompatibleImage
+              isFixed
+              imageInfo={hero.dots__image}
+              style={dotStyle}
+            />
           </LegendItems>
         </AnimatedLegend>
       </LegendWrapper>
-    </Overlay>
+    </Row>
   )
 }
 
