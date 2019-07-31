@@ -19,7 +19,7 @@ body, .article {
 
 .block-reveal-base {
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   animation-fill-mode: both;
 }
 
