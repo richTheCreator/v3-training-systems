@@ -1,4 +1,4 @@
-import React, { Component, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useSpring, animated, useChain } from 'react-spring'
 
 const blockBase = {
@@ -17,38 +17,44 @@ const blockBase = {
 // ))
 
 const BlockReveal = React.forwardRef(({ bgColor, children, direction, delay }, ref) => {
-  const blockAnim = useSpring({
-    from: { transformOrigin: 'right', width: '0%', transform: 'scaleX(1)' },
-    to: async (next, cancel) => {
-      await next({ transform: 'scaleX(1)', width: '100%' })
-      await next({ transform: 'scaleX(0)' })
-    },
-    delay: delay || null,
-    ref: ref || null
-  })
-
   const fadeRef = useRef()
-  const { o } = useSpring({
-    to: { o: '1' },
-    from: { o: '0' },
+  const revealRef = useRef()
+
+  const fadeAnimation = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
     ref: fadeRef
   })
+  const blockAnimation = useSpring({
+    to: [{ opacity: 1, width: '100%', transform: 'scaleX(1)' }, { opacity: 1, width: '100%', transform: 'scaleX(0)', transformOrigin: 'right' }],
+    from: { opacity: 0, width: '0%', transform: 'scaleX(1)', transformOrigin: 'left' },
+    delay: delay || null,
+    ref: revealRef
+  })
+  const parsed = delay ? delay.toString().split('').map(Number)[0] : null
+  const deci = Number(`.${parsed}`)
+  const stagered = [ 0.2, deci + 0.6, deci + 1 ]
+  const noStager = [ 0.2, 0.6, 1 ]
 
-  useChain([ ref, fadeRef ], [0, 0.8])
+  useChain([ revealRef, fadeRef, ref ], delay ? stagered : noStager)
 
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       <animated.div
+        native
         className='block-reveal-base'
         style={{
           ...blockBase,
-          ...blockAnim,
+          ...blockAnimation,
+          // transform: o.interpolate({ range: [0, 1, 0], output: [0, 1, 0 ] })
+          //   .interpolate(o => `scaleX(${o})`),
+          // width: w.interpolate({ range: [0, 0.5, 1], output: [0, 0.5, 1] }),
           backgroundColor: bgColor || '#EDEDED'
         }}
       />
-      <animated.div style={{
-        zIndex: -2,
-        opacity: o.interpolate({ range: [0, 1], output: [0, 1] })
+      <animated.div native style={{
+        ...fadeAnimation,
+        zIndex: -2
       }}>
         {children}
       </animated.div>
@@ -58,4 +64,31 @@ const BlockReveal = React.forwardRef(({ bgColor, children, direction, delay }, r
 }
 )
 
-export default BlockReveal
+const FadeInUp = React.forwardRef(({ children }, ref) => {
+  const fadeRef = useRef()
+  const { o, x } = useSpring({
+    to: { o: '1', x: '100%' },
+    from: { o: '0', x: '0%' },
+    ref: fadeRef
+  })
+
+  useChain([ fadeRef ])
+
+  return (
+    <div style={{ position: 'relative', display: 'inline-block' }}>
+      <animated.div
+        native
+        style={{
+          zIndex: -2,
+          transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+          opacity: o.interpolate({ range: [0, 1], output: [0, 1] })
+        }}>
+        {children}
+      </animated.div>
+    </div>
+
+  )
+}
+)
+
+export { BlockReveal, FadeInUp }

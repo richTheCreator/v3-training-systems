@@ -5,7 +5,7 @@ subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: YOU CAME. YOU SAW. YOU...
   title: CONQUERED
-  bg__image: /img/v3-training-fitness.png
+  bg__image: /img/v3-training-fitness.jpeg
   dots__image: /img/dots.png
   blurbs:
     - pkg:

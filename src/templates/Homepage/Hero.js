@@ -19,7 +19,7 @@ import {
 import Bowser from 'bowser'
 import { Subtitle1, Body2, Button } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
-import BlockReveal from '../../components/Animation'
+import { BlockReveal } from '../../components/Animation'
 
 const dotStyle = {
   position: 'absolute',
@@ -162,7 +162,7 @@ const AnimatedTitles = ({ hero, browser }) => {
     ref: trailRef
   })
 
-  useChain([ block1Ref, block2Ref, legendWidthRef, trailRef ])
+  useChain([ block1Ref, block2Ref, legendWidthRef, trailRef ], [0, 0.7, 1.3, 1.7])
 
   return (
     <Row xs>
