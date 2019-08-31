@@ -1,5 +1,7 @@
+import React from 'react'
 import system from '@rebass/components'
-
+import styled from 'styled-components'
+import { borderColor, space, fontWeight, color, letterSpacing } from 'styled-system'
 const textStyles = ['fontSize', 'textAlign', 'fontWeight', 'fontStyle', 'color', 'lineHeight', 'letterSpacing', 'space']
 
 export const H1 = system({
@@ -121,62 +123,42 @@ export const Overline = system({
   letterSpacing: 9
 }, ...textStyles)
 
-const fontSizes = [
-  '11.61', // 0
-  '11.85', // 1
-  '13.37', // 2
-  '13.7',  // 3
-  '13.82', // 4
-  '15.65', // 5
-  '15.8',  // 6
-  '19.36', // 7
-  '23.23', // 8
-  '32.91', // 9
-  '46.45', // 10
-  '57.3',  // 11
-  '91.68'  // 12
-]
+// VARIANTS
+const ListItemSquare = styled.li`
+  display: flex;
+  align-items:center;
+  &:before {
+    ${borderColor}
+    content: " ";
+    flex-shrink: 0;
+    position: relative;
+    width: 11px;
+    height: 11px;
+    margin-right: 8px;
+    font-weight: 400;
+    font-size: 30px;
+    vertical-align: sub;
+    border-width: 2px;
+    border-style: solid;
+    border-image: initial;
+    border-radius: 3px;  
+      }
+`
+export const WithDecorator = ({ bodyText, bodyColor, decoratorColor }) => (
+  <ListItemSquare borderColor={decoratorColor}>
+    <Body2 color={bodyColor}> {bodyText} </Body2>
+  </ListItemSquare>
+)
 
-const lineHeights = [
-  16, // 0
-  20, // 1
-  24, // 2
-  27, // 3
-  28, // 4
-  32, // 5
-  45, // 6
-  64, // 7
-  78, // 8
-  125 // 9
-]
-
-const letterSpacings = [
-  '-1.5', // 0
-  '-0.5', // 1
-  '.1',   // 2
-  0,      // 3
-  '.15',  // 4
-  '.25',  // 5
-  '.4',   // 6
-  '.5',   // 7
-  '1.25', // 8
-  2       // 9
-]
-
-const fontWeights = [
-  400, // 0 Regular
-  600, // 1 - Semi Bold
-  700, // 2 - Bold
-  800  // 3 - Extra Bold
-]
-
-const space = [
-  0,  // 0
-  4,  // 1
-  8,  // 2
-  16, // 3
-  24, // 4
-  32, // 5
-  48, // 6
-  64  // 7
-]
+export const Outlined = styled.p `
+${space}
+${fontWeight}
+${color}
+-webkit-text-stroke-width: .8px;
+-webkit-text-stroke-color: white;
+text-align: left;
+font-size: calc(${props => props.fontSize} + (40 - 18) * ((100vw - 300px) / (1600 - 300)));
+font-style: italic;
+display:inline-block;
+min-width:10px;
+`
