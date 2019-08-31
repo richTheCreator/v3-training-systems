@@ -4,8 +4,8 @@ title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: YOU CAME. YOU SAW. YOU...
-  title: CONQUERED
-  bg__image: /img/v3-training-fitness.jpeg
+  title: TRAINING FOR YOUR LIFESTYLE.
+  bg__image: /img/Partner-Workout.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:
