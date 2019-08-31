@@ -1,6 +1,9 @@
 // Typography
 const fonts = {
-  sans: `Open Sans, sans-serif`
+  sans: `-apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif`
 }
 
 const fontSizes = [
@@ -91,7 +94,10 @@ const space = [
   64  // 7
 ]
 
+const zIndices = [-1, 0, 1, 2, 4, 8]
+
 export default {
+  zIndices,
   fonts,
   minHeights,
   fontWeights,

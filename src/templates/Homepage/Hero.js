@@ -9,12 +9,15 @@ import {
   justifyContent,
   flexDirection,
   fontWeight,
+  fontSize,
   minHeight,
   height,
   alignItems,
   backgroundSize,
   letterSpacing,
-  width
+  width,
+  zIndex,
+  gridArea
 } from 'styled-system'
 import Bowser from 'bowser'
 import { Subtitle1, Body2, Button, Outlined } from '../../components/Typography'
@@ -28,16 +31,55 @@ const dotStyle = {
   zIndex: '-1'
 }
 
-const HeroContainer = styled(Row)
+const HeroContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  height: 100vh;
 `
+
+const LeftHero = styled.div`
+  ${gridArea}
+  align-self:center;
+`
+const leftLG = `1 / 1 / 5 / 7`
+const leftSM = `1 / 1 / 5 / 13`
+
+const RightHero = styled.div`
+  ${zIndex}
   ${color}
   ${backgroundPosition}
   ${space}
   ${backgroundSize}
   ${minHeight}
+  ${gridArea}
   background-image: url(${props => props.background});
   background-repeat:no-repeat;
 `
+const rtLG =  `1 / 7 / 6 / 13`
+const rtSM = `1 / 1 / 7 / 13`
+
+const BottomBar = styled.div`
+${gridArea}
+${zIndex}
+background-color: black
+`
+
+const btLG = `5 / 1 / 7 / 13`
+const btSM = `5 / 1 / 7 / 11`
+
+// const HeroContainer = styled(Row)
+// `
+//   ${color}
+//   ${backgroundPosition}
+//   ${space}
+//   ${backgroundSize}
+//   ${minHeight}
+//   background-image: url(${props => props.background});
+//   background-repeat:no-repeat;
+// `
 
 const Legend = styled(Col)
 `
@@ -49,16 +91,16 @@ const Legend = styled(Col)
 `
 const Type_Title = styled.h1`
 ${space}
-${fontWeight}
 ${color}
-letter-spacing:-5px;
+${fontSize}
+letter-spacing:-2px;
 line-height:100%;
-text-align: center;
-font-size: calc(60px + (120 - 16) * ((100vw - 300px) / (1600 - 300)));
+font-weight: 800;
 font-style: italic;
 display:inline-block;
-min-width:10px;
 `
+const titleLG = `calc(8px + (80 - 8) * ((100vw - 300px) / (1600 - 300)));`
+const titleSM = `calc(32px + (80 - 8) * ((100vw - 300px) / (1600 - 300)));`
 
 const LegendItems = styled(Row)
 `
@@ -73,6 +115,7 @@ const LegendWrapper = styled(Row)
 `
 ${justifyContent}
   width: 100%;
+  height:100%;
   align-self: flex-end;
   z-index: 1;
   position: relative;
@@ -81,7 +124,6 @@ ${justifyContent}
 const HeroTitle = styled(Col)
 `
   ${space}
-  align-self: flex-end;
 `
 
 const LegendItemsWidth = styled.div
@@ -96,7 +138,7 @@ const Arrow = styled.svg`
 `
 const ServiceItem = ({ title, text, style }) => (
   <Col className='hidden-xs hidden-sm' style={style} xs>
-    <Subtitle1 color='black'>{title} </Subtitle1>
+    <Subtitle1 color='white'>{title} </Subtitle1>
     <Body2 color='darkGrey'> {text} </Body2>
     <Button> VIEW </Button>
   </Col>
@@ -104,7 +146,7 @@ const ServiceItem = ({ title, text, style }) => (
 
 const ServiceItemM = ({ title, style }) => (
   <Row middle='xs' style={{ ...style, width: '100%', textTransform: 'uppercase' }} between='xs' className='hidden-xl hidden-lg hidden-md'>
-    <Subtitle1 pr={3} color='darkGrey'> {title} </Subtitle1>
+    <Subtitle1 pr={3} color='white'> {title} </Subtitle1>
     <Arrow>
       <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.49 31.49'>
         <path d='M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z' fill='#FF5353' />
@@ -128,7 +170,7 @@ const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
 
 const AnimatedTitles = ({ hero, browser }) => {
   // animation configs
-  const block1Ref = useRef()
+  // const block1Ref = useRef()
   const block2Ref = useRef()
 
   const legendWidthRef = useRef()
@@ -148,52 +190,55 @@ const AnimatedTitles = ({ hero, browser }) => {
     ref: trailRef
   })
 
-  useChain([ block1Ref, block2Ref, legendWidthRef, trailRef ], [0, 0.7, 1.3, 1.7])
+  useChain([ block2Ref, legendWidthRef, trailRef ], [0, 0.7, 1.3, 1.7])
 
   return (
-    <Row xs>
-      <HeroTitle p={[3, 4, 5, 7]} xs={12}>
-        <BlockReveal ref={block1Ref}>
-          <Outlined fontSize={'24px'} color={'transparent'} m={0}>{hero.subtitle}</Outlined>
-        </BlockReveal>
-        <Row>
+    <>
+      <LeftHero gridArea={[leftSM,leftSM,leftLG]}>
+        <HeroTitle p={[3, 4, 5, 7]} xs={12}>
           <BlockReveal ref={block2Ref} delay={300} bgColor={'#FF5353'}>
-            <Type_Title m={0} color={'white'}>
+            <Type_Title fontSize={[titleSM, titleSM, titleLG]} m={0} color={['white', 'white', 'black']}>
               {hero.title}
             </Type_Title>
           </BlockReveal>
-        </Row>
-      </HeroTitle>
-      <LegendWrapper justifyContent={'flex-start'}>
-        <AnimatedLegend native style={legendWidth} p={[4, 5, 6]} bg='white' md={10} sm={10} xs={10} >
-          <LegendItems
-            height={0}
-            alignItems={['flex-start', 'flex-start', 'center', 'center']}
-            flexDirection={['column', 'column', 'row', 'row']}
-            justifyContent={'space-around'}
-          >
-            {trail.map((props, index) =>
-              <LegendItemsWidth native width={['100%', '100%', 'auto', 'auto']}>
-                <AnimatedServiceItem
-                  style={props}
-                  title={hero.blurbs[index].pkg.title}
-                  text={hero.blurbs[index].pkg.text}
-                />
-                <AnimatedServiceItemM
-                  style={props}
-                  title={hero.blurbs[index].pkg.title}
-                />
-              </LegendItemsWidth>
-            )}
-            <PreviewCompatibleImage
-              isFixed
-              imageInfo={hero.dots__image}
-              style={dotStyle}
-            />
-          </LegendItems>
-        </AnimatedLegend>
-      </LegendWrapper>
-    </Row>
+        </HeroTitle>
+      </LeftHero>
+      <RightHero
+        zIndex={[0,0,0,0,2]}
+        gridArea={[rtSM, rtSM, rtLG]}
+        backgroundSize={'cover'}
+        backgroundPosition={['center', 'center', 'right', 'right']}
+        background={
+          hero.bg__image.childImageSharp
+            ? hero.bg__image.childImageSharp.fluid.src
+            : hero.bg__image}
+      />
+      <BottomBar gridArea={[btSM,btSM, btLG]}>
+        <LegendWrapper justifyContent={'flex-start'}>
+          <AnimatedLegend native style={legendWidth} p={[4, 5, 6]} xs={12} sm={12} xl={6}>
+            <LegendItems
+              height={0}
+              alignItems={['flex-start', 'flex-start', 'center', 'center']}
+              justifyContent={'space-around'}
+            >
+              {trail.map((props, index) =>
+                <LegendItemsWidth native width={['100%', '100%', 'auto', 'auto']}>
+                  <AnimatedServiceItem
+                    style={props}
+                    title={hero.blurbs[index].pkg.title}
+                    text={hero.blurbs[index].pkg.text}
+                  />
+                  <AnimatedServiceItemM
+                    style={props}
+                    title={hero.blurbs[index].pkg.title}
+                  />
+                </LegendItemsWidth>
+              )}
+            </LegendItems>
+          </AnimatedLegend>
+        </LegendWrapper>
+      </BottomBar>
+    </>
   )
 }
 
@@ -216,16 +261,7 @@ class Hero extends Component {
   render () {
     const { hero } = this.props
     return (
-      <HeroContainer
-        minHeight={[2, 2, 1, 1]}
-        backgroundSize={'cover'}
-        backgroundPosition={['right', 'right', 'right', 'right']}
-        bg={'black'}
-        background={
-          hero.bg__image.childImageSharp
-            ? hero.bg__image.childImageSharp.fluid.src
-            : hero.bg__image}
-      >
+      <HeroContainer>
         {this.state.browser !== undefined &&
           <AnimatedTitles hero={hero} browser={this.state.browser} />
         }
@@ -235,3 +271,18 @@ class Hero extends Component {
 }
 
 export default Hero
+
+// <HeroContainer
+//   minHeight={[2, 2, 1, 1]}
+//   backgroundSize={'cover'}
+//   backgroundPosition={['right', 'right', 'right', 'right']}
+//   bg={'black'}
+//   background={
+//     hero.bg__image.childImageSharp
+//       ? hero.bg__image.childImageSharp.fluid.src
+//       : hero.bg__image}
+// >
+//   {this.state.browser !== undefined &&
+//     <AnimatedTitles hero={hero} browser={this.state.browser} />
+//   }
+// </HeroContainer>

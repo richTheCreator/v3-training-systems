@@ -81,7 +81,8 @@ export const Body2 = system({
 export const Subtitle1 = system({
   is: 'p',
   fontSize: 5,
-  fontWeight: 1,
+  fontWeight: 3,
+  fontStyle: 'italic',
   color: 'darkGrey',
   lineHeight: 2,
   letterSpacing: 4
@@ -154,8 +155,8 @@ export const Outlined = styled.p `
 ${space}
 ${fontWeight}
 ${color}
--webkit-text-stroke-width: .8px;
--webkit-text-stroke-color: white;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: black;
 text-align: left;
 font-size: calc(${props => props.fontSize} + (40 - 18) * ((100vw - 300px) / (1600 - 300)));
 font-style: italic;
