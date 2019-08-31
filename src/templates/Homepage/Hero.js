@@ -17,7 +17,7 @@ import {
   width
 } from 'styled-system'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button } from '../../components/Typography'
+import { Subtitle1, Body2, Button, Outlined } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 import { BlockReveal } from '../../components/Animation'
 
@@ -47,20 +47,6 @@ const Legend = styled(Col)
   position:relative;
   transform-origin: left;
 `
-
-const Type_SubTitle = styled.p `
-${space}
-${fontWeight}
-${color}
-${letterSpacing}
--webkit-text-stroke-width: .8px;
--webkit-text-stroke-color: white;
-text-align: center;
-font-size: calc(18px + (40 - 18) * ((100vw - 300px) / (1600 - 300)));
-font-style: italic;
-display:inline-block;
-min-width:10px;
-`
 const Type_Title = styled.h1`
 ${space}
 ${fontWeight}
@@ -68,7 +54,7 @@ ${color}
 letter-spacing:-5px;
 line-height:100%;
 text-align: center;
-font-size: calc(60px + (120 - 24) * ((100vw - 300px) / (1600 - 300)));
+font-size: calc(60px + (120 - 16) * ((100vw - 300px) / (1600 - 300)));
 font-style: italic;
 display:inline-block;
 min-width:10px;
@@ -168,7 +154,7 @@ const AnimatedTitles = ({ hero, browser }) => {
     <Row xs>
       <HeroTitle p={[3, 4, 5, 7]} xs={12}>
         <BlockReveal ref={block1Ref}>
-          <Type_SubTitle color={'transparent'} m={0}>{hero.subtitle}</Type_SubTitle>
+          <Outlined fontSize={'24px'} color={'transparent'} m={0}>{hero.subtitle}</Outlined>
         </BlockReveal>
         <Row>
           <BlockReveal ref={block2Ref} delay={300} bgColor={'#FF5353'}>
@@ -233,7 +219,7 @@ class Hero extends Component {
       <HeroContainer
         minHeight={[2, 2, 1, 1]}
         backgroundSize={'cover'}
-        backgroundPosition={['top', 'top', 'right', 'right']}
+        backgroundPosition={['right', 'right', 'right', 'right']}
         bg={'black'}
         background={
           hero.bg__image.childImageSharp
