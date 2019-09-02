@@ -20,7 +20,7 @@ import {
   gridArea
 } from 'styled-system'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button, Test } from '../../components/Typography'
+import { Subtitle1, Body2, Button } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
 
 const HeroContainer = styled.div`
@@ -153,9 +153,9 @@ const ServiceItemM = ({ title, style }) => (
 )
 
 // HOC to forwardRef to components from Libs
-function makeClassComponent(WrappedComponent) {
+function makeClassComponent (WrappedComponent) {
   return class extends React.Component {
-    render() {
+    render () {
       return <WrappedComponent {...this.props} />
     }
   }
@@ -187,7 +187,10 @@ const AnimatedTitles = ({ hero, browser }) => {
     ref: trailRef
   })
 
-  useChain([block1Ref, block2Ref, legendWidthRef, trailRef], [0, 0.7, 1.3, 1.7])
+  useChain(
+    [block1Ref, block2Ref, legendWidthRef, trailRef],
+    [0, 0.7, 1.3, 1.7]
+  )
 
   const firstLine = hero.title
     .split(' ')
@@ -268,14 +271,14 @@ const AnimatedTitles = ({ hero, browser }) => {
 }
 
 class Hero extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       browser: undefined
     }
   }
 
-  componentWillMount() {
+  componentWillMount () {
     if (typeof window !== 'undefined') {
       const browser = Bowser.getParser(window.navigator.userAgent)
       this.setState({ browser })
@@ -283,7 +286,7 @@ class Hero extends Component {
     }
   }
 
-  render() {
+  render () {
     const { hero } = this.props
     return (
       <HeroContainer>
