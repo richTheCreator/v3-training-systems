@@ -3,9 +3,10 @@ templateKey: index-page
 title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
-  subtitle: YOU CAME. YOU SAW. YOU...
-  title: TRAINING FOR YOUR LIFESTYLE.
-  bg__image: /img/Partner-Workout.jpg
+  subtitle: Invest in your health and wellness like your future depends on it
+  title:
+    A BODY IN MOTION STAYS IN MOTION.
+  bg__image: /img/Home-Exercise.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:
