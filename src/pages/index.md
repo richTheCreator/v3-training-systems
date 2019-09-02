@@ -4,8 +4,7 @@ title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title:
-    A BODY IN MOTION STAYS IN MOTION.
+  title: A BODY IN MOTION STAYS IN MOTION.
   bg__image: /img/Home-Exercise.jpg
   dots__image: /img/dots.png
   blurbs:
@@ -24,16 +23,16 @@ about:
   bio: When other websites give you text, they’re not sending the best. They’re not sending you, they’re sending words that have lots of problems and they’re bringing those problems with us. They’re bringing mistakes. They’re bringing misspellings. They’re typists… And some, I assume, are good words. We have so many things that we have to do better... and certainly ipsum is one of them.
   callouts:
     first:
-      count: '10+'
+      count: "10+"
       desc: Years Experience
     second:
-      count: '2X'
+      count: "2X"
       desc: Natural Competitor
     third:
-      count: '1K+'
+      count: "1K+"
       desc: Clients Trained
     fourth:
-      count: '18'
+      count: "18"
       desc: Pro Athletes Trained
 transformations:
   title: Kevin Graves
@@ -45,5 +44,11 @@ services:
     title: ONLINE TRAINING
     service__image: /img/fitness-men-roundrock.jpeg
     desc: A training experience crafted to your environment & lifestyle
-    includes: ['Weekly video check-ins', 'Routines tailored to your goals', 'Daily fitness & macro tracking', 'Access to exclusive FB page']
+    includes:
+      [
+        "Weekly video check-ins",
+        "Routines tailored to your goals",
+        "Daily fitness & macro tracking",
+        "Access to exclusive FB page",
+      ]
 ---

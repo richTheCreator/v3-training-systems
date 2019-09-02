@@ -16,15 +16,15 @@ export const ProductPageTemplate = ({
   main,
   testimonials,
   fullImage,
-  pricing,
+  pricing
 }) => (
   <div className="content">
     <div
       className="full-width-image-container margin-top-0"
       style={{
         backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
+          image.childImageSharp ? image.childImageSharp.fluid.src : image
+        })`
       }}
     >
       <h2
@@ -33,7 +33,7 @@ export const ProductPageTemplate = ({
           boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
           backgroundColor: '#f40',
           color: 'white',
-          padding: '1rem',
+          padding: '1rem'
         }}
       >
         {title}
@@ -88,7 +88,7 @@ export const ProductPageTemplate = ({
                     fullImage.childImageSharp
                       ? fullImage.childImageSharp.fluid.src
                       : fullImage
-                  })`,
+                  })`
                 }}
               />
               <h2 className="has-text-weight-semibold is-size-2">
@@ -110,22 +110,22 @@ ProductPageTemplate.propTypes = {
   heading: PropTypes.string,
   description: PropTypes.string,
   intro: PropTypes.shape({
-    blurbs: PropTypes.array,
+    blurbs: PropTypes.array
   }),
   main: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
     image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+    image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
   }),
   testimonials: PropTypes.array,
   fullImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   pricing: PropTypes.shape({
     heading: PropTypes.string,
     description: PropTypes.string,
-    plans: PropTypes.array,
-  }),
+    plans: PropTypes.array
+  })
 }
 
 const ProductPage = ({ data }) => {
@@ -151,9 +151,9 @@ const ProductPage = ({ data }) => {
 ProductPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+      frontmatter: PropTypes.object
+    })
+  })
 }
 
 export default ProductPage
