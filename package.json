@@ -25,6 +25,7 @@
     "gatsby-source-filesystem": "^2.0.26",
     "gatsby-transformer-remark": "^2.3.4",
     "gatsby-transformer-sharp": "^2.1.9",
+    "global": "^4.4.0",
     "lodash": "^4.17.5",
     "lodash-webpack-plugin": "^0.11.4",
     "netlify-cms": "^2.6.1",
@@ -61,7 +62,9 @@
   },
   "devDependencies": {
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-node": "^9.2.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.1",
