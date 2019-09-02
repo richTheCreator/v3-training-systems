@@ -2,12 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
 import ReactFitText from 'react-fittext'
-import { Overline, H2, Body1, H4, Body2, WithDecorator, Outlined } from '../../components/Typography'
-import { SectionWrapper, SectionMax } from '../../components/Containers'
 import {
-  borderColor,
-  flexDirection
-} from 'styled-system'
+  Overline,
+  H2,
+  Body1,
+  H4,
+  Body2,
+  WithDecorator,
+  Outlined
+} from '../../components/Typography'
+import { SectionWrapper, SectionMax } from '../../components/Containers'
+import { borderColor, flexDirection } from 'styled-system'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 const numberStyle = {
@@ -20,7 +25,7 @@ const numberStyle = {
 
 const ListItemSquare = styled.li`
   display: flex;
-  align-items:center;
+  align-items: center;
   &:before {
     ${borderColor}
     content: " ";
@@ -35,27 +40,43 @@ const ListItemSquare = styled.li`
     border-width: 2px;
     border-style: solid;
     border-image: initial;
-    border-radius: 3px;  
-      }
+    border-radius: 3px;
+  }
 `
 
 const ServiceItemM = ({ services, hero }) => (
-  <Row className='hidden-xl hidden-lg' style={{ justifyContent: 'center', alignItems: 'center', margin: 'auto', width: '100%', backgroundColor: 'black'}}>
+  <Row
+    className="hidden-xl hidden-lg"
+    style={{
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: 'auto',
+      width: '100%',
+      backgroundColor: 'black'
+    }}
+  >
     <Col style={{ position: 'relative' }} xs={12}>
       <PreviewCompatibleImage
-        style={{maxHeight: '400px'}}
+        style={{ maxHeight: '400px' }}
         imageInfo={services.OT.service__image}
       />
     </Col>
     <Col xs={12} style={{ zIndex: 10000 }}>
-      <Outlined fontSize={'40px'} color={'transparent'} mb={0}> {services.OT.title} </Outlined>
+      <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
+        {' '}
+        {services.OT.title}{' '}
+      </Outlined>
       <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
       <Row>
-        {services.OT.includes.map((item) =>
+        {services.OT.includes.map(item => (
           <Col sm={6}>
-            <WithDecorator bodyText={item} bodyColor='white' decoratorColor='accent' />
+            <WithDecorator
+              bodyText={item}
+              bodyColor="white"
+              decoratorColor="accent"
+            />
           </Col>
-        )}
+        ))}
       </Row>
     </Col>
   </Row>
@@ -63,7 +84,7 @@ const ServiceItemM = ({ services, hero }) => (
 
 const ServiceItem = ({ services, hero }) => (
   <Row
-    className='hidden-xs hidden-sm hidden-md'
+    className="hidden-xs hidden-sm hidden-md"
     style={{
       justifyContent: 'center',
       alignItems: 'center',
@@ -73,14 +94,21 @@ const ServiceItem = ({ services, hero }) => (
       width: '100%',
       height: '100vh'
     }}
-    >
+  >
     <Col style={{ maxWidth: '400px' }} lg={5}>
-      <Outlined fontSize={'40px'} color={'transparent'} mb={0}> {services.OT.title} </Outlined>
+      <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
+        {' '}
+        {services.OT.title}{' '}
+      </Outlined>
       <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
       <div>
-        {services.OT.includes.map((item) =>
-          <WithDecorator bodyText={item} bodyColor='white' decoratorColor='accent' />
-        )}
+        {services.OT.includes.map(item => (
+          <WithDecorator
+            bodyText={item}
+            bodyColor="white"
+            decoratorColor="accent"
+          />
+        ))}
       </div>
     </Col>
     <Col style={{ position: 'relative' }} lg={7}>
@@ -91,19 +119,17 @@ const ServiceItem = ({ services, hero }) => (
       <PreviewCompatibleImage
         imageInfo={hero.dots__image}
         isFixed
-        style={{position: 'absolute', bottom: '-10%', left: '-5%'}}
+        style={{ position: 'absolute', bottom: '-10%', left: '-5%' }}
       />
     </Col>
   </Row>
 )
 
 const Services = ({ services, hero }) => (
-  <SectionWrapper bg='black'>
+  <SectionWrapper bg="black">
     <ServiceItemM services={services} hero={hero} />
     <ServiceItem services={services} hero={hero} />
   </SectionWrapper>
-
 )
 
 export default Services
-

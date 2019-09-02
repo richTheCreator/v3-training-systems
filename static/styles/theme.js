@@ -10,16 +10,16 @@ const fontSizes = [
   '11.61px', // 0
   '11.85px', // 1
   '13.37px', // 2
-  '13.7px',  // 3
+  '13.7px', // 3
   '13.82px', // 4
   '15.65px', // 5
-  '15.8px',  // 6
+  '15.8px', // 6
   '19.36px', // 7
   '23.23px', // 8
   '32.91px', // 9
   '46.45px', // 10
-  '57.3px',  // 11
-  '91.68px'  // 12
+  '57.3px', // 11
+  '91.68px' // 12
 ]
 
 const lineHeights = [
@@ -38,29 +38,29 @@ const lineHeights = [
 const letterSpacings = [
   '-1.5px', // 0
   '-0.5px', // 1
-  '.1px',   // 2
-  0,        // 3
-  '.15px',  // 4
-  '.25px',  // 5
-  '.4px',   // 6
-  '.5px',   // 7
+  '.1px', // 2
+  0, // 3
+  '.15px', // 4
+  '.25px', // 5
+  '.4px', // 6
+  '.5px', // 7
   '1.25px', // 8
-  2,        // 9
-  4,        // 10
-  6,        // 11
-  9         // 12
+  2, // 9
+  4, // 10
+  6, // 11
+  9 // 12
 ]
 
 const fontWeights = [
   400, // 0 - Regular
   600, // 1 - Semi Bold
   700, // 2 - Bold
-  800  // 3 - Extra Bold
+  800 // 3 - Extra Bold
 ]
 
-const heights = [ '100%', '100vh' ]
+const heights = ['100%', '100vh']
 
-const maxWidths = [ '1400px', '1800px' ]
+const maxWidths = ['1400px', '1800px']
 
 // Colors
 const colors = {
@@ -85,14 +85,14 @@ breakpoints.lg = breakpoints[2]
 breakpoints.xl = breakpoints[3]
 
 const space = [
-  0,  // 0
-  4,  // 1
-  8,  // 2
+  0, // 0
+  4, // 1
+  8, // 2
   16, // 3
   24, // 4
   32, // 5
   48, // 6
-  64  // 7
+  64 // 7
 ]
 
 const zIndices = [-1, 0, 1, 2, 4, 8]

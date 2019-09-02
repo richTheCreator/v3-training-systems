@@ -8,12 +8,8 @@ import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
 
-const IndexPage = ({
-  data
-}) => {
-  const {
-    frontmatter
-  } = data.markdownRemark
+const IndexPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
@@ -26,9 +22,9 @@ const IndexPage = ({
 
 export default IndexPage
 
-export const pageQuery = graphql `
+export const pageQuery = graphql`
   query HomePage {
-    markdownRemark(frontmatter: {templateKey: {eq: "index-page"}}) {
+    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         hero {
           subtitle
@@ -42,7 +38,7 @@ export const pageQuery = graphql `
           }
           dots__image {
             childImageSharp {
-              fixed(width: 200, height:200) {
+              fixed(width: 200, height: 200) {
                 ...GatsbyImageSharpFixed
               }
             }
