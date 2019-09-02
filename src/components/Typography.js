@@ -1,7 +1,7 @@
 import React from 'react'
 import system from '@rebass/components'
 import styled from 'styled-components'
-import { borderColor, space, fontWeight, color, letterSpacing } from 'styled-system'
+import { borderColor, space, fontWeight, color } from 'styled-system'
 const textStyles = ['fontSize', 'textAlign', 'fontWeight', 'fontStyle', 'color', 'lineHeight', 'letterSpacing', 'space']
 
 export const H1 = system({
@@ -86,7 +86,8 @@ export const Subtitle1 = system({
   color: 'darkGrey',
   lineHeight: 2,
   letterSpacing: 4
-}, ...textStyles)
+}, ...textStyles, {
+  textTransform: 'uppercase'})
 
 export const Subtitle2 = system({
   is: 'p',

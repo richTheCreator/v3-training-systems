@@ -68,6 +68,7 @@ const colors = {
   black: '#000',
   black70: 'rgba(0,0,0,.7)',
   darkGrey: '#4e4e4e',
+  mdGrey: '#9d9d9d',
   lightGrey: '#EDEDED',
   red: '#F05D5E',
   white: '#FFF',

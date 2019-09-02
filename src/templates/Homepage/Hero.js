@@ -14,6 +14,8 @@ import {
   height,
   alignItems,
   backgroundSize,
+  backgroundColor,
+  alignSelf,
   letterSpacing,
   width,
   zIndex,
@@ -42,9 +44,11 @@ const HeroContainer = styled.div`
 
 const LeftHero = styled.div`
   ${gridArea}
-  align-self:center;
+  z-index:2;
+  ${alignSelf}
 `
-const leftLG = `1 / 1 / 5 / 7`
+const leftLG = `1 / 1 / 5 / 12`
+const leftMD = `1 / 1 / 5 / 13`
 const leftSM = `1 / 1 / 5 / 13`
 
 const RightHero = styled.div`
@@ -55,16 +59,17 @@ const RightHero = styled.div`
   ${backgroundSize}
   ${minHeight}
   ${gridArea}
+  transform:scaleX(-1);
   background-image: url(${props => props.background});
   background-repeat:no-repeat;
 `
-const rtLG =  `1 / 7 / 6 / 13`
+const rtLG =  `1 / 1 / 6 / 13`
 const rtSM = `1 / 1 / 7 / 13`
 
 const BottomBar = styled.div`
 ${gridArea}
 ${zIndex}
-background-color: black
+${backgroundColor}
 `
 
 const btLG = `5 / 1 / 7 / 13`
@@ -90,14 +95,27 @@ const Legend = styled(Col)
   transform-origin: left;
 `
 const Type_Title = styled.h1`
-${space}
-${color}
-${fontSize}
-letter-spacing:-2px;
-line-height:100%;
-font-weight: 800;
-font-style: italic;
-display:inline-block;
+  ${space}
+  ${color}
+  ${fontSize}
+  margin-bottom: 20px;
+  line-height: 50px;
+  font-weight: 700;
+  letter-spacing: 3.3px;
+  font-style:italic;
+  text-transform: uppercase;
+  white-space:pre-wrap;
+`
+const Type_Subtitle = styled.p`
+  ${space}
+  ${color}
+  ${fontSize}
+  font-size: 20px;
+  line-height: 1.6em;
+  font-weight: 300;
+  max-width:334px;
+  letter-spacing: 0.5px;
+  text-transform: none;
 `
 const titleLG = `calc(8px + (80 - 8) * ((100vw - 300px) / (1600 - 300)));`
 const titleSM = `calc(32px + (80 - 8) * ((100vw - 300px) / (1600 - 300)));`
@@ -139,7 +157,7 @@ const Arrow = styled.svg`
 const ServiceItem = ({ title, text, style }) => (
   <Col className='hidden-xs hidden-sm' style={style} xs>
     <Subtitle1 color='white'>{title} </Subtitle1>
-    <Body2 color='darkGrey'> {text} </Body2>
+    <Body2 color='mdGrey'> {text} </Body2>
     <Button> VIEW </Button>
   </Col>
 )
@@ -170,7 +188,7 @@ const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
 
 const AnimatedTitles = ({ hero, browser }) => {
   // animation configs
-  // const block1Ref = useRef()
+  const block1Ref = useRef()
   const block2Ref = useRef()
 
   const legendWidthRef = useRef()
@@ -190,16 +208,23 @@ const AnimatedTitles = ({ hero, browser }) => {
     ref: trailRef
   })
 
-  useChain([ block2Ref, legendWidthRef, trailRef ], [0, 0.7, 1.3, 1.7])
-
+  useChain([ block1Ref, block2Ref, legendWidthRef, trailRef ], [0, 0.7, 1.3, 1.7])
+  const firstLine = hero.title.split(' ').slice(0,4).join(' ');
+  const secondLine = hero.title.split(' ').slice(4,9).join(' ');
   return (
     <>
-      <LeftHero gridArea={[leftSM,leftSM,leftLG]}>
+      <LeftHero alignSelf={[ 'center']} gridArea={[leftSM,leftSM,leftLG]}>
         <HeroTitle p={[3, 4, 5, 7]} xs={12}>
-          <BlockReveal ref={block2Ref} delay={300} bgColor={'#FF5353'}>
-            <Type_Title fontSize={[titleSM, titleSM, titleLG]} m={0} color={['white', 'white', 'black']}>
-              {hero.title}
+          <BlockReveal ref={block1Ref} delay={300} bgColor={'#FF5353'}>
+            <Type_Title m={1} fontSize={['2.5em', '3em']} color={['white', 'white', 'white']}>
+              { `${firstLine}\n${secondLine}`}
             </Type_Title>
+          </BlockReveal>
+          <br/>
+          <BlockReveal ref={block2Ref} delay={600} bgColor={'#FF5353'}>
+            <Type_Subtitle color={['white', 'white', 'white']}>
+              {hero.subtitle}
+            </Type_Subtitle>
           </BlockReveal>
         </HeroTitle>
       </LeftHero>
@@ -213,9 +238,12 @@ const AnimatedTitles = ({ hero, browser }) => {
             ? hero.bg__image.childImageSharp.fluid.src
             : hero.bg__image}
       />
-      <BottomBar gridArea={[btSM,btSM, btLG]}>
+      <BottomBar
+        backgroundColor={['white','white','black']}
+        gridArea={[btSM,btSM, btLG]}
+      >
         <LegendWrapper justifyContent={'flex-start'}>
-          <AnimatedLegend native style={legendWidth} p={[4, 5, 6]} xs={12} sm={12} xl={6}>
+          <AnimatedLegend bg={'black'} native style={legendWidth} p={[4, 5, 6]} xs={12} sm={12} xl={6}>
             <LegendItems
               height={0}
               alignItems={['flex-start', 'flex-start', 'center', 'center']}
