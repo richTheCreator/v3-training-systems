@@ -86,8 +86,8 @@ const HeroTitle = styled.h1`
 // Need to rethink having this here vs updating the root p
 const HeroSubtitle = styled.p`
   ${space}
+  ${fontSize}
   color: white;
-  font-size: 20px;
   line-height: 1.4em;
   font-weight: 300;
   max-width: 334px;
@@ -203,16 +203,16 @@ const AnimatedTitles = ({ hero, browser }) => {
 
   return (
     <>
-      <LeftHero alignSelf="center" gridArea={[leftSM, leftSM, leftLG]}>
+      <LeftHero alignSelf={['start', 'center']} gridArea={[leftSM, leftSM, leftLG]}>
         <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12}>
           <BlockReveal ref={block1Ref} delay={300} bgColor="#FF5353">
-            <HeroTitle m={1} fontSize={['2.2em', '2.5em', '3em']}>
+            <HeroTitle m={1} fontSize={['1.7em', '2em', '2.5em', '3em']}>
               {`${firstLine}\n${secondLine}`}
             </HeroTitle>
           </BlockReveal>
           <br />
           <BlockReveal ref={block2Ref} delay={600} bgColor="#FF5353">
-            <HeroSubtitle>{hero.subtitle}</HeroSubtitle>
+            <HeroSubtitle m={0} fontSize={['16px', '20px']}>{hero.subtitle}</HeroSubtitle>
           </BlockReveal>
         </LeftHeroWrapper>
       </LeftHero>
