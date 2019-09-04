@@ -1081,6 +1081,14 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.3.tgz#f060bf6eaafae4d56a7dac618980838b0696e2ab"
   integrity sha512-FmuxfCuolpLl0AnQ2NHSzoUKWEJDFl63qXjzdoWBVyFCXzMGm1spBzk7LeHNoVCiWCF7mRVms9e6jEV9+MoPbg==
 
+"@kennethormandy/react-fittext@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@kennethormandy/react-fittext/-/react-fittext-0.6.0.tgz#8430ccd4dc0c35827a7fe19510fa184948acbebb"
+  integrity sha512-jj4fQ2+krlhI+n+Bexxbdc00S3iL+lS1VwfoabylpaNf2otQzO3hOk/lvVayMRn/8xIhJddpM8aUPjPKxow0FA==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    prop-types "^15.6.1"
+
 "@mikaelkristiansson/domready@^1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.9.tgz#b2b85d8ac7bb2797e577050b61aeaf1b26fbd906"
@@ -3539,7 +3547,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.1, create-react-class@^15.5.2, create-react-class@^15.5.3:
+create-react-class@^15.5.1, create-react-class@^15.5.2:
   version "15.6.3"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
   integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
@@ -8390,6 +8398,11 @@ lodash.clonedeep@^4.3.2, lodash.clonedeep@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
 lodash.escaperegexp@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.escaperegexp/-/lodash.escaperegexp-4.1.2.tgz#64762c48618082518ac3df4ccf5d5886dae20347"
@@ -11538,14 +11551,6 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
   integrity sha512-XzgvowFrwDo6TWcpJ/WTiarb9UI6lhA4PMzS7n1joK3sHfBBBOQHUc0U4u57D6DWO9vHv6lVSWx2Q/Ymfyv4hw==
-
-react-fittext@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-fittext/-/react-fittext-1.0.0.tgz#836a1c04f9322f6c94cb69e45c66006fc42d37a5"
-  integrity sha1-g2ocBPkyL2yUy2nkXGYAb8QtN6U=
-  dependencies:
-    create-react-class "^15.5.3"
-    prop-types "^15.5.10"
 
 react-flexbox-grid@^2.1.2:
   version "2.1.2"
