@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import ReactFitText from 'react-fittext'
 import {
   Overline,
   H2,
@@ -46,7 +45,7 @@ const ListItemSquare = styled.li`
 
 const ServiceItemM = ({ services, hero }) => (
   <Row
-    className="hidden-xl hidden-lg"
+    className='hidden-xl hidden-lg'
     style={{
       justifyContent: 'center',
       alignItems: 'center',
@@ -72,8 +71,8 @@ const ServiceItemM = ({ services, hero }) => (
           <Col sm={6}>
             <WithDecorator
               bodyText={item}
-              bodyColor="white"
-              decoratorColor="accent"
+              bodyColor='white'
+              decoratorColor='accent'
             />
           </Col>
         ))}
@@ -84,7 +83,7 @@ const ServiceItemM = ({ services, hero }) => (
 
 const ServiceItem = ({ services, hero }) => (
   <Row
-    className="hidden-xs hidden-sm hidden-md"
+    className='hidden-xs hidden-sm hidden-md'
     style={{
       justifyContent: 'center',
       alignItems: 'center',
@@ -105,8 +104,8 @@ const ServiceItem = ({ services, hero }) => (
         {services.OT.includes.map(item => (
           <WithDecorator
             bodyText={item}
-            bodyColor="white"
-            decoratorColor="accent"
+            bodyColor='white'
+            decoratorColor='accent'
           />
         ))}
       </div>
@@ -126,7 +125,7 @@ const ServiceItem = ({ services, hero }) => (
 )
 
 const Services = ({ services, hero }) => (
-  <SectionWrapper bg="black">
+  <SectionWrapper bg='black'>
     <ServiceItemM services={services} hero={hero} />
     <ServiceItem services={services} hero={hero} />
   </SectionWrapper>

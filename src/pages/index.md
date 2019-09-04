@@ -5,7 +5,7 @@ subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
   title: A BODY IN MOTION STAYS IN MOTION.
-  bg__image: /img/Home-Exercise.jpg
+  bg__image: /img/Woman-Wallpaper-Fitness-Texas.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:

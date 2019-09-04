@@ -29,7 +29,7 @@ const HeroContainer = styled.div`
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
-  height: 100vh;
+  height: 95vh;
 `
 
 const LeftHero = styled.div`
@@ -48,7 +48,6 @@ const RightHero = styled.div`
   ${backgroundSize}
   ${minHeight}
   ${gridArea}
-  transform:scaleX(-1);
   background-image: url(${props => props.background});
   background-repeat:no-repeat;
 `
@@ -74,6 +73,7 @@ const Legend = styled(Col)`
 const HeroTitle = styled.h1`
   ${space}
   ${fontSize}
+  font-size:calc(1.3rem + 2vw);
   color: white;
   margin-bottom: 20px;
   line-height: 1.3em;
@@ -90,7 +90,7 @@ const HeroSubtitle = styled.p`
   color: white;
   line-height: 1.4em;
   font-weight: 300;
-  max-width: 334px;
+  max-width: 400px;
   letter-spacing: 0.5px;
   text-transform: none;
 `
@@ -114,6 +114,7 @@ const LegendWrapper = styled(Row)`
 
 const LeftHeroWrapper = styled(Col)`
   ${space}
+  width:100%
 `
 
 const LegendItemsWidth = styled.div`
@@ -165,7 +166,7 @@ const AnimatedLegend = animated(makeClassComponent(Legend))
 const AnimatedServiceItem = animated(makeClassComponent(ServiceItem))
 const AnimatedServiceItemM = animated(makeClassComponent(ServiceItemM))
 
-const AnimatedTitles = ({ hero, browser }) => {
+const AnimatedTitles = ({ hero, browser, theme }) => {
   // animation configs
   const block1Ref = useRef()
   const block2Ref = useRef()
@@ -201,18 +202,20 @@ const AnimatedTitles = ({ hero, browser }) => {
     .slice(4, 9)
     .join(' ')
 
+  console.log('propz', theme)
+
   return (
     <>
-      <LeftHero alignSelf={['start', 'center']} gridArea={[leftSM, leftSM, leftLG]}>
+      <LeftHero alignSelf={'center'} gridArea={[leftSM, leftSM, leftLG]}>
         <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12}>
-          <BlockReveal ref={block1Ref} delay={300} bgColor="#FF5353">
-            <HeroTitle m={1} fontSize={['1.7em', '2em', '2.5em', '3em']}>
-              {`${firstLine}\n${secondLine}`}
-            </HeroTitle>
+          <BlockReveal ref={block1Ref} delay={300} bgColor="white">
+            <HeroTitle m={1}>{`${firstLine}\n${secondLine}`}</HeroTitle>
           </BlockReveal>
           <br />
-          <BlockReveal ref={block2Ref} delay={600} bgColor="#FF5353">
-            <HeroSubtitle m={0} fontSize={['16px', '20px']}>{hero.subtitle}</HeroSubtitle>
+          <BlockReveal ref={block2Ref} delay={600} bgColor="white">
+            <HeroSubtitle m={0} fontSize={['16px', '20px']}>
+              {hero.subtitle}
+            </HeroSubtitle>
           </BlockReveal>
         </LeftHeroWrapper>
       </LeftHero>
@@ -227,13 +230,10 @@ const AnimatedTitles = ({ hero, browser }) => {
             : hero.bg__image
         }
       />
-      <BottomBar
-        backgroundColor={['white', 'white', 'black']}
-        gridArea={[btSM, btSM, btLG]}
-      >
+      <BottomBar backgroundColor={'white'} gridArea={[btSM, btSM, btLG]}>
         <LegendWrapper justifyContent="flex-start">
           <AnimatedLegend
-            bg="black"
+            bg="white"
             native
             style={legendWidth}
             p={[4, 5, 6]}
