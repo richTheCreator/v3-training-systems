@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'gatsby'
 import { Row, Col } from 'react-flexbox-grid'
 import { fontSize } from 'styled-system'
-
+import {
+  useSpring,
+  useTransition,
+  useChain,
+  config,
+  animated
+} from 'react-spring'
 import styled from 'styled-components'
 
 const NavWrapper = styled.header`
@@ -28,6 +34,31 @@ const LinkStyle = styled(Link)`
   color: ${props => props.theme.colors.black};
   letter-spacing: ${props => props.theme.letterSpacings[8]};
 `
+
+const MenuList = styled(Col)`
+  position: fixed;
+  opacity: 0;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  top: 55px;
+  height: 100%;
+  z-index: 10;
+  overflow-y: scroll;
+  transform-origin: top;
+  background: ${props => props.theme.colors.white};
+`
+
+function makeClassComponent (WrappedComponent) {
+  return class extends React.Component {
+    render () {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+}
+
+const AnimatedMenu = animated(makeClassComponent(MenuList))
+const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
 const NavbarLG = ({ menuLinks }) => (
   <Row className="hidden-xs hidden-sm" middle="xs">
@@ -59,7 +90,7 @@ const NavbarLG = ({ menuLinks }) => (
     </Col>
   </Row>
 )
-const NavbarSM = ({ menuLinks }) => (
+const NavbarSM = ({ menuLinks, toggleMenu }) => (
   <Row
     style={{ height: '100%' }}
     className="hidden-xl hidden-lg hidden-md"
@@ -68,6 +99,7 @@ const NavbarSM = ({ menuLinks }) => (
     <Col>
       <Row around="xs">
         <svg
+          onClick={toggleMenu}
           width="28"
           height="23"
           viewBox="0 0 28 23"
@@ -101,24 +133,52 @@ const NavbarSM = ({ menuLinks }) => (
   </Row>
 )
 
-const Navbar = class extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: ''
-    }
+const Navbar = ({ menuLinks }) => {
+  const [expanded, setMenu] = useState(false)
+  const toggleMenu = () => {
+    setMenu(expanded => !expanded)
   }
 
-  render () {
-    console.log('menuLinks', this.props.menuLinks)
-    return (
-      <NavWrapper>
-        <NavbarLG menuLinks={this.props.menuLinks} />
-        <NavbarSM menuLinks={this.props.menuLinks} />
-      </NavWrapper>
-    )
-  }
+  // Animation helpers
+  const menuRef = useRef()
+  const springMenu = useSpring({
+    opacity: expanded ? 1 : 0,
+    transform: expanded ? 'scaleY(1)' : 'scaleY(0)',
+    ref: menuRef
+    // visibility: expanded ? 'visible' : 'hidden'
+  })
+  const trailRef = useRef()
+  const transitions = useTransition(
+    expanded ? menuLinks : [],
+    item => item.name,
+    {
+      from: { opacity: 0, transform: 'translate3d(0,-100px,0)' },
+      enter: { opacity: 1, transform: 'translate3d(0,0,0)' },
+      leave: { opacity: 0, transform: 'translate3d(0,-100px,0)' },
+      unique: true,
+      trail: 300 / menuLinks.length,
+      ref: trailRef
+      // delay: 200,
+    }
+  )
+
+  useChain(expanded ? [menuRef, trailRef] : [trailRef, menuRef], [0, 0])
+
+  return (
+    <NavWrapper>
+      <NavbarLG menuLinks={menuLinks} />
+      <NavbarSM menuLinks={menuLinks} toggleMenu={toggleMenu} />
+      <AnimatedMenu xs={12} native style={{ ...springMenu }}>
+        {transitions.map(({ item, key, props }) => (
+          <Row style={{ display: 'table', margin: '8px 0' }}>
+            <AnimatedLink key={key} style={props} to={item.link}>
+              {item.name}
+            </AnimatedLink>
+          </Row>
+        ))}
+      </AnimatedMenu>
+    </NavWrapper>
+  )
 }
 
 export default Navbar
