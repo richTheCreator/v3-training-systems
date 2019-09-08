@@ -60,12 +60,12 @@ const ServiceItemM = ({ services, hero }) => (
         imageInfo={services.OT.service__image}
       />
     </Col>
-    <Col xs={12} style={{ zIndex: 10000 }}>
+    <Col xs={12} style={{ zIndex: 3 }}>
       <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
         {' '}
         {services.OT.title}{' '}
       </Outlined>
-      <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
+      <Body1 color={'mdGrey'}> {services.OT.desc}</Body1>
       <Row>
         {services.OT.includes.map(item => (
           <Col sm={6}>
@@ -99,7 +99,7 @@ const ServiceItem = ({ services, hero }) => (
         {' '}
         {services.OT.title}{' '}
       </Outlined>
-      <Body1 color={'darkGrey'}> {services.OT.desc}</Body1>
+      <Body1 color={'mdGrey'}> {services.OT.desc}</Body1>
       <div>
         {services.OT.includes.map(item => (
           <WithDecorator
