@@ -7,6 +7,7 @@ import Layout from '../components/Layout'
 import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -48,33 +49,13 @@ export const pageQuery = graphql`
               title
               text
             }
-            pkg {
-              title
-              text
-            }
-            pkg {
-              title
-              text
-            }
           }
         }
         about {
           title
           bio
           callouts {
-            first {
-              count
-              desc
-            }
-            second {
-              count
-              desc
-            }
-            third {
-              count
-              desc
-            }
-            fourth {
+            callout {
               count
               desc
             }
@@ -88,7 +69,7 @@ export const pageQuery = graphql`
           }
         }
         services {
-          OT {
+          service {
             title
             desc
             includes

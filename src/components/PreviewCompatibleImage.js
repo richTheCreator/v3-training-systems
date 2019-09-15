@@ -6,7 +6,6 @@ const PreviewCompatibleImage = ({ imageInfo, style, imgStyle, isFixed }) => {
   const { alt = '', childImageSharp, image } = imageInfo
 
   const imageType = isFixed ? 'fixed' : 'fluid'
-  console.log(imageType)
   if (!!image && !!image.childImageSharp) {
     return (
       <Img

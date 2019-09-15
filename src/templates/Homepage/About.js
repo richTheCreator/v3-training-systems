@@ -4,6 +4,7 @@ import { Row, Col } from 'react-flexbox-grid'
 import { Overline, H2, Body1, H4, Body2 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
+
 import { FadeInUp } from '../../components/Animation'
 import {
   color,
@@ -43,9 +44,9 @@ const About = ({ about }) => {
   useChain([block1Ref])
 
   return (
-    <SectionWrapper justifyContent="center" bg="lightGrey">
+    <SectionWrapper justifyContent='center' bg='lightGrey'>
       <SectionMax>
-        <Sections m="auto" alignSelf={'center'} lg={5} md={5} sm={6} xs={10}>
+        <Sections m='auto' alignSelf={'center'} lg={5} md={5} sm={6} xs={10}>
           <PreviewCompatibleImage
             imageInfo={about.flex__image}
             imgStyle={{ objectFit: 'contain' }}
@@ -53,9 +54,9 @@ const About = ({ about }) => {
           />
         </Sections>
         <Sections
-          m="auto"
-          alignSelf="center"
-          bg="lightGrey"
+          m='auto'
+          alignSelf='center'
+          bg='lightGrey'
           lg={6}
           md={7}
           sm={12}
@@ -72,22 +73,11 @@ const About = ({ about }) => {
           </H2>
           <Body1 color={'darkGrey'}> {about.bio} </Body1>
           <Row>
-            <Callout
-              count={about.callouts.first.count}
-              desc={about.callouts.first.desc}
-            />
-            <Callout
-              count={about.callouts.second.count}
-              desc={about.callouts.second.desc}
-            />
-            <Callout
-              count={about.callouts.third.count}
-              desc={about.callouts.third.desc}
-            />
-            <Callout
-              count={about.callouts.fourth.count}
-              desc={about.callouts.fourth.desc}
-            />
+            {
+              about.callouts.map((co, idx) => (
+                <Callout count={co.callout.count} desc={co.callout.desc} />
+              ))
+            }
           </Row>
         </Sections>
       </SectionMax>

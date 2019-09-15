@@ -13,6 +13,7 @@ import {
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { borderColor, flexDirection } from 'styled-system'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 const numberStyle = {
   lineHeight: '160px',
@@ -43,13 +44,14 @@ const ListItemSquare = styled.li`
   }
 `
 
-const ServiceItemM = ({ services, hero }) => (
+const ServiceItemM = ({ service, hero }) => (
   <Row
-    className='hidden-xl hidden-lg'
+    className="hidden-xl hidden-lg"
     style={{
       justifyContent: 'center',
       alignItems: 'center',
       margin: 'auto',
+      padding: '54px 0px',
       width: '100%',
       backgroundColor: 'black'
     }}
@@ -57,22 +59,22 @@ const ServiceItemM = ({ services, hero }) => (
     <Col style={{ position: 'relative' }} xs={12}>
       <PreviewCompatibleImage
         style={{ maxHeight: '400px' }}
-        imageInfo={services.OT.service__image}
+        imageInfo={service.service__image}
       />
     </Col>
     <Col xs={12} style={{ zIndex: 3 }}>
       <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
         {' '}
-        {services.OT.title}{' '}
+        {service.title}{' '}
       </Outlined>
-      <Body1 color={'mdGrey'}> {services.OT.desc}</Body1>
+      <Body1 color={'mdGrey'}> {service.desc}</Body1>
       <Row>
-        {services.OT.includes.map(item => (
+        {service.includes.map(item => (
           <Col sm={6}>
             <WithDecorator
               bodyText={item}
-              bodyColor='white'
-              decoratorColor='accent'
+              bodyColor="white"
+              decoratorColor="accent"
             />
           </Col>
         ))}
@@ -81,9 +83,9 @@ const ServiceItemM = ({ services, hero }) => (
   </Row>
 )
 
-const ServiceItem = ({ services, hero }) => (
+const ServiceItem = ({ service, hero, idx }) => (
   <Row
-    className='hidden-xs hidden-sm hidden-md'
+    className="hidden-xs hidden-sm hidden-md"
     style={{
       justifyContent: 'center',
       alignItems: 'center',
@@ -97,23 +99,23 @@ const ServiceItem = ({ services, hero }) => (
     <Col style={{ maxWidth: '400px' }} lg={5}>
       <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
         {' '}
-        {services.OT.title}{' '}
+        {service.title}{' '}
       </Outlined>
-      <Body1 color={'mdGrey'}> {services.OT.desc}</Body1>
+      <Body1 color={'mdGrey'}> {service.desc}</Body1>
       <div>
-        {services.OT.includes.map(item => (
+        {service.includes.map(item => (
           <WithDecorator
             bodyText={item}
-            bodyColor='white'
-            decoratorColor='accent'
+            bodyColor="white"
+            decoratorColor="accent"
           />
         ))}
       </div>
     </Col>
     <Col style={{ position: 'relative' }} lg={7}>
       <PreviewCompatibleImage
-        imageInfo={services.OT.service__image}
-        style={{ minHeight: '500px' }}
+        imageInfo={service.service__image}
+        style={{ minHeight: '500px', height: '70vh' }}
       />
       <PreviewCompatibleImage
         imageInfo={hero.dots__image}
@@ -125,9 +127,13 @@ const ServiceItem = ({ services, hero }) => (
 )
 
 const Services = ({ services, hero }) => (
-  <SectionWrapper bg='black'>
-    <ServiceItemM services={services} hero={hero} />
-    <ServiceItem services={services} hero={hero} />
+  <SectionWrapper bg="black">
+    {services.map((service, idx) => (
+      <>
+        <ServiceItem service={service.service} idx={idx} hero={hero} />
+        <ServiceItemM service={service.service} hero={hero} />
+      </>
+    ))}
   </SectionWrapper>
 )
 
