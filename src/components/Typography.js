@@ -142,13 +142,18 @@ export const Subtitle2 = system(
 export const Button = system(
   {
     is: 'p',
-    fontSize: 2,
+    fontSize: 6,
     fontWeight: 3,
     color: 'accent',
     lineHeight: 0,
-    letterSpacing: 9
+    letterSpacing: 8
   },
-  ...textStyles
+  ...textStyles,
+  {
+    textTransform: 'uppercase',
+    padding: '16px 32px',
+    margin: '0px'
+  }
 )
 
 export const Caption = system(
@@ -205,7 +210,7 @@ ${space}
 ${fontWeight}
 ${color}
 -webkit-text-stroke-width: 1px;
--webkit-text-stroke-color: ${props => props.theme.colors.white};
+-webkit-text-stroke-color: ${props => props.outlineColor};
 font-weight: ${props => props.theme.fontWeights[3]};
 text-align: left;
 font-size: calc(${props =>

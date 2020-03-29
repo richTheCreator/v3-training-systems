@@ -64,12 +64,14 @@ const maxWidths = ['1400px', '1800px']
 
 // Colors
 const colors = {
-  accent: '#FF5353',
-  black: '#000',
+  accent: '#d22030',
+  black: '#191c1f',
+  blackBlue: '#222529',
   black70: 'rgba(0,0,0,.7)',
   darkGrey: '#4e4e4e',
   mdGrey: '#9d9d9d',
   lightGrey: '#EDEDED',
+  greyBlue: '#F5F7F9',
   red: '#F05D5E',
   white: '#FFF',
   disabled: '#DADEDF' // or opacity .3 of greyBlue
@@ -97,7 +99,11 @@ const space = [
 
 const zIndices = [-1, 0, 1, 2, 4, 8]
 
+const shadows = {
+  md: '0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 10px 20px rgba(0, 0, 0, 0.04);'
+}
 export default {
+  shadows,
   zIndices,
   fonts,
   minHeights,

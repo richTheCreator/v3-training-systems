@@ -1,50 +1,43 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
 import {
-  Overline,
-  H2,
   Body1,
-  H4,
-  Body2,
   WithDecorator,
   Outlined
 } from '../../components/Typography'
-import { SectionWrapper, SectionMax } from '../../components/Containers'
-import { borderColor, flexDirection } from 'styled-system'
+import { SectionWrapper } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
-const numberStyle = {
-  lineHeight: '160px',
-  marignBottom: '0px',
-  marginTop: '0px',
-  textAlign: 'right',
-  opacity: 0.1
-}
+// const numberStyle = {
+//   lineHeight: '160px',
+//   marignBottom: '0px',
+//   marginTop: '0px',
+//   textAlign: 'right',
+//   opacity: 0.1
+// }
 
-const ListItemSquare = styled.li`
-  display: flex;
-  align-items: center;
-  &:before {
-    ${borderColor}
-    content: " ";
-    flex-shrink: 0;
-    position: relative;
-    width: 11px;
-    height: 11px;
-    margin-right: 8px;
-    font-weight: 400;
-    font-size: 30px;
-    vertical-align: sub;
-    border-width: 2px;
-    border-style: solid;
-    border-image: initial;
-    border-radius: 3px;
-  }
-`
+// const ListItemSquare = styled.li`
+//   display: flex;
+//   align-items: center;
+//   &:before {
+//     ${borderColor}
+//     content: " ";
+//     flex-shrink: 0;
+//     position: relative;
+//     width: 11px;
+//     height: 11px;
+//     margin-right: 8px;
+//     font-weight: 400;
+//     font-size: 30px;
+//     vertical-align: sub;
+//     border-width: 2px;
+//     border-style: solid;
+//     border-image: initial;
+//     border-radius: 3px;
+//   }
+// `
 
-const ServiceItemM = ({ service, hero }) => (
+const ServiceItemM = ({ service, hero, inverted }) => (
   <Row
     className="hidden-xl hidden-lg"
     style={{
@@ -53,7 +46,7 @@ const ServiceItemM = ({ service, hero }) => (
       margin: 'auto',
       padding: '54px 0px',
       width: '100%',
-      backgroundColor: 'black'
+      backgroundColor: inverted ? '#EDEDED' : 'transparent'
     }}
   >
     <Col style={{ position: 'relative' }} xs={12}>
@@ -63,7 +56,7 @@ const ServiceItemM = ({ service, hero }) => (
       />
     </Col>
     <Col xs={12} style={{ zIndex: 3 }}>
-      <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
+      <Outlined fontSize={'40px'} color={'transparent'} mb={0} outlineColor={inverted ? 'black' : 'white'}>
         {' '}
         {service.title}{' '}
       </Outlined>
@@ -73,7 +66,7 @@ const ServiceItemM = ({ service, hero }) => (
           <Col sm={6}>
             <WithDecorator
               bodyText={item}
-              bodyColor="white"
+              bodyColor={inverted ? 'black' : 'white'}
               decoratorColor="accent"
             />
           </Col>
@@ -83,21 +76,23 @@ const ServiceItemM = ({ service, hero }) => (
   </Row>
 )
 
-const ServiceItem = ({ service, hero, idx }) => (
+const ServiceItem = ({ service, hero, idx, inverted, flipped }) => (
   <Row
     className="hidden-xs hidden-sm hidden-md"
     style={{
       justifyContent: 'center',
       alignItems: 'center',
       margin: 'auto',
-      padding: '64px',
-      backgroundColor: 'black',
+      padding: '24px',
+      marginTop: '64px',
+      backgroundColor: inverted ? '#EDEDED' : '#191c1f',
       width: '100%',
-      height: '100vh'
+      height: '100vh',
+      flexDirection: flipped ? 'row-reverse' : 'row'
     }}
   >
-    <Col style={{ maxWidth: '400px' }} lg={5}>
-      <Outlined fontSize={'40px'} color={'transparent'} mb={0}>
+    <Col style={{ maxWidth: '400px' }} lg={5} style={{ paddingLeft: flipped ? '24px' : 'inherit' }}>
+      <Outlined fontSize={'40px'} color={'transparent'} mb={0} outlineColor={inverted ? 'black' : 'white'}>
         {' '}
         {service.title}{' '}
       </Outlined>
@@ -106,7 +101,7 @@ const ServiceItem = ({ service, hero, idx }) => (
         {service.includes.map(item => (
           <WithDecorator
             bodyText={item}
-            bodyColor="white"
+            bodyColor={inverted ? 'black' : 'white'}
             decoratorColor="accent"
           />
         ))}
@@ -126,12 +121,12 @@ const ServiceItem = ({ service, hero, idx }) => (
   </Row>
 )
 
-const Services = ({ services, hero }) => (
-  <SectionWrapper bg="black">
+const Services = ({ services, hero, inverted }) => (
+  <SectionWrapper bg={inverted ? 'white' : 'rgb(34, 37, 41)' }>
     {services.map((service, idx) => (
       <>
-        <ServiceItem service={service.service} idx={idx} hero={hero} />
-        <ServiceItemM service={service.service} hero={hero} />
+        <ServiceItem flipped={idx % 2} inverted={inverted} service={service.service} idx={idx} hero={hero} />
+        <ServiceItemM inverted={inverted} service={service.service} hero={hero} />
       </>
     ))}
   </SectionWrapper>

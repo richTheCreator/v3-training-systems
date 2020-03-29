@@ -7,19 +7,15 @@ module.exports = {
       'Invest in your health and wellness like your future depends on it',
     menuLinks: [
       {
-        name: 'home',
+        name: 'Home',
         link: '/'
       },
       {
-        name: 'Products',
-        link: '/products'
+        name: 'Training',
+        link: '/training'
       },
       {
-        name: 'Blog',
-        link: '/blog'
-      },
-      {
-        name: 'Contact',
+        name: 'About',
         link: '/contact'
       }
     ]
