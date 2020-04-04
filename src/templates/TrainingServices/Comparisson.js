@@ -22,7 +22,7 @@ const ImageContainer = styled(Col)`
 const Comparison = ({ comparison }) => {
   console.log('comparison', comparison)
   return (
-    <SectionWrapper pb={'0px !important'}>
+    <SectionWrapper pb={'0px !important'} pl={['0px', 'inherit']} pr={['0px', 'inherit']}>
       <SectionMax mb={'0px'}>
         <Row style={{ width: '100%' }}>
           <ImageContainer xs={12} md={6} height={['300px', '300px', 'auto']}/>
@@ -32,7 +32,7 @@ const Comparison = ({ comparison }) => {
             </Title>
             {comparison.items.map((item, idx) => (
               <>
-              <H6 color={idx === 0 ? 'white' : 'disabled'} mt={4} mb={2}> {item.item.title} </H6>
+              <H6 color={idx === 0 ? 'white' : 'disabled'} mt={ idx % 2 ? 4 : 0} mb={2}> {item.item.title} </H6>
               {
                 item.item.includes.map((text) =>
                   <WithDecorator

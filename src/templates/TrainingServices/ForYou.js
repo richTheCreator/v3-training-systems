@@ -30,7 +30,7 @@ const Overlay = styled.div`
 
 const ForYou = ({ foryou }) => {
   return (
-    <SectionWrapper pt={'0px !important'}>
+    <SectionWrapper pt={'0px !important'} pl={['0px', 'inherit']} pr={['0px', 'inherit']}>
       <Container mt={0} p={['24px', '40px']}>
         <Col xs={12} md={6} style={{ zIndex: 1, padding: '0px' }}>
           <H2 mt={0} mb={3}>
