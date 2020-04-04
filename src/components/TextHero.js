@@ -60,7 +60,7 @@ const Title = styled(Outlined)`
 //   text-transform: none;
 // `
 
-const TextHero = ({ data, theme }) => {
+const TextHero = ({ data, theme, fontSize }) => {
   const [browser, setBrowser] = useState('undefined')
 
   // animation configs
@@ -88,10 +88,12 @@ const TextHero = ({ data, theme }) => {
         }
       >
         <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
-          <Title fontSize={'62px'} outlineColor={'white'}>
-            ONLINE <br/> TRAINING
+          <Title fontSize={fontSize} outlineColor={'white'}>
+            {data.title}
           </Title>
-          <Button/>
+          <Button>
+            {data.button_text}
+          </Button>
         </Col>
         <Overlay/>
       </Container>

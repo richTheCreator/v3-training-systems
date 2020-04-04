@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { H2, Body1 } from '../../components/Typography'
+import { H5, Body1 } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 const Container = styled(Row)`
@@ -11,17 +11,17 @@ const Container = styled(Row)`
   background-color: ${props => props.theme.colors.greyBlue};
   height:170px;
   margin-bottom:24px;
-  padding-left:24px;
+  padding-left:16px;
 `
 
-const Title = styled(H2)`
+const Title = styled(H5)`
   color : ${props => props.theme.colors.black};
   text-align : center;
   margin-bottom: 0px;
   text-align:left;
-  font-size: ${props => props.theme.fontSizes[9]}!important;
-  line-height: ${props => props.theme.fontSizes[9]}!important;
-  max-width:60%;
+  font-weight:800;
+  max-width:50%;
+  letter-spacing:0px;
   font-style: italic;
 `
 
@@ -31,7 +31,7 @@ const ProgramCard = ({ service }) => {
     <Col style={{ marginBottom: '40px' }}>
       <Container>
         <Col xs={12}>
-          <Title>
+          <Title mt={'0px'}>
             {service.title}
           </Title>
           <PreviewCompatibleImage

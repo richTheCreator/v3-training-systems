@@ -12,11 +12,11 @@ import Guarantee from '../../components/Guarantee'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
 const Container = styled(SectionMax)`
+  ${space}
   align-items:center;
   background-color: ${props => props.theme.colors.white};
   height:100%;
   position:relative;
-  padding: 4em;
   justify-content: center;
 `
 // const Overlay = styled.div`
@@ -33,9 +33,9 @@ const Container = styled(SectionMax)`
 const Pricing = ({ pricing, guarantee }) => {
   return (
     <SectionWrapper pt={'0px !important'}>
-      <Container mt={0}>
-        <Col xs={12} md={12} lg={9}>
-          <Col xs={12} md={6} style={{ margin: 'auto' }}>
+      <Container mt={0} p={['0px', '40px']}>
+        <Col xs={12} md={12} lg={9} style={{ padding: '0px' }}>
+          <Col xs={12} md={6} style={{ margin: 'auto', padding: '0px' }}>
             <H2 mt={0} mb={7} textAlign='center'>
               {pricing.title}
             </H2>
@@ -43,7 +43,7 @@ const Pricing = ({ pricing, guarantee }) => {
           <Row>
             {
               pricing.plans.map((plan, idx) => (
-                <Col md={6}>
+                <Col md={6} style={{ marginTop: '24px' }}>
                   <MainPlan plan={plan.plan} />
                 </Col>
               ))}

@@ -15,7 +15,7 @@ const TrainingPage = ({ data }) => {
 
   return (
     <Layout>
-      <TextHero data={frontmatter.hero} />
+      <TextHero data={frontmatter.hero} fontSize='42px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
       <ForYou foryou={frontmatter.foryou} />
@@ -31,8 +31,8 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "training-page" } }) {
       frontmatter {
         hero {
-          subtitle
           title
+          button_text
           bg__image {
             childImageSharp {
               fluid(maxWidth: 800, quality: 100) {
