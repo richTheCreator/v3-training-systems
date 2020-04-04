@@ -20,7 +20,7 @@ import {
   gridArea
 } from 'styled-system'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button } from '../../components/Typography'
+import { Subtitle1, Body2, Button, Outlined } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
 
 const HeroContainer = styled.div`
@@ -83,6 +83,7 @@ const HeroTitle = styled.h1`
   font-weight: ${props => props.theme.fontWeights[2]};
   letter-spacing: ${props => `${props.theme.letterSpacings[10]}px`};
 `
+
 // Need to rethink having this here vs updating the root p
 const HeroSubtitle = styled.p`
   ${space}
@@ -207,15 +208,11 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
   return (
     <>
       <LeftHero alignSelf={'center'} gridArea={[leftSM, leftSM, leftLG]}>
-        <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12}>
+        <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12} md={8}>
           <BlockReveal ref={block1Ref} delay={300} bgColor="white">
-            <HeroTitle m={1}>{`${firstLine}\n${secondLine}`}</HeroTitle>
-          </BlockReveal>
-          <br />
-          <BlockReveal ref={block2Ref} delay={600} bgColor="white">
-            <HeroSubtitle m={0} fontSize={['16px', '20px']}>
-              {hero.subtitle}
-            </HeroSubtitle>
+            <Outlined fontSize={'48px'} color={'transparent'} mb={0} outlineColor={ 'white'}>
+              {hero.title}
+            </Outlined>
           </BlockReveal>
         </LeftHeroWrapper>
       </LeftHero>

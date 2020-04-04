@@ -10,7 +10,7 @@ const NavWrapper = styled.header`
   right: 0px;
   position: fixed;
   z-index: 1000;
-  height: 55px;
+  height: 72px;
   padding: 0px 32px;
   background-color: ${props => props.theme.colors.black};
 `
@@ -55,7 +55,7 @@ const AnimatedMenu = animated(makeClassComponent(MenuList))
 const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
 const NavbarLG = ({ menuLinks }) => (
-  <Row className='hidden-xs hidden-sm' middle='xs'>
+  <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%' }}>
     <Col xs={-1}>
       <Link to='/' className='navbar-item' title='Logo'>
         <svg
@@ -95,17 +95,11 @@ const NavbarSM = ({ menuLinks, toggleMenu }) => (
         <svg
           onClick={toggleMenu}
           width='28'
-          height='23'
           viewBox='0 0 28 23'
           fill='none'
           xmlns='http://www.w3.org/2000/svg'
         >
-          <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
-            d='M26.7954 0H1.12795C0.50502 0 0 1.0912 0 2.43718C0 3.78316 0.50502 4.87436 1.12795 4.87436H26.7954C27.4184 4.87436 27.9234 3.78316 27.9234 2.43718C27.9234 1.0912 27.4184 0 26.7954 0ZM26.7954 9.06282H1.12795C0.50502 9.06282 0 10.1539 0 11.5C0 12.8461 0.50502 13.9372 1.12795 13.9372H26.7954C27.4184 13.9372 27.9234 12.8461 27.9234 11.5C27.9234 10.154 27.4184 9.06282 26.7954 9.06282ZM1.12795 18.1256H26.7954C27.4184 18.1256 27.9234 19.2167 27.9234 20.5628C27.9234 21.9089 27.4184 23 26.7954 23H1.12795C0.50502 23 0 21.9089 0 20.5628C0 19.2167 0.50502 18.1256 1.12795 18.1256Z'
-            fill='white'
-          />
+          <path d='M.5.5h17.03M.5 6.5h17.03M.5 12.5h17.03' fill='white' fill-rule='evenodd' stroke='white' stroke-linecap='square' />
         </svg>
       </Row>
     </Col>

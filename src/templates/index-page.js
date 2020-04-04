@@ -7,14 +7,13 @@ import Layout from '../components/Layout'
 import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
-import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
-      <Hero hero={frontmatter.hero} />
+      <Hero serviceItems hero={frontmatter.hero} height='95vh' />
       <About about={frontmatter.about} />
       <Services services={frontmatter.services} hero={frontmatter.hero} />
     </Layout>
