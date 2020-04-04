@@ -16,6 +16,7 @@ const Container = styled(Row)`
 
 const Title = styled(H5)`
   color : ${props => props.theme.colors.black};
+  line-height:100%;
   text-align : center;
   margin-bottom: 0px;
   text-align:left;

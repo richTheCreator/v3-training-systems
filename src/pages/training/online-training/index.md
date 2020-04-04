@@ -16,7 +16,7 @@ program:
       desc: Custom workouts that will progress each month ensuring you reach your goals.
   - service:
       title: UNLIMITED SUPPORT
-      service__image: /img/program-nutrition.png
+      service__image: /img/program-support.png
       desc: Direct access to me through phone calls, text messaging, email and services like FaceTime and Skype.
 comparison:
   title: Better than any app
