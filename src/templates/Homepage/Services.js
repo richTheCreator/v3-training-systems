@@ -85,7 +85,7 @@ const ServiceItem = ({ service, hero, idx, inverted, flipped }) => (
       margin: 'auto',
       padding: '24px',
       marginTop: '64px',
-      backgroundColor: inverted ? '#EDEDED' : '#191c1f',
+      backgroundColor: inverted ? '#F5F7F9' : '#191c1f',
       width: '100%',
       height: '100vh',
       flexDirection: flipped ? 'row-reverse' : 'row'

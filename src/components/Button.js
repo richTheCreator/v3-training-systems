@@ -9,10 +9,10 @@ const Container = styled.button`
   border: 0px;
 `
 
-const Button = ({ data, theme }) =>
+const Button = ({ data, theme, children }) =>
   <Container>
     <ButtonText color={'black'}>
-      Text
+      {children}
     </ButtonText>
   </Container>
 

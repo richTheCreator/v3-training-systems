@@ -4,8 +4,8 @@ title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title: TRAIN LIKE YOU MEAN IT
-  bg__image: /img/home-workout-v3.jpg
+  title: TRAINING FOR EVERYDAY ATHLETES
+  bg__image: /img/kg-gym-hero.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:

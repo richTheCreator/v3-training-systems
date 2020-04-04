@@ -13,12 +13,18 @@ export const SectionWrapper = system({
   height: 0
 }, ...containerStyles)
 
-export const SectionMax = system({
-  extend: FlexRow,
-  maxWidth: 1,
-  mt: 7,
-  mb: 7
-}, ...containerStyles)
+export const SectionMax = system(
+  {
+    extend: FlexRow,
+    maxWidth: 1,
+    mt: 5,
+    mb: 5
+  },
+  ...containerStyles,
+  {
+    width: '100%'
+  }
+)
 
 export const Overlay = system({
   extend: FlexRow,
