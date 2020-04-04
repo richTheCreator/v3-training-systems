@@ -11,11 +11,11 @@ import Button from '../../components/Button'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
 const Container = styled(SectionMax)`
+  ${space}
   align-items:center;
   background-color: ${props => props.theme.colors.greyBlue};
   height:100%;
   position:relative;
-  padding: 4em;
 `
 const Overlay = styled.div`
   background-size:cover;
@@ -31,8 +31,8 @@ const Overlay = styled.div`
 const ForYou = ({ foryou }) => {
   return (
     <SectionWrapper pt={'0px !important'}>
-      <Container mt={0}>
-        <Col xs={12} md={6} style={{ zIndex: 1 }}>
+      <Container mt={0} p={['24px', '40px']}>
+        <Col xs={12} md={6} style={{ zIndex: 1, padding: '0px' }}>
           <H2 mt={0} mb={3}>
             {foryou.title}
           </H2>

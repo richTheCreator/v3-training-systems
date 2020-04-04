@@ -14,6 +14,7 @@ import {
   alignItems,
   backgroundSize,
   backgroundColor,
+  backgroundImage,
   alignSelf,
   width,
   zIndex,
@@ -48,7 +49,7 @@ const RightHero = styled.div`
   ${backgroundSize}
   ${minHeight}
   ${gridArea}
-  background-image: url(${props => props.background});
+  ${backgroundImage}
   background-repeat:no-repeat;
 `
 const rtLG = '1 / 1 / 6 / 13'
@@ -221,11 +222,7 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
         gridArea={[rtSM, rtSM, rtLG]}
         backgroundSize="cover"
         backgroundPosition={['center', 'center', 'right', 'right']}
-        background={
-          hero.bg__image.childImageSharp
-            ? hero.bg__image.childImageSharp.fluid.src
-            : hero.bg__image
-        }
+        backgroundImage={['url(/img/kg-gym-hero-mobile.jpg)', 'url(/img/kg-gym-hero.jpg)']}
       />
       <BottomBar backgroundColor={'white'} gridArea={[btSM, btSM, btLG]}>
         <LegendWrapper justifyContent="flex-start">

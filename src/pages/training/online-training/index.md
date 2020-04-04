@@ -1,17 +1,10 @@
 ---
 templateKey: training-page
 hero:
-  subtitle: Invest in your health and wellness like your future depends on it
   title: Online Training.
   bg__image: /img/v3-performance-bg.jpg
-  dots__image: /img/dots.png
-  actionbar:
-    - price:
-        title: Online Training
-        text: Tailored to you
-    - action:
-        title: 1:1 Sessions
-        text: In person training
+  button_text: Start Training
+  button_url: /
 program:
   - service:
       title: NUTRITION PLAN
