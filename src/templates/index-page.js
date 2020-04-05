@@ -47,6 +47,7 @@ export const pageQuery = graphql`
             pkg {
               title
               text
+              url
             }
           }
         }
@@ -71,6 +72,9 @@ export const pageQuery = graphql`
           service {
             title
             desc
+            button_text
+            button_url
+            button_disabled
             includes
             service__image {
               childImageSharp {

@@ -20,6 +20,7 @@ import {
   zIndex,
   gridArea
 } from 'styled-system'
+import { Link } from 'gatsby'
 import Bowser from 'bowser'
 import { Subtitle1, Body2, Button, Outlined } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
@@ -128,31 +129,35 @@ const Arrow = styled.svg`
   height: 24px;
   width: 24px;
 `
-const ServiceItem = ({ title, text, style }) => (
+const ServiceItem = ({ title, text, style, url }) => (
   <Col className="hidden-xs hidden-sm" style={style} xs>
     <Subtitle1>{title} </Subtitle1>
     <Body2 color="mdGrey"> {text} </Body2>
-    <Button> VIEW </Button>
+    <Link to={url} style={{ textDecoration: 'none' }}>
+      <Button pl="0px!important"> VIEW </Button>
+    </Link>
   </Col>
 )
 
-const ServiceItemM = ({ title, style }) => (
-  <Row
-    middle="xs"
-    style={{ ...style, width: '100%', textTransform: 'uppercase' }}
-    between="xs"
-    className="hidden-xl hidden-lg hidden-md"
-  >
-    <Subtitle1 pr={3}> {title} </Subtitle1>
-    <Arrow>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.49 31.49">
-        <path
-          d="M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z"
-          fill="#FF5353"
-        />
-      </svg>
-    </Arrow>
-  </Row>
+const ServiceItemM = ({ title, style, url }) => (
+  <Link to={url}>
+    <Row
+      middle="xs"
+      style={{ ...style, width: '100%', textTransform: 'uppercase' }}
+      between="xs"
+      className="hidden-xl hidden-lg hidden-md"
+    >
+      <Subtitle1 pr={3}> {title} </Subtitle1>
+      <Arrow>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.49 31.49">
+          <path
+            d="M21.205 5.007a1.112 1.112 0 0 0-1.587 0 1.12 1.12 0 0 0 0 1.571l8.047 8.047H1.111A1.106 1.106 0 0 0 0 15.737c0 .619.492 1.127 1.111 1.127h26.554l-8.047 8.032c-.429.444-.429 1.159 0 1.587a1.112 1.112 0 0 0 1.587 0l9.952-9.952a1.093 1.093 0 0 0 0-1.571l-9.952-9.953z"
+            fill="#FF5353"
+          />
+        </svg>
+      </Arrow>
+    </Row>
+  </Link>
 )
 
 // HOC to forwardRef to components from Libs
@@ -195,17 +200,6 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
     [0, 0.7, 1.3, 1.7]
   )
 
-  const firstLine = hero.title
-    .split(' ')
-    .slice(0, 4)
-    .join(' ')
-  const secondLine = hero.title
-    .split(' ')
-    .slice(4, 9)
-    .join(' ')
-
-  console.log('propz', theme)
-
   return (
     <>
       <LeftHero alignSelf={'center'} gridArea={[leftSM, leftSM, leftLG]}>
@@ -225,7 +219,7 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
         backgroundImage={['url(/img/kg-gym-hero-mobile.jpg)', 'url(/img/kg-gym-hero.jpg)']}
       />
       <BottomBar backgroundColor={'white'} gridArea={[btSM, btSM, btLG]}>
-        <LegendWrapper justifyContent="flex-start">
+        <LegendWrapper justifyContent="flex-start" style={{ overflow: 'hidden' }}>
           <AnimatedLegend
             bg="white"
             native
@@ -249,10 +243,12 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
                     style={props}
                     title={hero.blurbs[index].pkg.title}
                     text={hero.blurbs[index].pkg.text}
+                    url={hero.blurbs[index].pkg.url}
                   />
                   <AnimatedServiceItemM
                     style={props}
                     title={hero.blurbs[index].pkg.title}
+                    url={hero.blurbs[index].pkg.url}
                   />
                 </LegendItemsWidth>
               ))}

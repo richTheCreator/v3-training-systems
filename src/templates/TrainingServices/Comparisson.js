@@ -32,15 +32,24 @@ const Comparison = ({ comparison }) => {
             </Title>
             {comparison.items.map((item, idx) => (
               <>
-              <H6 color={idx === 0 ? 'white' : 'disabled'} mt={ idx % 2 ? 4 : 0} mb={2}> {item.item.title} </H6>
-              {
-                item.item.includes.map((text) =>
-                  <WithDecorator
-                    bodyText={text}
-                    bodyColor={ idx === 0 ? 'white' : 'disabled'}
-                    decoratorColor={idx === 0 ? 'accent' : 'disabled'}/>
-                )
-              }
+                <H6
+                  color={idx === 0 ? 'white' : 'disabled'}
+                  mt={ idx % 2 ? 4 : 0}
+                  mb={2}>
+                  {item.item.title}
+                </H6>
+                <Row>
+                  {
+                    item.item.includes.map((text) =>
+                      <Col sm={6}>
+                        <WithDecorator
+                          bodyText={text}
+                          bodyColor={ idx === 0 ? 'white' : 'disabled'}
+                          decoratorColor={idx === 0 ? 'accent' : 'disabled'}/>
+                      </Col>
+                    )
+                  }
+                </Row>
               </>
             ))}
           </ContentContainer>

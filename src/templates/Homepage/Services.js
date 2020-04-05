@@ -6,6 +6,7 @@ import {
   Outlined
 } from '../../components/Typography'
 import { SectionWrapper } from '../../components/Containers'
+import Button from '../../components/Button'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 // const numberStyle = {
@@ -37,7 +38,11 @@ import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 //   }
 // `
 
-const ServiceItemM = ({ service, hero, inverted }) => (
+const ServiceItemM = ({
+  service,
+  hero,
+  inverted
+}) => (
   <Row
     className="hidden-xl hidden-lg"
     style={{
@@ -72,11 +77,18 @@ const ServiceItemM = ({ service, hero, inverted }) => (
           </Col>
         ))}
       </Row>
+      <Button mt={4} disabled={service.button_disabled} url={service.button_url}> {service.button_text} </Button>
     </Col>
   </Row>
 )
 
-const ServiceItem = ({ service, hero, idx, inverted, flipped }) => (
+const ServiceItem = ({
+  service,
+  hero,
+  idx,
+  inverted,
+  flipped
+}) => (
   <Row
     className="hidden-xs hidden-sm hidden-md"
     style={{
@@ -92,7 +104,7 @@ const ServiceItem = ({ service, hero, idx, inverted, flipped }) => (
     }}
   >
     <Col style={{ maxWidth: '400px' }} lg={5} style={{ paddingLeft: flipped ? '24px' : 'inherit' }}>
-      <Outlined fontSize={'40px'} color={'transparent'} mb={0} outlineColor={inverted ? 'black' : 'white'}>
+      <Outlined fontSize={'40px'} color={'transparent'} mt={0} mb={0} outlineColor={inverted ? 'black' : 'white'}>
         {' '}
         {service.title}{' '}
       </Outlined>
@@ -106,6 +118,7 @@ const ServiceItem = ({ service, hero, idx, inverted, flipped }) => (
           />
         ))}
       </div>
+      <Button mt={4} disabled={service.button_disabled} url={service.button_url}> {service.button_text} </Button>
     </Col>
     <Col style={{ position: 'relative' }} lg={7}>
       <PreviewCompatibleImage
@@ -125,8 +138,18 @@ const Services = ({ services, hero, inverted }) => (
   <SectionWrapper bg={inverted ? 'white' : 'rgb(34, 37, 41)' }>
     {services.map((service, idx) => (
       <>
-        <ServiceItem flipped={idx % 2} inverted={inverted} service={service.service} idx={idx} hero={hero} />
-        <ServiceItemM inverted={inverted} service={service.service} hero={hero} />
+        <ServiceItem
+          flipped={idx % 2}
+          inverted={inverted}
+          service={service.service}
+          idx={idx}
+          hero={hero}
+        />
+        <ServiceItemM
+          inverted={inverted}
+          service={service.service}
+          hero={hero}
+        />
       </>
     ))}
   </SectionWrapper>
