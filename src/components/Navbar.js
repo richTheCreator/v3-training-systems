@@ -30,7 +30,7 @@ const LinkStyle = styled(Link)`
 
 const MenuList = styled(Col)`
   position: fixed;
-  display: 'none';
+  display: none;
   opacity: 0;
   width: 100%;
   left: 0px;

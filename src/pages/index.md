@@ -4,13 +4,14 @@ title: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title: TRAINING FOR EVERYDAY ATHLETES
+  title: TRAINING EVERYDAY ATHLETES
   bg__image: /img/kg-gym-hero.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:
         title: Online Training
         text: Tailored to you
+        url: /training/online-training
     - pkg:
         title: 1:1 Sessions
         text: In person training
@@ -42,6 +43,8 @@ services:
       title: ONLINE TRAINING
       service__image: /img/online-workout-phone.jpg
       desc: A training experience crafted to your environment & lifestyle
+      button_text: Get Started
+      button_url:  /training/online-training
       includes:
         [
           "Weekly video check-ins",
@@ -53,6 +56,8 @@ services:
       title: PERSONAL TRAINING
       service__image: /img/personal-training-round-rock.jpg
       desc: A training experience crafted to your environment & lifestyle
+      button_text: Unavailable
+      button_disabled: true
       includes:
         [
           "Weekly video check-ins",
@@ -64,6 +69,8 @@ services:
       title: 8 WEEK PROGRAM
       service__image: /img/kg-boat1.jpg
       desc: A training experience crafted to your environment & lifestyle
+      button_text: Coming Soon
+      button_disabled: true
       includes:
         [
           "Weekly video check-ins",

@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid'
 import Bowser from 'bowser'
 import { Outlined } from '../components/Typography'
 import Button from '../components/Button'
+import { BlockReveal } from '../components/Animation'
 
 const Container = styled(Row)`
   justify-content:center;
@@ -32,6 +33,7 @@ const Title = styled(Outlined)`
   text-align: center;
   margin-top : 24px;
   margin-bottom: 24px;
+  width:100%;
 `
 
 // Need to rethink having this here vs updating the root H1
@@ -66,10 +68,6 @@ const TextHero = ({ data, theme, fontSize }) => {
   // animation configs
   const block1Ref = useRef()
 
-  useChain(
-    [block1Ref]
-  )
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const getBrowser = Bowser.getParser(window.navigator.userAgent)
@@ -87,10 +85,12 @@ const TextHero = ({ data, theme, fontSize }) => {
             : data.bg__image
         }
       >
-        <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
-          <Title fontSize={fontSize} outlineColor={'white'}>
-            {data.title}
-          </Title>
+        <Col xs={10} lg={6} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
+          <BlockReveal ref={block1Ref} bgColor="white">
+            <Title fontSize={fontSize} outlineColor={'white'}>
+              {data.title}
+            </Title>
+          </BlockReveal>
           <Button>
             {data.button_text}
           </Button>
