@@ -10,7 +10,8 @@ import Services from './Homepage/Services'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-
+  // const { clientImages } = data.clientImages
+  console.log('clientImages', data)
   return (
     <Layout>
       <Hero serviceItems hero={frontmatter.hero} height='95vh' />
@@ -24,6 +25,17 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query HomePage {
+    clientImages: allFile(filter:  { absolutePath: { regex: "/clients/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         hero {
@@ -32,7 +44,7 @@ export const pageQuery = graphql`
           bg__image {
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
+                  ...GatsbyImageSharpFluid
               }
             }
           }
