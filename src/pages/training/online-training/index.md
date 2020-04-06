@@ -54,9 +54,13 @@ pricing:
         callout: SAVE 50%
         title: 3 MONTHS
         price: "$150"
+        button_text: Buy Training
+        sku: SKU_3MONTH
     - plan:
         title: 1 MONTH
         price: "$100"
+        sku: SKU_1MONTH
+        button_text: Buy Training
 guarantee:
   includes:
     [

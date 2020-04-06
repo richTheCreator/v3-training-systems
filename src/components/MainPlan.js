@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
 import { H5, H2, Body2 } from '../components/Typography'
 import Button from '../components/Button'
-
+import Checkout from './Checkout'
 const Container = styled(Row)`
   justify-content:center;
   align-items:center;
@@ -57,7 +57,9 @@ const MainPlan = ({ plan }) => {
       <Planwrapper xs={12}>
         <PlanType m={'0px'}> {plan.title} </PlanType>
         <Price themeColor={plan.main} mt={'24px'}> {plan.price} </Price>
-        <Button> START TRAINING </Button>
+        <Checkout sku={plan.sku}>
+          {plan.button_text}
+        </Checkout>
       </Planwrapper>
     </Container>
 
