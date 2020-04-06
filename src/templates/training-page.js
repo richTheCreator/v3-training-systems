@@ -67,6 +67,8 @@ export const pageQuery = graphql`
               callout
               title
               price
+              sku
+              button_text
             }
           }
         }
