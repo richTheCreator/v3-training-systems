@@ -1,4 +1,7 @@
 var proxy = require('http-proxy-middleware')
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 module.exports = {
   siteMetadata: {
@@ -30,6 +33,14 @@ module.exports = {
         name: 'uploads'
       }
     },
+    // {
+    //   resolve: 'gatsby-source-stripe',
+    //   options: {
+    //     objects: ['Sku'],
+    //     secretKey: process.env.STRIPE_SECRET_KEY,
+    //     downloadFiles: false
+    //   }
+    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
