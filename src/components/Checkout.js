@@ -26,6 +26,7 @@ const redirectToCheckout = async (event, sku) => {
 
 const Checkout = ({ sku }) => {
   console.log('main-env', process.env.GATSBY_STRIPE_SECRET_KEY)
+  console.log('node-env', process.env.NODE_ENV)
   return (
     <Button onClick={(e) => redirectToCheckout(e, sku)}>
       Buy Training
