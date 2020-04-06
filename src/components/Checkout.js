@@ -2,12 +2,12 @@ import React from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import Button from './Button'
 
-const key = process.env.STRIPE_SECRET_KEY
+const key = process.env.GATSBY_STRIPE_SECRET_KEY
 const skus = {
-  SKU_1MONTH: process.env.SKU_1MONTH,
-  SKU_3MONTH: process.env.SKU_3MONTH
+  SKU_1MONTH: process.env.GATSBY_SKU_1MONTH,
+  SKU_3MONTH: process.env.GATSBY_SKU_3MONTH
 }
-const baseUrl = process.env.BASE_URL
+const baseUrl = process.env.GATSBY_BASE_URL
 const stripePromise = loadStripe(key)
 
 const redirectToCheckout = async (event, sku) => {
@@ -25,7 +25,7 @@ const redirectToCheckout = async (event, sku) => {
 }
 
 const Checkout = ({ sku }) => {
-  console.log('main-env', process.env.STRIPE_SECRET_KEY)
+  console.log('main-env', process.env.GATSBY_STRIPE_SECRET_KEY)
   return (
     <Button onClick={(e) => redirectToCheckout(e, sku)}>
       Buy Training
