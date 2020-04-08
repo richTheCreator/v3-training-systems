@@ -50,7 +50,7 @@ const About = ({ about }) => {
           <PreviewCompatibleImage
             imageInfo={about.flex__image}
             imgStyle={{ objectFit: 'contain' }}
-            style={{ maxHeight: '90vh' }}
+            style={{ maxHeight: '75vh' }}
           />
         </Sections>
         <Sections
@@ -71,7 +71,7 @@ const About = ({ about }) => {
           <H2 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
             {about.title}
           </H2>
-          <Body1 color={'darkGrey'}> {about.bio} </Body1>
+          <Body2> {about.bio} </Body2>
           <Row>
             {
               about.callouts.map((co, idx) => (

@@ -45,7 +45,7 @@ export const H3 = system(
     fontSize: [9, 10],
     fontWeight: 2,
     color: 'black',
-    lineHeight: 7,
+    lineHeight: [5, 7],
     letterSpacing: 0
   },
   ...textStyles
@@ -70,8 +70,7 @@ export const H5 = system(
     fontWeight: 2,
     color: 'black',
     lineHeight: 5,
-    letterSpacing: 3,
-    fontStyle: 'italic'
+    letterSpacing: 3
   },
   ...textStyles
 )

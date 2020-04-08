@@ -6,7 +6,7 @@ import {
   alignSelf,
   space
 } from 'styled-system'
-import { H2 } from '../../components/Typography'
+import { H3 } from '../../components/Typography'
 import MainPlan from '../../components/MainPlan'
 import Guarantee from '../../components/Guarantee'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
@@ -36,9 +36,9 @@ const Pricing = ({ pricing, guarantee }) => {
       <Container mt={0} p={['0px', '40px']}>
         <Col xs={12} md={12} lg={9} style={{ padding: '0px' }}>
           <Col xs={12} md={6} style={{ margin: 'auto', padding: '0px' }}>
-            <H2 mt={0} mb={7} textAlign='center'>
+            <H3 mt={0} mb={7} textAlign='center'>
               {pricing.title}
-            </H2>
+            </H3>
           </Col>
           <Row>
             {

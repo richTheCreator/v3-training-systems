@@ -15,7 +15,7 @@ const TrainingPage = ({ data }) => {
 
   return (
     <Layout>
-      <TextHero data={frontmatter.hero} fontSize='42px' />
+      <TextHero data={frontmatter.hero} fontSize='32px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
       <ForYou foryou={frontmatter.foryou} />

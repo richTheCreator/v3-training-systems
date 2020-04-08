@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { useChain } from 'react-spring'
 import { Row, Col } from 'react-flexbox-grid'
 import Bowser from 'bowser'
-import { Outlined } from '../components/Typography'
+import { Outlined, H2, H5, Body2 } from '../components/Typography'
 import Button from '../components/Button'
 import { BlockReveal } from '../components/Animation'
+import { space } from 'styled-system'
 
 const Container = styled(Row)`
   justify-content:center;
@@ -16,6 +17,9 @@ const Container = styled(Row)`
   height:100%;
   position:relative;
   padding: 4em 0em;
+  border-image: linear-gradient(139deg, #d22030, #ff4b01, #c12127, #d22030) 3;
+  border-bottom-style: solid;
+  border-width: 10px;
 `
 const Overlay = styled.div`
   background-size:cover;
@@ -28,40 +32,27 @@ const Overlay = styled.div`
   background-image: url('/img/dots-overlay.png')
 `
 
-const Title = styled(Outlined)`
-  color : transparent;
-  text-align: center;
+const Title = styled(H2)`
+  text-align : center;
   margin-top : 24px;
   margin-bottom: 24px;
   width:100%;
 `
 
-// Need to rethink having this here vs updating the root H1
-// const HeroTitle = styled.h1`
-//   ${space}
-//   ${fontSize}
-//   font-size:calc(1.3rem + 2vw);
-//   color: white;
-//   margin-bottom: 20px;
-//   line-height: 1.3em;
-//   font-style: italic;
-//   text-transform: uppercase;
-//   white-space: pre-wrap;
-//   font-weight: ${props => props.theme.fontWeights[2]};
-//   letter-spacing: ${props => `${props.theme.letterSpacings[10]}px`};
-// `
-// Need to rethink having this here vs updating the root p
-// const HeroSubtitle = styled.p`
-//   ${space}
-//   ${fontSize}
-//   color: white;
-//   line-height: 1.4em;
-//   font-weight: 300;
-//   max-width: 400px;
-//   letter-spacing: 0.5px;
-//   text-transform: none;
-// `
-
+const CalloutContainer = styled(Col)`
+  ${space}
+  justify-content:center;
+  align-items:center;
+`
+const Callout = ({ count, desc }) => (
+  <CalloutContainer xs={4} md={2}>
+    <H5 m={0} color={'white'} textAlign={'center'}>
+      {' '}
+      {count}{' '}
+    </H5>
+    <Body2 color={'lightGrey'} mt={1} textAlign={'center'}> {desc} </Body2>
+  </CalloutContainer>
+)
 const TextHero = ({ data, theme, fontSize }) => {
   const [browser, setBrowser] = useState('undefined')
 
@@ -85,15 +76,17 @@ const TextHero = ({ data, theme, fontSize }) => {
             : data.bg__image
         }
       >
-        <Col xs={10} lg={6} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
+        <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
           <BlockReveal ref={block1Ref} bgColor="white">
-            <Title fontSize={fontSize} outlineColor={'white'}>
+            <Title color={'white'} fontStyle={'italic'}>
               {data.title}
             </Title>
+            <Row style={{ justifyContent: 'center' }}>
+              <Callout count={'1 - 3'} desc={'Months'} />
+              <Callout count={'Any'} desc={'Environment'} />
+              <Callout count={'All'} desc={'Skill levels'} />
+            </Row>
           </BlockReveal>
-          <Button>
-            {data.button_text}
-          </Button>
         </Col>
         <Overlay/>
       </Container>

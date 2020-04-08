@@ -5,7 +5,7 @@ import {
   WithDecorator,
   Outlined
 } from '../../components/Typography'
-import { SectionWrapper } from '../../components/Containers'
+import { SectionWrapper, SectionMax } from '../../components/Containers'
 import Button from '../../components/Button'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
@@ -96,7 +96,7 @@ const ServiceItem = ({
       alignItems: 'center',
       margin: 'auto',
       padding: '24px',
-      marginTop: '64px',
+      marginTop: idx === 0 ? '0px' : '64px',
       backgroundColor: inverted ? '#F5F7F9' : '#191c1f',
       width: '100%',
       height: '100vh',
@@ -123,7 +123,7 @@ const ServiceItem = ({
     <Col style={{ position: 'relative' }} lg={7}>
       <PreviewCompatibleImage
         imageInfo={service.service__image}
-        style={{ minHeight: '500px', height: '70vh' }}
+        style={{ minHeight: '500px', height: '70vh', zIndex: '1' }}
       />
       <PreviewCompatibleImage
         imageInfo={hero.dots__image}
@@ -136,7 +136,8 @@ const ServiceItem = ({
 
 const Services = ({ services, hero, inverted }) => (
   <SectionWrapper bg={inverted ? 'white' : 'rgb(34, 37, 41)' }>
-    {services.map((service, idx) => (
+    <SectionMax>
+      {services.map((service, idx) => (
       <>
         <ServiceItem
           flipped={idx % 2}
@@ -151,7 +152,8 @@ const Services = ({ services, hero, inverted }) => (
           hero={hero}
         />
       </>
-    ))}
+      ))}
+    </SectionMax>
   </SectionWrapper>
 )
 

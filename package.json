@@ -40,6 +40,7 @@
     "react-faq-component": "^1.0.5",
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "^5.2.0",
+    "react-masonry-css": "^1.0.14",
     "react-pose": "^4.0.8",
     "react-pose-text": "^3.1.0",
     "react-spring": "^8.0.20",

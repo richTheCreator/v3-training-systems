@@ -1,10 +1,8 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title: TRAINING EVERYDAY ATHLETES
+  title: CONQUER YOUR FITNESS GOALS WITH V3
   bg__image: /img/kg-gym-hero.jpg
   dots__image: /img/dots.png
   blurbs:

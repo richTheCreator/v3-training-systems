@@ -22,7 +22,7 @@ import {
 } from 'styled-system'
 import { Link } from 'gatsby'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button, Outlined } from '../../components/Typography'
+import { Subtitle1, Body2, Button, H2 } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
 
 const HeroContainer = styled.div`
@@ -129,6 +129,9 @@ const Arrow = styled.svg`
   height: 24px;
   width: 24px;
 `
+const HeroAccent = styled.span`
+  ${color}
+`
 const ServiceItem = ({ title, text, style, url }) => (
   <Col className="hidden-xs hidden-sm" style={style} xs>
     <Subtitle1>{title} </Subtitle1>
@@ -205,9 +208,10 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
       <LeftHero alignSelf={'center'} gridArea={[leftSM, leftSM, leftLG]}>
         <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12} md={8}>
           <BlockReveal ref={block1Ref} delay={300} bgColor="white">
-            <Outlined fontSize={'48px'} color={'transparent'} mb={0} outlineColor={ 'white'}>
-              {hero.title}
-            </Outlined>
+            <H2 color={'white'}>
+              <HeroAccent color="accent"> {hero.title.split(' ')[0]} </HeroAccent>
+              {hero.title.split(' ').splice(1, hero.title.length).join(' ')}
+            </H2>
           </BlockReveal>
         </LeftHeroWrapper>
       </LeftHero>
