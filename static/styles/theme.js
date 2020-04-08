@@ -13,7 +13,7 @@ const fontSizes = [
   '13.7px', // 3
   '13.82px', // 4
   '15.65px', // 5
-  '15.8px', // 6
+  '16px', // 6
   '19.36px', // 7
   '23.23px', // 8
   '32.91px', // 9
@@ -64,7 +64,7 @@ const maxWidths = ['1400px', '1800px']
 
 // Colors
 const colors = {
-  accent: '#d22030',
+  accent: '#FF5353',
   black: '#191c1f',
   blackBlue: '#222529',
   black70: 'rgba(0,0,0,.7)',

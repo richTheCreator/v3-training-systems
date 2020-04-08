@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { H1 } from '../../components/Typography'
+import { H1, H3 } from '../../components/Typography'
 import ProgramCard from './ProgramCard'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
@@ -18,6 +18,9 @@ const Program = ({ program }) => {
   return (
     <SectionWrapper>
       <SectionMax style={{ justifyContent: 'center' }}>
+        <H3 mt={0} mb={6} textAlign='center'>
+          Included in each program
+        </H3>
         <Row style={{ marginTop: '-6px', zIndex: 2 }}>
           {program.map((service, idx) => (
             <Col xs={12} md={6} lg={4}>

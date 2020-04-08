@@ -54,7 +54,7 @@ function makeClassComponent (WrappedComponent) {
 const AnimatedMenu = animated(makeClassComponent(MenuList))
 const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
-const NavbarLG = ({ menuLinks }) => (
+const NavbarLG = ({ menuLinks, theme }) => (
   <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%' }}>
     <Col xs={-1}>
       <Link to='/' className='navbar-item' title='Logo'>
@@ -131,6 +131,7 @@ const Navbar = ({ menuLinks }) => {
   const menuRef = useRef()
   const springMenu = useSpring({
     opacity: expanded ? 1 : 0,
+    display: expanded ? 'block' : 'none',
     transform: expanded ? 'scaleY(1)' : 'scaleY(0)',
     ref: menuRef
     // visibility: expanded ? 'visible' : 'hidden'

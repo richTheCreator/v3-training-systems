@@ -1,7 +1,7 @@
 ---
 templateKey: training-page
 hero:
-  title: Online Personal Training.
+  title: V3 ONLINE FITNESS
   bg__image: /img/v3-performance-bg.jpg
   button_text: Start Training
   button_url: /
@@ -9,14 +9,27 @@ program:
   - service:
       title: NUTRITION PLAN
       service__image: /img/program-nutrition.png
-      desc: Teaching you how to track your calories, shop, and plan your weeks will be the main mission for our nutrition program. Goals to reach your daily required macronutrients. In some cases a custom diet plan will be prescribed.
+      desc: Teaching you how to track your calories, shop, and plan your weeks will be the main mission for our nutrition program. Goals to reach your daily required macronutrients.
   - service:
       title: MONTHLY ROUTINE
       service__image: /img/program-workout.png
       desc: Monthly workouts will be provided and will progress over each month ensuring that you reach your health and fitness goals
 
   - service:
-      title: UNLIMITED SUPPORT
+      title: PREMIUM SUPPORT
+      service__image: /img/program-support.png
+      desc: Direct access to me through phone calls, text messaging, email and services like FaceTime and Skype.
+  - service:
+      title: RECOVERY
+      service__image: /img/program-nutrition.png
+      desc: Teaching you how to track your calories, shop, and plan your weeks will be the main mission for our nutrition program. Goals to reach your daily required macronutrients.
+  - service:
+      title: CORRECTIVE EXERCISE
+      service__image: /img/program-workout.png
+      desc: Monthly workouts will be provided and will progress over each month ensuring that you reach your health and fitness goals
+
+  - service:
+      title: STRESS MANAGEMENT
       service__image: /img/program-support.png
       desc: Direct access to me through phone calls, text messaging, email and services like FaceTime and Skype.
 comparison:

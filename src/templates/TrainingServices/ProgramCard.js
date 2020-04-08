@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { H5, Body1 } from '../../components/Typography'
+import { H5, Body2 } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
 const Container = styled(Row)`
   justify-content:center;
   align-items:center;
   position:relative;
-  background-color: ${props => props.theme.colors.greyBlue};
-  height:170px;
-  margin-bottom:24px;
+  box-shadow: ${props => props.theme.shadows.md};
+  border: 1px solid ${props => props.theme.colors.lightGrey};
+  height:110px;
+  margin-bottom:16px;
   padding-left:16px;
 `
 
@@ -42,7 +43,7 @@ const ProgramCard = ({ service }) => {
           />
         </Col>
       </Container>
-      <Body1 color={'mdGrey'}> {service.desc}</Body1>
+      <Body2 color={'mdGrey'}> {service.desc}</Body2>
     </Col>
   )
 }

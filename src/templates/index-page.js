@@ -7,16 +7,18 @@ import Layout from '../components/Layout'
 import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
+import Clients from './Homepage/Clients'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
-  // const { clientImages } = data.clientImages
-  console.log('clientImages', data)
+  const { edges } = data.clientImages
+  console.log('clientImages', edges)
   return (
     <Layout>
       <Hero serviceItems hero={frontmatter.hero} height='95vh' />
       <About about={frontmatter.about} />
       <Services services={frontmatter.services} hero={frontmatter.hero} />
+      <Clients clientImages={edges} />
     </Layout>
   )
 }
