@@ -19,7 +19,7 @@ const Container = styled(Row)`
   padding: 4em 0em;
   border-image: linear-gradient(139deg, #d22030, #ff4b01, #c12127, #d22030) 3;
   border-bottom-style: solid;
-  border-width: 10px;
+  border-bottom-width: 10px;
 `
 const Overlay = styled.div`
   background-size:cover;
@@ -46,7 +46,7 @@ const CalloutContainer = styled(Col)`
 `
 const Callout = ({ count, desc }) => (
   <CalloutContainer xs={4} md={2}>
-    <H5 m={0} color={'white'} textAlign={'center'}>
+    <H5 m={0} color={'white'} textAlign={'center'} letterSpacing={0}>
       {' '}
       {count}{' '}
     </H5>

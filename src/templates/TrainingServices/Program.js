@@ -19,7 +19,7 @@ const Program = ({ program }) => {
     <SectionWrapper>
       <SectionMax style={{ justifyContent: 'center' }}>
         <H3 mt={0} mb={6} textAlign='center'>
-          Included in each program
+          A program designed for you
         </H3>
         <Row style={{ marginTop: '-6px', zIndex: 2 }}>
           {program.map((service, idx) => (

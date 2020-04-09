@@ -9,17 +9,20 @@ import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
 import ForYou from './TrainingServices/ForYou'
 import Pricing from './TrainingServices/Pricing'
+import Clients from './Homepage/Clients'
 
 const TrainingPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  const { edges } = data.clientImages
 
   return (
     <Layout>
       <TextHero data={frontmatter.hero} fontSize='32px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
-      <ForYou foryou={frontmatter.foryou} />
       <Pricing pricing={frontmatter.pricing} guarantee={frontmatter.guarantee} />
+      <Clients clientImages={edges} />
+      <ForYou foryou={frontmatter.foryou} />
     </Layout>
   )
 }
@@ -28,6 +31,17 @@ export default TrainingPage
 
 export const pageQuery = graphql`
   query TrainingPage {
+    clientImages: allFile(filter:  { absolutePath: { regex: "/clients/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
     markdownRemark(frontmatter: { templateKey: { eq: "training-page" } }) {
       frontmatter {
         hero {
@@ -56,8 +70,8 @@ export const pageQuery = graphql`
           title
           dots__image {
             childImageSharp {
-              fluid(maxWidth: 800, quality: 100) {
-                ...GatsbyImageSharpFluid
+              fixed(width: 200, height: 200) {
+                ...GatsbyImageSharpFixed
               }
             }
           }

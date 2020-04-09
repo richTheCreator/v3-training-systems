@@ -22,8 +22,9 @@ import {
 } from 'styled-system'
 import { Link } from 'gatsby'
 import Bowser from 'bowser'
-import { Subtitle1, Body2, Button, H2 } from '../../components/Typography'
+import { Subtitle1, Body2, Outlined } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
+import Button from '../../components/Button'
 
 const HeroContainer = styled.div`
   display: grid;
@@ -31,7 +32,7 @@ const HeroContainer = styled.div`
   grid-template-rows: repeat(6, 1fr);
   grid-column-gap: 8px;
   grid-row-gap: 8px;
-  height: 95vh;
+  height: 70vh;
 `
 
 const LeftHero = styled.div`
@@ -39,8 +40,8 @@ const LeftHero = styled.div`
   ${alignSelf}
   z-index:2;
 `
-const leftLG = '1 / 1 / 5 / 12'
-const leftSM = '1 / 1 / 5 / 13'
+const leftLG = '1 / 1 / 7 / 13'
+const leftSM = '1 / 1 / 7 / 13'
 
 const RightHero = styled.div`
   ${zIndex}
@@ -53,7 +54,7 @@ const RightHero = styled.div`
   ${backgroundImage}
   background-repeat:no-repeat;
 `
-const rtLG = '1 / 1 / 6 / 13'
+const rtLG = '1 / 1 / 7 / 13'
 const rtSM = '1 / 1 / 7 / 13'
 
 const BottomBar = styled.div`
@@ -208,10 +209,10 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
       <LeftHero alignSelf={'center'} gridArea={[leftSM, leftSM, leftLG]}>
         <LeftHeroWrapper p={[3, 4, 5, 7]} xs={12} md={8}>
           <BlockReveal ref={block1Ref} delay={300} bgColor="white">
-            <H2 color={'white'}>
-              <HeroAccent color="accent"> {hero.title.split(' ')[0]} </HeroAccent>
+            <Outlined textAlign={['center', 'center', 'left', 'left']} fontSize={60} fontStyle={'italic'} outlineColor={ 'white'} color={'transparent'} >
+              <HeroAccent outlineColor="accent"> {hero.title.split(' ')[0]} </HeroAccent>
               {hero.title.split(' ').splice(1, hero.title.length).join(' ')}
-            </H2>
+            </Outlined>
           </BlockReveal>
         </LeftHeroWrapper>
       </LeftHero>
@@ -222,44 +223,7 @@ const AnimatedTitles = ({ hero, browser, theme }) => {
         backgroundPosition={['center', 'center', 'right', 'right']}
         backgroundImage={['url(/img/kg-gym-hero-mobile.jpg)', 'url(/img/kg-gym-hero.jpg)']}
       />
-      <BottomBar backgroundColor={'white'} gridArea={[btSM, btSM, btLG]}>
-        <LegendWrapper justifyContent="flex-start" style={{ overflow: 'hidden' }}>
-          <AnimatedLegend
-            bg="white"
-            native
-            style={legendWidth}
-            p={[4, 5, 6]}
-            xs={12}
-            sm={12}
-            xl={6}
-          >
-            <LegendItems
-              height={0}
-              alignItems={['flex-start', 'flex-start', 'center', 'center']}
-              justifyContent="space-around"
-            >
-              {trail.map((props, index) => (
-                <LegendItemsWidth
-                  native
-                  width={['100%', '100%', 'auto', 'auto']}
-                >
-                  <AnimatedServiceItem
-                    style={props}
-                    title={hero.blurbs[index].pkg.title}
-                    text={hero.blurbs[index].pkg.text}
-                    url={hero.blurbs[index].pkg.url}
-                  />
-                  <AnimatedServiceItemM
-                    style={props}
-                    title={hero.blurbs[index].pkg.title}
-                    url={hero.blurbs[index].pkg.url}
-                  />
-                </LegendItemsWidth>
-              ))}
-            </LegendItems>
-          </AnimatedLegend>
-        </LegendWrapper>
-      </BottomBar>
+
     </>
   )
 }
@@ -293,3 +257,43 @@ class Hero extends Component {
 }
 
 export default Hero
+
+{ /* <BottomBar backgroundColor={'white'} gridArea={[btSM, btSM, btLG]}>
+  <LegendWrapper justifyContent="flex-start" style={{ overflow: 'hidden' }}>
+    <AnimatedLegend
+      bg="white"
+      native
+      style={legendWidth}
+      p={[4, 5, 6]}
+      xs={12}
+      sm={12}
+      xl={6}
+    >
+      <LegendItems
+        height={0}
+        alignItems={['flex-start', 'flex-start', 'center', 'center']}
+        justifyContent="space-around"
+      >
+        {trail.map((props, index) => (
+          <LegendItemsWidth
+            native
+            width={['100%', '100%', 'auto', 'auto']}
+          >
+            <AnimatedServiceItem
+              style={props}
+              title={hero.blurbs[index].pkg.title}
+              text={hero.blurbs[index].pkg.text}
+              url={hero.blurbs[index].pkg.url}
+            />
+            <AnimatedServiceItemM
+              style={props}
+              title={hero.blurbs[index].pkg.title}
+              url={hero.blurbs[index].pkg.url}
+            />
+          </LegendItemsWidth>
+        ))}
+      </LegendItems>
+    </AnimatedLegend>
+  </LegendWrapper>
+</BottomBar>
+*/ }

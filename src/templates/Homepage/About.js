@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { Overline, H2, Body1, H4, Body2 } from '../../components/Typography'
+import { Overline, H3, Body1, H4, Body2 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
 
@@ -68,9 +68,9 @@ const About = ({ about }) => {
           >
             MEET YOUR TRAINER
           </Overline>
-          <H2 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
+          <H3 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
             {about.title}
-          </H2>
+          </H3>
           <Body2> {about.bio} </Body2>
           <Row>
             {
