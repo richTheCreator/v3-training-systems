@@ -2,7 +2,7 @@
 templateKey: index-page
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title: CONQUER YOUR FITNESS GOALS WITH V3
+  title: FITNESS TRAINING PROGRAMS 
   bg__image: /img/kg-gym-hero.jpg
   dots__image: /img/dots.png
   blurbs:

@@ -6,7 +6,7 @@ import {
   alignSelf,
   space
 } from 'styled-system'
-import { H2, Body1 } from '../../components/Typography'
+import { H3, Body2 } from '../../components/Typography'
 import Button from '../../components/Button'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
@@ -27,18 +27,21 @@ const Overlay = styled.div`
   background-position:center;
   background-image: url('/img/dots-overlay-light.png')
 `
-
+const mailTo = (href) => {
+  window.open('mailto:conquerfitness01@gmail.com?subject=V3%20Online%20Fitness%20Program%20-%20Customer%20Contact', '_blank')
+}
 const ForYou = ({ foryou }) => {
   return (
     <SectionWrapper pt={'0px !important'} pl={['0px', 'inherit']} pr={['0px', 'inherit']}>
       <Container mt={0} p={['24px', '40px']}>
         <Col xs={12} md={6} style={{ zIndex: 1, padding: '0px' }}>
-          <H2 mt={0} mb={3}>
+          <H3 mt={0} mb={3} textAlign={['center', 'center', 'left', 'left']}>
             {foryou.title}
-          </H2>
-          <Body1 color={'darkGrey'}>
+          </H3>
+          <Body2 color={'darkGrey'} textAlign={['center', 'center', 'left', 'left']}>
             {foryou.desc}
-          </Body1>
+          </Body2>
+          <Button onClick={() => mailTo()} width={['100%', 'auto', 'auto']} color='black'> CONTACT </Button>
         </Col>
         <Overlay />
       </Container>

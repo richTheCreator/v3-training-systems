@@ -44,7 +44,6 @@ const Callout = styled(Body2)`
 `
 
 const MainPlan = ({ plan }) => {
-  console.log('plan.main', plan.main)
   return (
     <Container themeColor={plan.main}>
       {
@@ -57,7 +56,7 @@ const MainPlan = ({ plan }) => {
       <Planwrapper xs={12}>
         <PlanType m={'0px'}> {plan.title} </PlanType>
         <Price themeColor={plan.main} mt={'24px'}> {plan.price} </Price>
-        <Checkout sku={plan.sku}>
+        <Checkout themeColor={plan.main} sku={plan.sku} buttonText={plan.button_text}>
           {plan.button_text}
         </Checkout>
       </Planwrapper>

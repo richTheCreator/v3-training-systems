@@ -24,11 +24,14 @@ const redirectToCheckout = async (event, sku) => {
   }
 }
 
-const Checkout = ({ sku }) => {
-  console.log('node-env', process.env.NODE_ENV)
+const Checkout = ({ sku, themeColor, buttonText }) => {
   return (
-    <Button onClick={(e) => redirectToCheckout(e, sku)}>
-      Buy Training
+    <Button
+      backgroundColor={themeColor ? 'white' : 'black'}
+      color={themeColor ? 'black' : 'white'}
+      onClick={(e) => redirectToCheckout(e, sku)}
+    >
+      {buttonText}
     </Button>
   )
 }

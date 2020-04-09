@@ -144,7 +144,7 @@ export const Button = system(
   {
     is: 'p',
     fontSize: 6,
-    fontWeight: 3,
+    fontWeight: 2,
     color: 'accent',
     lineHeight: 0,
     letterSpacing: 8
@@ -206,16 +206,15 @@ export const WithDecorator = ({ bodyText, bodyColor, decoratorColor }) => (
   </ListItemSquare>
 )
 
-export const Outlined = styled.h2`
+export const Outlined = styled(H3)`
 ${space}
 ${fontWeight}
 ${color}
 -webkit-text-stroke-width: 1px;
 -webkit-text-stroke-color: ${props => props.outlineColor};
 font-weight: ${props => props.theme.fontWeights[3]};
-text-align: left;
-font-size: calc(${props =>
-  props.fontSize} + (40 - 18) * ((100vw - 300px) / (1600 - 300)));
+font-size: ${props => props.fontSize ? `calc(${props.fontSize}px + (40 - 18) * ((100vw - 300px) / (1600 - 300)));` : 'auto'}
+line-height: ${props => props.fontSize ? `calc(${props.fontSize}px + (40 - 18) * ((100vw - 300px) / (1600 - 300)))!important;` : 'auto'}
 font-style: italic;
 display:inline-block;
 `

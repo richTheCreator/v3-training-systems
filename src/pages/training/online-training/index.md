@@ -31,7 +31,7 @@ program:
   - service:
       title: STRESS MANAGEMENT
       service__image: /img/program-support.png
-      desc: Direct access to me through phone calls, text messaging, email and services like FaceTime and Skype.
+      desc: An often overlooked element in a training program is the importance of keeping stress to a minimum.  Stress can have a huge negative impact on client results, as it can affect recovery and the body's ability to change.
 comparison:
   title: Better than any app
   workout__image: /img/workout-stairs-v3.jpg
@@ -55,25 +55,25 @@ comparison:
             "Little to no support",
           ]
 foryou:
-  title: Designed for you
+  title: Have questions?
   workout__image: /img/workout-stairs-v3.jpg
-  desc: V3 workouts will be completely tailored to you to meet your health and fitness goals. You will be provided with a unique training experience that will help you lead a healthy lifestyle providing you with lifelong results.
+  desc: Contact me to talk about how our online program can help you reach your fitness goals
 pricing:
   title: Simple plans and pricing
-  dots__image: /img/workout-stairs-v3.jpg
+  dots__image: /img/dots.png
   plans:
     - plan:
         main: true
         callout: SAVE 50%
         title: 3 MONTHS
         price: "$150"
-        button_text: Buy Training
+        button_text: Start Program
         sku: SKU_3MONTH
     - plan:
         title: 1 MONTH
         price: "$100"
         sku: SKU_1MONTH
-        button_text: Buy Training
+        button_text: Start Program
 guarantee:
   includes:
     [
