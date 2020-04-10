@@ -43,7 +43,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property='og:image' content='/img/og-image.jpg' />
       </Helmet>
       <Navbar menuLinks={menuLinks} />
-      <div style={{ paddingTop: '72px' }}>{children}</div>
+      <div style={{ paddingTop: '99px' }}>{children}</div>
       {/* <Footer /> */}
     </div>
   )

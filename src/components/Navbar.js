@@ -2,32 +2,65 @@ import React, { useState, useRef } from 'react'
 import { Link } from 'gatsby'
 import { Row, Col } from 'react-flexbox-grid'
 import { useSpring, useTransition, useChain, animated } from 'react-spring'
+import { justifyContent } from 'styled-system'
+import { Body2 } from './Typography'
 import styled from 'styled-components'
+import guaranteed from '../img/guaranteed.svg'
+import skill from '../img/skill-levels.svg'
+import workouts from '../img/workouts-env.svg'
 
 const NavWrapper = styled.header`
   top: 0px;
   left: 0px;
   right: 0px;
   position: fixed;
-  z-index: 1000;
-  height: 72px;
-  padding: 0px 32px;
-  background-color: ${props => props.theme.colors.black};
+  z-index: 104;
+  background-color: ${props => props.theme.colors.white};
 `
-
+const NavSection = styled.div`
+  width: auto;
+  display: flex;
+  padding: 0px 32px;
+  box-shadow: ${props => props.theme.shadows.sm}
+`
+const InfoBanner = styled.div`
+  ${justifyContent}
+  width: auto;
+  display: flex;
+  padding: 0px 32px;
+  box-shadow: ${props => props.theme.shadows.sm};
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+`
 const LinkStyle = styled(Link)`
   vertical-align: middle;
   display: table-cell;
   height: 55px;
   padding: 0px 24px;
   text-decoration: none;
-  text-transform: uppercase;
   font-size: ${props => props.theme.fontSizes[4]};
   font-weight: ${props => props.theme.fontWeights[2]};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.black};
   letter-spacing: ${props => props.theme.letterSpacings[8]};
 `
-
+const SmallButton = styled.div`
+  border-radius: 15px;
+  background: ${props => props.theme.colors.accent};
+  color: ${props => props.theme.colors.white};
+  font-family: ${props => props.theme.fonts.sans};
+  font-size: 11px;
+  text-align:center;
+  vertical-align: middle;
+  padding: 8px 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  justify-self: flex-end;
+  cursor: pointer;
+}
+`
 const MenuList = styled(Col)`
   position: fixed;
   display: none;
@@ -40,7 +73,7 @@ const MenuList = styled(Col)`
   z-index: 10;
   overflow-y: scroll;
   transform-origin: top;
-  background: ${props => props.theme.colors.black};
+  background: ${props => props.theme.colors.white};
 `
 
 function makeClassComponent (WrappedComponent) {
@@ -54,8 +87,15 @@ function makeClassComponent (WrappedComponent) {
 const AnimatedMenu = animated(makeClassComponent(MenuList))
 const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
+const InfoItem = ({ icon, children }) => (
+  <span style={{ verticalAlign: 'middle', paddingRight: '16px' }}>
+    <img src={icon} style={{ width: '32px', height: '32px', verticalAlign: 'middle', paddingBottom: '6px' }} />
+    <Body2 color={'#9c9c9c'} verticalAlign={'middle'} mt={2} mb={2} style={{ display: 'inline-block' }}> {children} </Body2>
+  </span>
+
+)
 const NavbarLG = ({ menuLinks, theme }) => (
-  <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%' }}>
+  <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%', width: '100%' }}>
     <Col xs={-1}>
       <Link to='/' className='navbar-item' title='Logo'>
         <svg
@@ -71,22 +111,23 @@ const NavbarLG = ({ menuLinks, theme }) => (
         </svg>
       </Link>
     </Col>
-    <Col style={{ padding: '0px 16px' }}>
-      <Row around='xs'>
+    <Col xs={11} style={{ padding: '0px 16px' }}>
+      <Row middle='xs' center='xs'>
         {menuLinks.map(navItems =>
-          navItems.link !== navItems.link[0] ? (
+          navItems.name !== 'Home' ? (
             <Row style={{ display: 'table' }}>
               <LinkStyle to={navItems.link}>{navItems.name}</LinkStyle>
             </Row>
           ) : null
         )}
+        <SmallButton> Start training </SmallButton>
       </Row>
     </Col>
   </Row>
 )
 const NavbarSM = ({ menuLinks, toggleMenu }) => (
   <Row
-    style={{ height: '100%' }}
+    style={{ height: '100%', width: '100%' }}
     className='hidden-xl hidden-lg hidden-md'
     middle='xs'
   >
@@ -96,10 +137,10 @@ const NavbarSM = ({ menuLinks, toggleMenu }) => (
           onClick={toggleMenu}
           width='28'
           viewBox='0 0 28 23'
-          fill='none'
+          fill='#000'
           xmlns='http://www.w3.org/2000/svg'
         >
-          <path d='M.5.5h17.03M.5 6.5h17.03M.5 12.5h17.03' fill='white' fill-rule='evenodd' stroke='white' stroke-linecap='square' />
+          <path d='M.5.5h17.03M.5 6.5h17.03M.5 12.5h17.03' fill='#000' fill-rule='evenodd' stroke='#000' stroke-linecap='square' />
         </svg>
       </Row>
     </Col>
@@ -155,8 +196,21 @@ const Navbar = ({ menuLinks }) => {
 
   return (
     <NavWrapper>
-      <NavbarLG menuLinks={menuLinks} />
-      <NavbarSM menuLinks={menuLinks} toggleMenu={toggleMenu} />
+      <NavSection style={{ height: '55px' }}>
+        <NavbarLG menuLinks={menuLinks} />
+        <NavbarSM menuLinks={menuLinks} toggleMenu={toggleMenu} />
+      </NavSection>
+      <InfoBanner justifyContent={['flex-start', 'flex-start', 'center', 'center']}>
+        <InfoItem icon={guaranteed}>
+          100% Satisfaction guaranteed
+        </InfoItem>
+        <InfoItem icon={skill}>
+          For any skill level or goal
+        </InfoItem>
+        <InfoItem icon={workouts}>
+          Workouts for at home or gym
+        </InfoItem>
+      </InfoBanner>
       <AnimatedMenu
         className='hidden-md hidden-lg hidden-xl'
         middle='xs'
