@@ -2,8 +2,8 @@
 templateKey: index-page
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
-  title: FITNESS TRAINING PROGRAMS 
-  bg__image: /img/kg-gym-hero.jpg
+  title: Fitness programs designed for you
+  bg__image: /img/at-home-workout.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:

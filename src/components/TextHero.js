@@ -20,6 +20,9 @@ const Container = styled(Row)`
   border-image: linear-gradient(139deg, #d22030, #ff4b01, #c12127, #d22030) 3;
   border-bottom-style: solid;
   border-bottom-width: 10px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
 `
 const Overlay = styled.div`
   background-size:cover;

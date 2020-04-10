@@ -11,12 +11,16 @@ module.exports = {
         link: '/'
       },
       {
-        name: 'Training',
-        link: '/training'
+        name: 'Online Training',
+        link: '/training/online-training'
       },
       {
-        name: 'About',
-        link: '/contact'
+        name: 'Personal Training',
+        link: '/'
+      },
+      {
+        name: '8 Week Program',
+        link: '/'
       }
     ]
   },
