@@ -3,6 +3,7 @@ import {
   // Link,
   graphql
 } from 'gatsby'
+import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import TextHero from '../components/TextHero'
 import Program from './TrainingServices/Program'
@@ -17,6 +18,10 @@ const TrainingPage = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Online Workout Program</title>
+        <meta name='description' content={'Online workout programs designed for you and your goals.'} />
+      </Helmet>
       <TextHero data={frontmatter.hero} fontSize='32px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
