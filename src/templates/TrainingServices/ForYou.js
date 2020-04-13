@@ -7,7 +7,7 @@ import {
   space
 } from 'styled-system'
 import { H3, Body2 } from '../../components/Typography'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
 const Container = styled(SectionMax)`

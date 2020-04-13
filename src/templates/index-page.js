@@ -16,8 +16,8 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Hero serviceItems hero={frontmatter.hero} height='95vh' />
-      <About about={frontmatter.about} />
       <Services services={frontmatter.services} hero={frontmatter.hero} />
+      <About about={frontmatter.about} />
       <Clients clientImages={edges} />
     </Layout>
   )
@@ -83,17 +83,26 @@ export const pageQuery = graphql`
           }
         }
         services {
-          service {
-            title
-            desc
-            button_text
-            button_url
-            button_disabled
-            includes
-            service__image {
-              childImageSharp {
-                fluid(maxWidth: 1000, quality: 100) {
-                  ...GatsbyImageSharpFluid
+          title
+          summary
+          programs {
+            program {
+              title
+              desc
+              button_text
+              button_url
+              button_disabled
+              button_subtext
+              badge {
+                promo
+                text
+              }
+              includes
+              service__image {
+                childImageSharp {
+                  fluid(maxWidth: 1000, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
                 }
               }
             }

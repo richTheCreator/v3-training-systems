@@ -6,6 +6,9 @@ import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 import { width, height, space } from 'styled-system'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 
+const ListWrapper = styled(Col)`
+  ${space}
+`
 const ContentContainer = styled(Col)`
   ${space}
   background-color: ${props => props.theme.colors.blackBlue};
@@ -42,10 +45,12 @@ const Comparison = ({ comparison }) => {
                   {
                     item.item.includes.map((text) =>
                       <Col sm={6}>
-                        <WithDecorator
-                          bodyText={text}
-                          bodyColor={ idx === 0 ? 'white' : 'disabled'}
-                          decoratorColor={idx === 0 ? 'accent' : 'disabled'}/>
+                        <ListWrapper mt={3} mb={3}>
+                          <WithDecorator
+                            bodyText={text}
+                            bodyColor={ idx === 0 ? 'white' : 'disabled'}
+                            decoratorColor={idx === 0 ? 'accent' : 'disabled'}/>
+                        </ListWrapper>
                       </Col>
                     )
                   }

@@ -24,4 +24,4 @@ const Button = (props) =>
     </Container>
   </Link>
 
-export default Button
+export { Button }

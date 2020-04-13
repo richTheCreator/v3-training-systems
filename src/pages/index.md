@@ -37,43 +37,53 @@ transformations:
   title: Kevin Graves
   body: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
 services:
-  - service:
-      title: ONLINE TRAINING
-      service__image: /img/online-workout-phone.jpg
-      desc: A training experience crafted to your environment & lifestyle
-      button_text: Get Started
-      button_url:  /training/online-training
-      includes:
-        [
-          "Weekly video check-ins",
-          "Routines tailored to your goals",
-          "Daily fitness & macro tracking",
-          "Access to exclusive FB page",
-        ]
-  - service:
-      title: PERSONAL TRAINING
-      service__image: /img/personal-training-round-rock.jpg
-      desc: A training experience crafted to your environment & lifestyle
-      button_text: Unavailable
-      button_disabled: true
-      includes:
-        [
-          "Weekly video check-ins",
-          "Routines tailored to your goals",
-          "Daily fitness & macro tracking",
-          "Access to exclusive FB page",
-        ]
-  - service:
-      title: 8 WEEK PROGRAM
-      service__image: /img/kg-boat1.jpg
-      desc: A training experience crafted to your environment & lifestyle
-      button_text: Coming Soon
-      button_disabled: true
-      includes:
-        [
-          "Weekly video check-ins",
-          "Routines tailored to your goals",
-          "Daily fitness & macro tracking",
-          "Access to exclusive FB page",
-        ]
+  title: V3 Training Programs
+  summary: A training experience crafted to your environment & lifestyle.
+  programs:
+    - program:
+        title: Online Training
+        service__image: /img/online-workout-phone.jpg
+        desc: A training experience crafted to your environment & lifestyle
+        button_text: Get Started
+        button_url:  /training/online-training
+        button_subtext: 'Starting at $100/mo'
+        badge:
+          promo: true
+          text: 50% OFF
+        includes:
+          [
+            "Weekly video check-ins",
+            "Routines tailored to your goals",
+            "Daily fitness & macro tracking",
+            "Access to exclusive FB page",
+          ]
+    - program:
+        title: Personal Training
+        service__image: /img/personal-training-round-rock.jpg
+        desc: A training experience crafted to your environment & lifestyle
+        button_text: Unavailable
+        button_disabled: true
+        badge:
+          promo: false
+          text: COMING SOON
+        includes:
+          [
+            "Weekly video check-ins",
+            "Routines tailored to your goals",
+            "Daily fitness & macro tracking",
+            "Access to exclusive FB page",
+          ]
+    - program:
+        title: 8 Week Program
+        service__image: /img/kg-boat1.jpg
+        desc: A training experience crafted to your environment & lifestyle
+        button_text: Coming Soon
+        button_disabled: true
+        includes:
+          [
+            "Weekly video check-ins",
+            "Routines tailored to your goals",
+            "Daily fitness & macro tracking",
+            "Access to exclusive FB page",
+          ]
 ---

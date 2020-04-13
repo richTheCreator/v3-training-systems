@@ -70,7 +70,7 @@ export const H5 = system(
     fontWeight: 2,
     color: 'black',
     lineHeight: 5,
-    letterSpacing: 3
+    letterSpacing: 5
   },
   ...textStyles
 )
@@ -202,7 +202,7 @@ const ListItemSquare = styled.li`
 `
 export const WithDecorator = ({ bodyText, bodyColor, decoratorColor }) => (
   <ListItemSquare borderColor={decoratorColor}>
-    <Body2 color={bodyColor}> {bodyText} </Body2>
+    <Body2 m={0} color={bodyColor}> {bodyText} </Body2>
   </ListItemSquare>
 )
 

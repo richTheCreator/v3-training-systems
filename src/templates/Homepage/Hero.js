@@ -9,7 +9,7 @@ import { Link } from 'gatsby'
 import Bowser from 'bowser'
 import { Body1, H3 } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 
 const HeroContainer = styled(Row)`
   ${space}
@@ -62,7 +62,7 @@ class Hero extends Component {
     return (
       <HeroContainer>
         <Dots />
-        <TextContainer p={5} lgOffset={1} lg={5} md={12}>
+        <TextContainer p={5} pb={'60px!important'} lgOffset={1} lg={5} md={12}>
           <H3 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H3>
           <Body1 maxWidth={['100%']} textAlign={['center', 'center', 'left']}>
             Something about how dope and strong and big and weird KG is.
@@ -70,7 +70,7 @@ class Hero extends Component {
           <Button color={'white'} width={['100%', '100%', 'auto', 'auto']} bg={'black'} mb={4}> Start training </Button> <br />
           <Button color={'black'} width={['100%', '100%', 'auto', 'auto']} bg={'white'}> Or tap to call </Button>
         </TextContainer>
-        <RoundedImg lg={6} />
+        <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
       </HeroContainer>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { loadStripe } from '@stripe/stripe-js'
-import Button from './Button'
+import { Button } from '../components'
 
 const key = process.env.GATSBY_STRIPE_SECRET_KEY
 const skus = {
