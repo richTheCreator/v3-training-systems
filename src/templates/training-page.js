@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         hero {
           title
           button_text
-          bg__img {
+          workout__image {
             childImageSharp {
               fluid(maxWidth: 800, quality: 100) {
                 ...GatsbyImageSharpFluid
