@@ -2,7 +2,7 @@
 templateKey: training-page
 hero:
   title: V3 ONLINE FITNESS
-  bg__image: /img/v3-performance-bg.jpg
+  bg__img: /img/program-nutrition.png
   button_text: Start Training
   button_url: /
 program:

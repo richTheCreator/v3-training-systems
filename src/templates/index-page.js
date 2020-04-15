@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  // Link,
   graphql
 } from 'gatsby'
 import Layout from '../components/Layout'
@@ -12,14 +11,14 @@ import Clients from './Homepage/Clients'
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const { edges } = data.clientImages
-  console.log('clientImages', edges)
+
   return (
-    <Layout>
-      <Hero serviceItems hero={frontmatter.hero} height='95vh' />
+    <>
+      <Hero hero={frontmatter.hero} />
       <Services services={frontmatter.services} hero={frontmatter.hero} />
       <About about={frontmatter.about} />
       <Clients clientImages={edges} />
-    </Layout>
+    </>
   )
 }
 
@@ -43,13 +42,6 @@ export const pageQuery = graphql`
         hero {
           subtitle
           title
-          bg__image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                  ...GatsbyImageSharpFluid
-              }
-            }
-          }
           dots__image {
             childImageSharp {
               fixed(width: 200, height: 200) {

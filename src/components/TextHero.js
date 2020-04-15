@@ -74,9 +74,9 @@ const TextHero = ({ data, theme, fontSize }) => {
     {browser && (
       <Container
         background={
-          data.bg__image.childImageSharp
-            ? data.bg__image.childImageSharp.fluid.src
-            : data.bg__image
+          data.bg__img.childImageSharp
+            ? data.bg__img.childImageSharp.fluid.src
+            : data.bg__img
         }
       >
         <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>

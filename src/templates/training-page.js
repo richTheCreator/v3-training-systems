@@ -11,24 +11,24 @@ import Comparison from './TrainingServices/Comparisson'
 import ForYou from './TrainingServices/ForYou'
 import Pricing from './TrainingServices/Pricing'
 import Clients from './Homepage/Clients'
-
+import SEO from '../components/SEO/SEO'
 const TrainingPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const { edges } = data.clientImages
 
   return (
-    <Layout>
-      <Helmet>
-        <title>Online Workout Program</title>
-        <meta name='description' content={'Online workout programs designed for you and your goals.'} />
-      </Helmet>
+    <>
+      <SEO
+        title={'Online Fitness Program'}
+        desc={'1 or 3 month program tailored to you and your goals. Includes workout routines, nutrition plan, premium support, and more.'}
+      />
       <TextHero data={frontmatter.hero} fontSize='32px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
       <Pricing pricing={frontmatter.pricing} guarantee={frontmatter.guarantee} />
       <Clients clientImages={edges} />
       <ForYou foryou={frontmatter.foryou} />
-    </Layout>
+    </>
   )
 }
 
@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         hero {
           title
           button_text
-          bg__image {
+          bg__img {
             childImageSharp {
               fluid(maxWidth: 800, quality: 100) {
                 ...GatsbyImageSharpFluid

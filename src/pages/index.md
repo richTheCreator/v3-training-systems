@@ -3,7 +3,7 @@ templateKey: index-page
 hero:
   subtitle: Invest in your health and wellness like your future depends on it
   title: Fitness programs designed for you
-  bg__image: /img/at-home-workout.jpg
+  bg__img: /img/at-home-workout.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:
@@ -46,10 +46,10 @@ services:
         desc: A training experience crafted to your environment & lifestyle
         button_text: Get Started
         button_url:  /training/online-training
-        button_subtext: 'Starting at $100/mo'
+        button_subtext: 'Starting at $225/mo'
         badge:
           promo: true
-          text: 50% OFF
+          text: NEW
         includes:
           [
             "Weekly video check-ins",
