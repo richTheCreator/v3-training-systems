@@ -114,7 +114,7 @@ const Hero = ({ hero }) => (
     backgroundPosition={['top', 'top', 'right', 'right']}
     bg="black"
     background={
-      hero.bg__image.childImageSharp ? hero.bg__image.childImageSharp.fluid.src : hero.bg__image
+      hero.bg__img.childImageSharp ? hero.bg__img.childImageSharp.fluid.src : hero.bg__img
     }
   >
     <Overlay xs>
