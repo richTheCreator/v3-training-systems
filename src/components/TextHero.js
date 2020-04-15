@@ -74,7 +74,7 @@ const TextHero = ({ data, theme, fontSize }) => {
     {browser && (
       <Container
         background={
-          data.bg__img.childImageSharp
+          data.workout__image.childImageSharp
             ? data.workout__image.childImageSharp.fluid.src
             : data.workout__image
         }
