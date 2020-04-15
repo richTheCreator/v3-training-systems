@@ -5,6 +5,8 @@ import Navbar from '../components/Navbar'
 import SEO from '../components/SEO/SEO'
 import useSiteMetadata from './SiteMetadata'
 
+// test
+
 const TemplateWrapper = ({ children }) => {
   const { menuLinks } = useSiteMetadata()
   return (
