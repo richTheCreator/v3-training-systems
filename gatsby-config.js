@@ -1,7 +1,14 @@
 var proxy = require('http-proxy-middleware')
 var website = require('./src/components/SEO/config')
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
-
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.v3ts.netlify.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === 'production'
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 module.exports = {
   siteMetadata: {
     siteUrl: website.url + pathPrefix, // For gatsby-plugin-sitemap
@@ -64,6 +71,28 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
