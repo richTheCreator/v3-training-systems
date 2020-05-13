@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { Overline, H3, Body1, H4, Body2 } from '../../components/Typography'
+import { Overline, H3, Body1, H5, Body2 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
 
@@ -31,11 +31,11 @@ const CalloutContainer = styled(Col)`
 `
 const Callout = ({ count, desc }) => (
   <CalloutContainer xs={6} p={2}>
-    <H4 m={0} pr={3}>
+    <H5 m={0} pr={3}>
       {' '}
       {count}{' '}
-    </H4>
-    <Body2> {desc} </Body2>
+    </H5>
+    <Body2 mt={0}> {desc} </Body2>
   </CalloutContainer>
 )
 

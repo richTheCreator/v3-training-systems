@@ -48,7 +48,7 @@ const Program = ({
         {service.title}
       </H5>
       <Body1 textAlign={'center'} mt={2} color={'mdGrey'}> {service.desc}</Body1>
-      <div style={{ position: 'relative', marginBottom: '16px' }}>
+      <div style={{ position: 'relative' }}>
         <ProductImage
           fluid={service.service__image.childImageSharp.fluid}
         />
@@ -91,7 +91,7 @@ const Services = ({ services }) => (
   <SectionWrapper>
     <SectionMax>
       {services.programs.map((service, idx) => (
-        <Col lg={4}>
+        <Col lg={4} md={6} sm={12} xs={12}>
           <Program service={service.program} />
         </Col>
       ))}

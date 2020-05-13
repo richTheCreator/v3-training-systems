@@ -23,7 +23,7 @@ const RoundedImg = styled(Col)`
   background-image: url('/img/lifting-weight-nike.jpg');
   background-size:cover;
   background-position: center;
-  border-radius: 100px 0px;
+  border-radius: 50px 0px 0px 50px;
   min-height:200px;
 `
 const Dots = styled.div`

@@ -9,10 +9,11 @@ const Container = styled.button`
   ${color}
   ${width}
   background-color: ${props => props.disabled ? props.theme.colors.disabled : props.backgroundColor};
-  box-shadow: ${props => props.theme.shadows.md};
+  box-shadow: ${props => props.disabled ? 'none' : props.theme.shadows.md};
   align-self: center;
   border: 0px;
-  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'}
+  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
+  border-radius: ${props => props.theme.borderRadius.sm}px;
 `
 
 const Button = (props) =>
