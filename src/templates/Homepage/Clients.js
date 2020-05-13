@@ -24,7 +24,7 @@ const Clients = ({ clientImages }) => {
                 Game changing results
               </H3>
               <Body2>
-              I've been blessed to work with great people over the years, who've put their faith in me and my programs.  It is really each client who achieves their own results, I just provide the map and compass.  Results are made through dedication, consistency, and hard work regardless of the plan provided.  V3 programs will be tailored to each individual and a number of variables e.g. injuries, gym limitations, and experience levels. The truth is though, that you make your own results happen.
+              I've been blessed to work with great people over the years, who've put their faith in me and my programs.  It is really each client who achieves their own results, I just provide the map and compass. <br /> <br /> Results are made through dedication, consistency, and hard work regardless of the plan provided.  V3 programs will be tailored to each individual and a number of variables e.g. injuries, gym limitations, and experience levels. The truth is though, that you make your own results happen.
               </Body2>
             </Col>
             <Col xs={12} lg={8}>
@@ -36,6 +36,7 @@ const Clients = ({ clientImages }) => {
                   return (
                     <PreviewCompatibleImage
                       imageInfo={node}
+                      style={{ borderRadius: '8px' }}
                     />
 
                   )

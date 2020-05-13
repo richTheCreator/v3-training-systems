@@ -25,8 +25,8 @@ const TrainingPage = ({ data }) => {
       <TextHero data={frontmatter.hero} fontSize='32px' />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
-      <Pricing pricing={frontmatter.pricing} guarantee={frontmatter.guarantee} />
       <Clients clientImages={edges} />
+      <Pricing pricing={frontmatter.pricing} guarantee={frontmatter.guarantee} />
       <ForYou foryou={frontmatter.foryou} />
     </>
   )

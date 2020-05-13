@@ -86,4 +86,9 @@ services:
             "Daily fitness & macro tracking",
             "Access to exclusive FB page",
           ]
+banner:
+  title: It's time to put the work in
+  button_text: Start Training
+  button_url: /training/online-training
+  bg__img: /img/woman-lifting.jpg
 ---

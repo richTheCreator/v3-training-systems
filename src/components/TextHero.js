@@ -71,31 +71,26 @@ const TextHero = ({ data, theme, fontSize }) => {
 
   return (
     <>
-    {browser && (
-      <Container
-        background={
-          data.workout__image.childImageSharp
-            ? data.workout__image.childImageSharp.fluid.src
-            : data.workout__image
-        }
-      >
-        <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
-          <BlockReveal ref={block1Ref} bgColor="white">
-            <Title color={'white'} fontStyle={'italic'}>
-              {data.title}
-            </Title>
-            <Row style={{ justifyContent: 'center' }}>
-              <Callout count={'1 - 3'} desc={'Months'} />
-              <Callout count={'Any'} desc={'Environment'} />
-              <Callout count={'All'} desc={'Skill levels'} />
-            </Row>
-          </BlockReveal>
-        </Col>
-        <Overlay/>
-      </Container>
+      {browser && (
+        <Container
+          background={
+            data.workout__image.childImageSharp
+              ? data.workout__image.childImageSharp.fluid.src
+              : data.workout__image
+          }
+        >
+          <Col xs={12} style={{ zIndex: 1, justifyContent: 'center', display: 'flex', flexDirection: 'column' }}>
+            <BlockReveal ref={block1Ref} bgColor="white">
+              <Title color={'white'} fontStyle={'italic'}>
+                {data.title}
+              </Title>
+            </BlockReveal>
+          </Col>
+          <Overlay/>
+        </Container>
 
-    )
-    }
+      )
+      }
     </>
 
   )

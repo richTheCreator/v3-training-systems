@@ -7,6 +7,7 @@ import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
 import Clients from './Homepage/Clients'
+import { Banner } from '../components'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -18,6 +19,7 @@ const IndexPage = ({ data }) => {
       <Services services={frontmatter.services} hero={frontmatter.hero} />
       <About about={frontmatter.about} />
       <Clients clientImages={edges} />
+      <Banner banner={frontmatter.banner} />
     </>
   )
 }
@@ -30,7 +32,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1200, quality: 100) {
                 ...GatsbyImageSharpFluid
             }
           }
@@ -74,6 +76,18 @@ export const pageQuery = graphql`
             }
           }
         }
+        banner {
+          title
+          button_url
+          button_text
+          bg__img {
+            childImageSharp {
+              fluid(maxWidth: 600, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
         services {
           title
           summary
@@ -92,7 +106,7 @@ export const pageQuery = graphql`
               includes
               service__image {
                 childImageSharp {
-                  fluid(maxWidth: 1000, quality: 100) {
+                  fluid(maxWidth: 1200, quality: 100) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
