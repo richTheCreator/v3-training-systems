@@ -24,16 +24,17 @@ const redirectToCheckout = async (event, sku) => {
   }
 }
 
-const Checkout = ({ sku, themeColor, buttonText }) => {
+const Checkout = ({ sku, children }) => {
   return (
     <Button
-      backgroundColor={themeColor ? 'white' : 'black'}
-      color={themeColor ? 'black' : 'white'}
+      bg='black'
+      color='white'
+      width='100%'
       onClick={(e) => redirectToCheckout(e, sku)}
     >
-      {buttonText}
+      {children}
     </Button>
   )
 }
 
-export default Checkout
+export { Checkout }

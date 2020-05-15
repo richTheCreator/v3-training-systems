@@ -73,6 +73,7 @@ const colors = {
   lightGrey: '#EDEDED',
   greyBlue: '#F5F7F9',
   red: '#F05D5E',
+  teal: '#629E9D',
   white: '#FFF',
   disabled: '#DADEDF' // or opacity .3 of greyBlue
 }

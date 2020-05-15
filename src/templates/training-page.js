@@ -6,6 +6,7 @@ import {
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout'
 import TextHero from '../components/TextHero'
+import Hero from './TrainingServices/Hero'
 import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
 import ForYou from './TrainingServices/ForYou'
@@ -22,7 +23,7 @@ const TrainingPage = ({ data }) => {
         title={'Online Fitness Program'}
         desc={'1 or 3 month program tailored to you and your goals. Includes workout routines, nutrition plan, premium support, and more.'}
       />
-      <TextHero data={frontmatter.hero} fontSize='32px' />
+      <Hero hero={frontmatter.hero} />
       <Program program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
       <Clients clientImages={edges} />
