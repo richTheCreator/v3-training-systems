@@ -151,7 +151,6 @@ export const Button = system(
   },
   ...textStyles,
   {
-    textTransform: 'uppercase',
     padding: '16px 32px',
     margin: '0px'
   }
@@ -160,7 +159,7 @@ export const Button = system(
 export const Caption = system(
   {
     is: 'p',
-    fontSize: 1,
+    fontSize: 2,
     fontWeight: 0,
     color: 'darkGrey',
     lineHeight: 0,

@@ -3,11 +3,11 @@ import { Link } from 'gatsby'
 import { Row, Col } from 'react-flexbox-grid'
 import { useSpring, useTransition, useChain, animated } from 'react-spring'
 import { justifyContent } from 'styled-system'
-import { Body2 } from './Typography'
+import { InfoItem } from '../components'
 import styled from 'styled-components'
-import guaranteed from '../img/guaranteed.svg'
-import skill from '../img/skill-levels.svg'
-import workouts from '../img/workouts-env.svg'
+import Guaranteed from '../img/svg/guaranteed.svg'
+import Skill from '../img/svg/skill-levels.svg'
+import Workouts from '../img/svg/workouts-env.svg'
 
 const NavWrapper = styled.header`
   top: 0px;
@@ -87,13 +87,6 @@ function makeClassComponent (WrappedComponent) {
 const AnimatedMenu = animated(makeClassComponent(MenuList))
 const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
-const InfoItem = ({ icon, children }) => (
-  <span style={{ verticalAlign: 'middle', paddingRight: '16px' }}>
-    <img src={icon} style={{ width: '32px', height: '32px', verticalAlign: 'middle', paddingBottom: '6px' }} />
-    <Body2 color={'#9c9c9c'} verticalAlign={'middle'} mt={2} mb={2} style={{ display: 'inline-block' }}> {children} </Body2>
-  </span>
-
-)
 const NavbarLG = ({ menuLinks, theme }) => (
   <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%', width: '100%' }}>
     <Col xs={-1}>
@@ -201,14 +194,14 @@ const Navbar = ({ menuLinks }) => {
         <NavbarSM menuLinks={menuLinks} toggleMenu={toggleMenu} />
       </NavSection>
       <InfoBanner justifyContent={['flex-start', 'flex-start', 'center', 'center']}>
-        <InfoItem icon={guaranteed}>
-          100% Satisfaction guaranteed
+        <InfoItem copy={'100% Satisfaction guaranteed'}>
+          <Guaranteed />
         </InfoItem>
-        <InfoItem icon={skill}>
-          For any skill level or goal
+        <InfoItem copy={'For any skill level or goal'}>
+          <Skill />
         </InfoItem>
-        <InfoItem icon={workouts}>
-          Workouts for at home or gym
+        <InfoItem copy={'Workouts for at home or gym'}>
+          <Workouts />
         </InfoItem>
       </InfoBanner>
       <AnimatedMenu

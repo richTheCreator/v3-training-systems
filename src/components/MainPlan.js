@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
 import { H5, H2, Body2 } from './Typography'
 import Button from './Button'
-import Checkout from './Checkout'
+import { Checkout } from './Checkout'
 const Container = styled(Row)`
   justify-content:center;
   align-items:center;
