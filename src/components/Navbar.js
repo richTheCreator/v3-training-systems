@@ -194,13 +194,13 @@ const Navbar = ({ menuLinks }) => {
         <NavbarSM menuLinks={menuLinks} toggleMenu={toggleMenu} />
       </NavSection>
       <InfoBanner justifyContent={['flex-start', 'flex-start', 'center', 'center']}>
-        <InfoItem copy={'100% Satisfaction guaranteed'}>
+        <InfoItem textColor='mdGrey' copy={'100% Satisfaction guaranteed'}>
           <Guaranteed />
         </InfoItem>
-        <InfoItem copy={'For any skill level or goal'}>
+        <InfoItem textColor='mdGrey' copy={'For any skill level or goal'}>
           <Skill />
         </InfoItem>
-        <InfoItem copy={'Workouts for at home or gym'}>
+        <InfoItem textColor='mdGrey' copy={'Workouts for at home or gym'}>
           <Workouts />
         </InfoItem>
       </InfoBanner>

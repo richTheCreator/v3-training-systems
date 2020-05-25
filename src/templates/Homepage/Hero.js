@@ -7,13 +7,13 @@ import {
 } from 'styled-system'
 import { Link } from 'gatsby'
 import Bowser from 'bowser'
-import { Body1, H2 } from '../../components/Typography'
+import { Body1, H3 } from '../../components/Typography'
+import { SectionMax } from '../../components/Containers'
 import { BlockReveal } from '../../components/Animation'
 import { Button } from '../../components'
 
 const HeroContainer = styled(Row)`
   ${space}
-  position: relative;
   background-position: center center;
   background-size: cover;
   justify-content: space-between;
@@ -23,7 +23,7 @@ const RoundedImg = styled(Col)`
   background-image: url('/img/lifting-weight-nike.jpg');
   background-size:cover;
   background-position: center;
-  border-radius: 50px 0px 0px 50px;
+  border-radius:20px;
   min-height:200px;
 `
 const Dots = styled.div`
@@ -61,16 +61,18 @@ class Hero extends Component {
     const { hero } = this.props
     return (
       <HeroContainer>
-        <Dots />
-        <TextContainer p={5} pb={'60px!important'} lgOffset={1} lg={5} md={12}>
-          <H2 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H2>
-          <Body1 maxWidth={['100%']} textAlign={['center', 'center', 'left']}>
-            Something about how dope and strong and big and weird KG is.
-          </Body1>
-          <Button color={'white'} width={['100%', '100%', 'auto', 'auto']} bg={'black'} mb={4}> Start training </Button> <br />
-          <Button color={'black'} width={['100%', '100%', 'auto', 'auto']} bg={'white'}> Or tap to call </Button>
-        </TextContainer>
-        <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
+        <SectionMax m='auto!important' style={{ position: 'relative' }}>
+          <Dots />
+          <TextContainer p={3} pb={'60px!important'} lg={6} md={12}>
+            <H3 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H3>
+            <Body1 maxWidth={['100%']} mb={4} textAlign={['center', 'center', 'left']}>
+              Choose a program that works for your lifestyle, environment, and goals.
+            </Body1>
+            <Button width={['100%', '100%', 'auto', 'auto']} color={'white'} bg={'black'} mb={3}> Start training </Button> <br />
+            <Button width={['100%', '100%', 'auto', 'auto']} color={'black'} bg={'white'}> Or tap to call </Button>
+          </TextContainer>
+          <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
+        </SectionMax>
       </HeroContainer>
     )
   }

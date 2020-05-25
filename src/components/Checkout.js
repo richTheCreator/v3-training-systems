@@ -24,15 +24,13 @@ const redirectToCheckout = async (event, sku) => {
   }
 }
 
-const Checkout = ({ sku, children }) => {
+const Checkout = (props) => {
   return (
     <Button
-      bg='black'
-      color='white'
-      width='100%'
-      onClick={(e) => redirectToCheckout(e, sku)}
+      {...props}
+      onClick={(e) => redirectToCheckout(e, props.sku)}
     >
-      {children}
+      {props.children}
     </Button>
   )
 }

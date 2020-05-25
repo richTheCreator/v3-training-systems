@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Row, Col } from 'react-flexbox-grid'
-import { Overline, H3, Body2 } from '../../components/Typography'
+import { Overline, H3, Body1 } from '../../components/Typography'
 import Masonry from 'react-masonry-css'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
@@ -15,19 +15,19 @@ const breakpointColumnsObj = {
 const Clients = ({ clientImages }) => {
   return (
     <SectionWrapper>
-      <SectionMax>
-        <Col xs={12}>
+      <SectionMax m='auto!important'>
+        <Col xs={12} style={{ padding: '0px' }}>
           <Row>
-            <Col xs={12} lg={4}>
+            <Col xs={12} lg={4} style={{ padding: '0px' }}>
               <Overline> TRANSFORMATIONS </Overline>
               <H3 mt={0} mb={3}>
                 Game changing results
               </H3>
-              <Body2>
+              <Body1 mb={5}>
               I've been blessed to work with great people over the years, who've put their faith in me and my programs.  It is really each client who achieves their own results, I just provide the map and compass. <br /> <br /> Results are made through dedication, consistency, and hard work regardless of the plan provided.  V3 programs will be tailored to each individual and a number of variables e.g. injuries, gym limitations, and experience levels. The truth is though, that you make your own results happen.
-              </Body2>
+              </Body1>
             </Col>
-            <Col xs={12} lg={8}>
+            <Col xs={12} lg={8} style={{ padding: '0px' }}>
               <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className='my-masonry-grid'

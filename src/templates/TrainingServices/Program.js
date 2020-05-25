@@ -10,23 +10,16 @@ const Program = ({ program, content, contentComponent }) => {
 
   return (
     <SectionWrapper>
-      <SectionMax style={{ justifyContent: 'center' }}>
+      <SectionMax style={{ justifyContent: 'center' }} m='auto!important'>
         <Row>
-          <Col sm={12} lg={4}>
-            <H3 mt={0} mr={3}>
+          <Col sm={12} lg={4} style={{ padding: '0px' }}>
+            <H3 mt={0} mb={1}>
               A program designed for you
             </H3>
           </Col>
-          <Col sm={12} lg={8}>
+          <Col sm={12} lg={8} style={{ padding: '0px' }}>
             <PostContent content={content} />
           </Col>
-        </Row>
-        <Row style={{ marginTop: '-6px', zIndex: 2 }}>
-          {program.map((service, idx) => (
-            <Col xs={12} md={6} lg={4}>
-              <ProgramCard service={service.service} />
-            </Col>
-          ))}
         </Row>
       </SectionMax>
     </SectionWrapper>

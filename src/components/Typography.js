@@ -31,7 +31,7 @@ export const H2 = system(
     fontSize: [10, 11],
     fontWeight: 2,
     color: 'black',
-    lineHeight: [7, 8],
+    lineHeight: [6, 7],
     letterSpacing: 1,
     marginBottom: 4
   },

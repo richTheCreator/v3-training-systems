@@ -16,7 +16,7 @@ const InfoItem = ({ copy, children, textColor, size }) => (
     <SVGwrapper>
       {children}
     </SVGwrapper>
-    <Body2 color={textColor || 'mdGrey'} verticalAlign={'middle'} mt={2} mb={2} style={{ display: 'inline-block' }}> {copy} </Body2>
+    <Body2 color={textColor || 'white'} verticalAlign={'middle'} mt={2} mb={2} style={{ display: 'inline-block' }}> {copy} </Body2>
   </span>
 )
 

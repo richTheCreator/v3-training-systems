@@ -42,7 +42,7 @@ const Program = ({
       width: '100%'
     }}
   >
-    <Col style={{ position: 'relative' }} xs={12}>
+    <Col style={{ position: 'relative', padding: '0px' }} xs={12}>
 
       <H5 mb={0} textAlign={'center'}>
         {service.title}
@@ -59,10 +59,10 @@ const Program = ({
         }
       </div>
     </Col>
-    <Col xs={12} style={{ zIndex: 3 }}>
+    <Col xs={12} style={{ zIndex: 3, marginTop: '8px', padding: '0px' }}>
       <Col>
         {service.includes.map((item, idx) => (
-          <ListWrapper mt={3} mb={3}>
+          <ListWrapper>
             <WithDecorator
               bodyText={item}
               bodyColor={'black'}
@@ -89,7 +89,7 @@ const Program = ({
 
 const Services = ({ services }) => (
   <SectionWrapper>
-    <SectionMax>
+    <SectionMax m='auto!important'>
       {services.programs.map((service, idx) => (
         <Col lg={4} md={6} sm={12} xs={12}>
           <Program service={service.program} />
