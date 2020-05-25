@@ -9,11 +9,11 @@ import {
 } from 'styled-system'
 import { Body2, H4, Caption } from '../../components/Typography'
 import { Checkout, InfoItem, PriceItem } from '../../components'
+import Select from 'react-select'
 import { SectionMax } from '../../components/Containers'
 import HomeIcon from '../../img/svg/home.svg'
 import Calendar from '../../img/svg/calendar.svg'
 import Skill from '../../img/svg/zap.svg'
-import Select from 'react-select'
 
 const options = [
   { value: 'SKU_3MONTH', label: <PriceItem program='3 Months' price={250} strikeout={500} /> },

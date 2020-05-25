@@ -24,7 +24,7 @@ const RoundedImg = styled(Col)`
   background-size:cover;
   background-position: center;
   border-radius:20px;
-  min-height:200px;
+  min-height:360px;
 `
 const Dots = styled.div`
   background-image: url('/img/dots-overlay-tall.png');
@@ -40,6 +40,7 @@ const Dots = styled.div`
 const TextContainer = styled(Col)`
   ${space}
   z-index:1;
+  align-self:center;
 `
 class Hero extends Component {
   constructor (props) {
@@ -63,13 +64,19 @@ class Hero extends Component {
       <HeroContainer>
         <SectionMax m='auto!important' style={{ position: 'relative' }}>
           <Dots />
-          <TextContainer p={3} pb={'60px!important'} lg={6} md={12}>
-            <H3 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H3>
-            <Body1 maxWidth={['100%']} mb={4} textAlign={['center', 'center', 'left']}>
+          <TextContainer p={5} lg={5} md={12} lgOffset={1}>
+            <H3 color={'black'} m={0}> {hero.title} </H3>
+            <Body1 maxWidth={['100%']} mb={4}>
               Choose a program that works for your lifestyle, environment, and goals.
             </Body1>
-            <Button width={['100%', '100%', 'auto', 'auto']} color={'white'} bg={'black'} mb={3}> Start training </Button> <br />
-            <Button width={['100%', '100%', 'auto', 'auto']} color={'black'} bg={'white'}> Or tap to call </Button>
+            <Row between='xs'>
+              <Col xs={12} md={6}>
+                <Button width={['100%']} mb={2} color={'white'} bg={'black'}> 💪Start training </Button>
+              </Col>
+              <Col xs={12} md={6}>
+                <Button width={['100%']} color={'black'} bg={'white'}> 📱Or tap to call </Button>
+              </Col>
+            </Row>
           </TextContainer>
           <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
         </SectionMax>
