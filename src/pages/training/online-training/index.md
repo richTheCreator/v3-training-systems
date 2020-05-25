@@ -87,7 +87,7 @@ hero:
   button_text: Start Training
   button_url: /
 ---
-Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you. 
+Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you. Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you. Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you. 
 
 ##### What's included?
 
@@ -101,6 +101,8 @@ Teaching you how to track your calories, shop, and plan your weeks will be the m
 Monthly workouts will be provided and will progress over each month ensuring that you reach your health and fitness goals
 ###### Stress management
 An often overlooked element in a training program is the importance of keeping stress to a minimum. Stress can have a huge negative impact on client results, as it can affect recovery and the body's ability to change.
+###### Premium support 
+Direct access to me through phone calls, text messaging, email and services like FaceTime and Skype.
 
 ##### Who's it for?
 In short, anyone. Whatever your fitness goal is we can help you reach. 
