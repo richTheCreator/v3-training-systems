@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { H3, H6, WithDecorator } from '../../components/Typography'
+import { H4, H6, WithDecorator } from '../../components/Typography'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 import { width, height, space } from 'styled-system'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
@@ -13,7 +13,7 @@ const ContentContainer = styled(Col)`
   ${space}
   background-color: ${props => props.theme.colors.blackBlue};
 `
-const Title = styled(H3)`
+const Title = styled(H4)`
  ${width}
 `
 const ImageContainer = styled(Col)`
@@ -26,7 +26,7 @@ const Comparison = ({ comparison }) => {
   console.log('comparison', comparison)
   return (
     <SectionWrapper pl={['0px', 'inherit']} pr={['0px', 'inherit']}>
-      <SectionMax>
+      <SectionMax m='auto!important' >
         <Row style={{ width: '100%' }}>
           <ImageContainer xs={12} md={6} height={['300px', '300px', 'auto']}/>
           <ContentContainer xs={12} md={6} p={['24px', '40px']}>
@@ -44,8 +44,8 @@ const Comparison = ({ comparison }) => {
                 <Row>
                   {
                     item.item.includes.map((text) =>
-                      <Col sm={6}>
-                        <ListWrapper mt={3} mb={3}>
+                      <Col sm={12}>
+                        <ListWrapper>
                           <WithDecorator
                             bodyText={text}
                             bodyColor={ idx === 0 ? 'white' : 'disabled'}

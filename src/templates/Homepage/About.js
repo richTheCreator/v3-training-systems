@@ -1,19 +1,13 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { Overline, H3, Body1, H5, Body2 } from '../../components/Typography'
+import { Overline, H3, Body1, H5 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
-import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
 
-import { FadeInUp } from '../../components/Animation'
 import {
   color,
-  fontSize,
-  height,
   alignSelf,
-  maxWidth,
-  space,
-  flexDirection
+  space
 } from 'styled-system'
 import PreviewCompatibleImage from '../../components/PreviewCompatibleImage'
 
@@ -22,10 +16,7 @@ const Sections = styled(Col)`
   ${alignSelf}
   ${space}
 `
-const AboutContainer = styled(Row)`
-  ${maxWidth}
-  ${space}
-`
+
 const CalloutContainer = styled(Col)`
   ${space}
 `
@@ -35,14 +26,11 @@ const Callout = ({ count, desc }) => (
       {' '}
       {count}{' '}
     </H5>
-    <Body2 mt={0}> {desc} </Body2>
+    <Body1 mt={0}> {desc} </Body1>
   </CalloutContainer>
 )
 
 const About = ({ about }) => {
-  const block1Ref = useRef()
-  useChain([block1Ref])
-
   return (
     <SectionWrapper justifyContent='center' bg='lightGrey'>
       <SectionMax>
@@ -71,7 +59,7 @@ const About = ({ about }) => {
           <H3 textAlign={['center', 'center', 'left', 'left']} mt={0} mb={3}>
             {about.title}
           </H3>
-          <Body2> {about.bio} </Body2>
+          <Body1> {about.bio} </Body1>
           <Row>
             {
               about.callouts.map((co, idx) => (

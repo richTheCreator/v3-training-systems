@@ -16,7 +16,7 @@ export const SectionWrapper = system({
 export const SectionMax = system(
   {
     extend: FlexRow,
-    maxWidth: 1,
+    maxWidth: 0,
     mt: 5,
     mb: 5
   },

@@ -44,7 +44,7 @@ const ContentContainer = styled(Col)`
 
 const Banner = (props) => {
   return (
-    <SectionWrapper>
+    <SectionWrapper style={{ maxWidth: '1400px', margin: 'auto', paddingRight: '0px', paddingLeft: '0px' }}>
       <Container fluid={props.banner.bg__img.childImageSharp.fluid}>
         <Overlay />
         <ContentContainer>

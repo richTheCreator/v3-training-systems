@@ -108,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
   /*  FLEXBOX GRID OVERRIDES  */
 
   .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 `

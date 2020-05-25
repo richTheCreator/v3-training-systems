@@ -3,14 +3,10 @@ import {
   // Link,
   graphql
 } from 'gatsby'
-import Helmet from 'react-helmet'
-import Layout from '../components/Layout'
-import TextHero from '../components/TextHero'
 import Hero from './TrainingServices/Hero'
 import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
 import ForYou from './TrainingServices/ForYou'
-import Pricing from './TrainingServices/Pricing'
 import Clients from './Homepage/Clients'
 import SEO from '../components/SEO/SEO'
 const TrainingPage = ({ data }) => {
