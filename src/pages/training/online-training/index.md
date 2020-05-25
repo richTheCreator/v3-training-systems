@@ -87,24 +87,24 @@ hero:
   button_text: Start Training
   button_url: /
 ---
-### A program designed for you
+#### A program designed for you
 Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you. 
 
-### What's included?
+#### What's included?
 
-#### Nutrition plan
+##### Nutrition plan
 Teaching you how to track your calories, shop, and plan your weeks will be the main mission for our nutrition program. Goals to reach your daily required macronutrients.
-### Monthly routine
+##### Monthly routine
 Monthly workouts will be provided and will progress over each month ensuring that you reach your health and fitness goals
-### Recovery
+##### Recovery
 Teaching you how to track your calories, shop, and plan your weeks will be the main mission for our nutrition program. Goals to reach your daily required macronutrients.
-### Corrective exercise 
+##### Corrective exercise 
 Monthly workouts will be provided and will progress over each month ensuring that you reach your health and fitness goals
-### Stress management
+##### Stress management
 An often overlooked element in a training program is the importance of keeping stress to a minimum. Stress can have a huge negative impact on client results, as it can affect recovery and the body's ability to change.
 
 
-### Who's it for?
+#### Who's it for?
 In short, anyone. Whatever your fitness goal is we can help you reach. 
 
 
