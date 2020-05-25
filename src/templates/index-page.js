@@ -95,6 +95,9 @@ export const pageQuery = graphql`
             program {
               title
               desc
+              length
+              env
+              skill
               button_text
               button_url
               button_disabled
@@ -103,7 +106,6 @@ export const pageQuery = graphql`
                 promo
                 text
               }
-              includes
               service__image {
                 childImageSharp {
                   fluid(maxWidth: 1200, quality: 100) {

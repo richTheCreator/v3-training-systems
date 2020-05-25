@@ -11,7 +11,10 @@ import {
   H3
 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
-import { Button, Badge } from '../../components'
+import { Button, Badge, InfoItem } from '../../components'
+import HomeIcon from '../../img/svg/home.svg'
+import Calendar from '../../img/svg/calendar.svg'
+import Skill from '../../img/svg/zap.svg'
 
 const ProductImage = styled(BackgroundImage)`
   width: 100%;
@@ -31,6 +34,29 @@ const PromoBadge = styled(Badge)`
 const ListWrapper = styled(Col)`
   ${space}
 `
+const StyledCalendar = styled(Calendar)`
+  height:18px;
+  width:18px;
+  path {
+    stroke: ${props => props.theme.colors.black}
+  }
+`
+const StyledHome = styled(HomeIcon)`
+height:18px;
+width:18px;
+  path {
+    stroke: ${props => props.theme.colors.black}
+  }
+`
+const StyledSkill = styled(Skill)`
+height:18px;
+width:18px;
+  path {
+    stroke: ${props => props.theme.colors.black}
+  }
+`
+const ProgramWrapper = styled(Col)`
+`
 const Program = ({
   service
 }) => (
@@ -39,15 +65,12 @@ const Program = ({
       justifyContent: 'center',
       alignItems: 'center',
       margin: 'auto',
-      width: '100%'
+      width: '100%',
+      maxWidth: '400px',
+      marginBottom: '24px'
     }}
   >
     <Col style={{ position: 'relative', padding: '0px' }} xs={12}>
-
-      <H5 mb={0} textAlign={'center'}>
-        {service.title}
-      </H5>
-      <Body1 textAlign={'center'} mt={2} color={'mdGrey'}> {service.desc}</Body1>
       <div style={{ position: 'relative' }}>
         <ProductImage
           fluid={service.service__image.childImageSharp.fluid}
@@ -59,19 +82,17 @@ const Program = ({
         }
       </div>
     </Col>
-    <Col xs={12} style={{ zIndex: 3, marginTop: '8px', padding: '0px' }}>
-      <Col>
-        {service.includes.map((item, idx) => (
-          <ListWrapper>
-            <WithDecorator
-              bodyText={item}
-              bodyColor={'black'}
-              decoratorColor={service.title === 'Online Training' ? 'accent' : 'disabled'} />
-          </ListWrapper>
-        ))}
-      </Col>
+    <Col xs={12} style={{ zIndex: 3, padding: '8px' }}>
+      <H5 mb={0} mt={1}>
+        {service.title}
+      </H5>
+      <Row>
+        <InfoItem size={18} textColor='black' copy={service.length}> <StyledCalendar /> </InfoItem>
+        <InfoItem size={18} textColor='black' copy={service.env}> <StyledHome /> </InfoItem>
+        <InfoItem size={18} textColor='black'copy={service.skill}> <StyledSkill /> </InfoItem>
+      </Row>
+      <Body1 mt={0} color={'mdGrey'}> {service.desc}</Body1>
       <Button
-        mt={4}
         width={'100%'}
         disabled={service.button_disabled}
         url={service.button_url}
@@ -91,9 +112,9 @@ const Services = ({ services }) => (
   <SectionWrapper>
     <SectionMax m='auto!important'>
       {services.programs.map((service, idx) => (
-        <Col lg={4} md={6} sm={12} xs={12}>
+        <ProgramWrapper lg={4} md={6} sm={6} xs={12}>
           <Program service={service.program} />
-        </Col>
+        </ProgramWrapper>
       ))}
     </SectionMax>
   </SectionWrapper>

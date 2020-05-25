@@ -90,10 +90,10 @@ export const H6 = system(
 export const Body1 = system(
   {
     is: 'p',
-    fontSize: 7,
+    fontSize: [6, 7],
     fontWeight: 0,
     color: 'darkGrey',
-    lineHeight: 5,
+    lineHeight: [4, 5],
     letterSpacing: 7
   },
   ...textStyles
@@ -150,7 +150,7 @@ export const Button = system(
   },
   ...textStyles,
   {
-    padding: '16px 32px',
+    padding: '16px 0px',
     margin: '0px'
   }
 )
