@@ -14,9 +14,9 @@ import Pricing from './TrainingServices/Pricing'
 import Clients from './Homepage/Clients'
 import SEO from '../components/SEO/SEO'
 const TrainingPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, html } = data.markdownRemark
   const { edges } = data.clientImages
-
+  console.log('html', html)
   return (
     <>
       <SEO
@@ -24,10 +24,9 @@ const TrainingPage = ({ data }) => {
         desc={'1 or 3 month program tailored to you and your goals. Includes workout routines, nutrition plan, premium support, and more.'}
       />
       <Hero hero={frontmatter.hero} />
-      <Program program={frontmatter.program} />
+      <Program content={html} program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
       <Clients clientImages={edges} />
-      <Pricing pricing={frontmatter.pricing} guarantee={frontmatter.guarantee} />
       <ForYou foryou={frontmatter.foryou} />
     </>
   )
@@ -49,6 +48,7 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(frontmatter: { templateKey: { eq: "training-page" } }) {
+      html
       frontmatter {
         hero {
           title

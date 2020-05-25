@@ -1,26 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { H1, H3 } from '../../components/Typography'
+import { H3 } from '../../components/Typography'
 import ProgramCard from './ProgramCard'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
+import Content, { HTMLContent } from '../../components/Content'
 
-const Title = styled(H1)`
-  opacity : 8%;
-  color: ${props => props.theme.colors.blackBlue};
-  text-align : left;
-  margin-bottom: 0px;
-  margin-top:0px;
-  line-height: 80%!important;
-`
+const Program = ({ program, content, contentComponent }) => {
+  const PostContent = HTMLContent || Content
 
-const Program = ({ program }) => {
   return (
     <SectionWrapper>
       <SectionMax style={{ justifyContent: 'center' }}>
-        <H3 mt={0} mb={6} textAlign='center'>
-          A program designed for you
-        </H3>
+        <Row>
+          <Col sm={12} lg={4}>
+            <H3 mt={0} mr={3}>
+              A program designed for you
+            </H3>
+          </Col>
+          <Col sm={12} lg={8}>
+            <PostContent content={content} />
+          </Col>
+        </Row>
         <Row style={{ marginTop: '-6px', zIndex: 2 }}>
           {program.map((service, idx) => (
             <Col xs={12} md={6} lg={4}>

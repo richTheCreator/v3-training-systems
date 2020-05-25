@@ -7,7 +7,7 @@ import {
 } from 'styled-system'
 import { Link } from 'gatsby'
 import Bowser from 'bowser'
-import { Body1, H3 } from '../../components/Typography'
+import { Body1, H2 } from '../../components/Typography'
 import { BlockReveal } from '../../components/Animation'
 import { Button } from '../../components'
 
@@ -63,7 +63,7 @@ class Hero extends Component {
       <HeroContainer>
         <Dots />
         <TextContainer p={5} pb={'60px!important'} lgOffset={1} lg={5} md={12}>
-          <H3 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H3>
+          <H2 color={'black'} m={0} textAlign={['center', 'center', 'left']}> {hero.title} </H2>
           <Body1 maxWidth={['100%']} textAlign={['center', 'center', 'left']}>
             Something about how dope and strong and big and weird KG is.
           </Body1>
