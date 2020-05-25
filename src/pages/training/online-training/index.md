@@ -84,3 +84,49 @@ guarantee:
 
     ]
 ---
+
+Learn about wine from the comfort of your home! (please read it all)
+
+Here we will learn how red and white wine are made, how they differ, and most importantly, how to choose when you buy wine to enjoy at home. You would be amazed how people generally shop wine in a wrong way. We will then mention the main grapes and main regions of the world for those grapes, as well as the differences between them followed by some wine and food pairing (yes you will learn how to do michelin stars food and wine pairing)!
+
+The recommended wine and cheese below are not mandatory, but it does make the experience better.
+
+This wine class, exclusively on Airbnb Experiences, will give you all the tools you need to be a better wine buyer. You will save so much money while drinking better, waaaay better!
+
+FAQ (answers):
+- I do this everyday, both for the timezone of the US and Europe. Depending on work at my vineyard, times available will vary. If no classes available is because they are sold out.
+- The recommended wines and cheeses are a guideline, you can use whatever suits you best.
+- Bigger parties accepted upon request.
+- Spots are per person and not per screen (I don't like big groups)
+
+*italic* or _italic_
+**bold** or __bold__
+***italic and bold*** or ___italic and bold___
+
+
+* Gatsby
+  * docs
+- Gatsby
+  - docs
++ Gatsby
+  + docs
+
+1. One
+1. Two
+1. Three
+
+> blockquote
+>
+> > nested blockquote
+>
+> > **I'm bold!**
+>
+> more quotes
+
+ `code`
+
+
+[Gatsby site](https://www.gatsbyjs.org/docs/mdx/markdown-syntax/)
+
+
+The Blue Mountains are considered by many to be a hiker's and camper's paradise. The traditional Blue Mountain trek is a 7-mile hike to the peak and consists

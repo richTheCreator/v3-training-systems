@@ -17,8 +17,7 @@ export const H1 = system(
   {
     is: 'h1',
     fontSize: [10, 11, 12],
-    fontWeight: 3,
-    fontStyle: 'italic',
+    fontWeight: 2,
     color: 'white',
     lineHeight: [7, 8, 9],
     letterSpacing: 0
@@ -29,10 +28,10 @@ export const H1 = system(
 export const H2 = system(
   {
     is: 'H2',
-    fontSize: [9, 10, 11],
-    fontWeight: 3,
+    fontSize: [10, 11],
+    fontWeight: 2,
     color: 'black',
-    lineHeight: [6, 7],
+    lineHeight: [7, 8],
     letterSpacing: 1,
     marginBottom: 4
   },
@@ -45,7 +44,7 @@ export const H3 = system(
     fontSize: [9, 10],
     fontWeight: 2,
     color: 'black',
-    lineHeight: [5, 7],
+    lineHeight: [6, 7],
     letterSpacing: 0
   },
   ...textStyles
