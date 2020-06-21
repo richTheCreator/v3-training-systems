@@ -36,6 +36,7 @@ const RoundedImg = styled(Col)`
   background-position: center;
   width:100%;
   box-shadow: ${props => props.theme.shadows.md}
+  overflow: hidden
 `
 const Dots = styled.div`
   ${display}
@@ -86,66 +87,63 @@ const Hero = ({ hero }) => {
   // }, [enabled])
   return (
     <HeroContainer>
-      <SectionMax m='auto!important'>
-        <Dots display={['none', 'block']} />
-        <ImageWrapper padding={['0px', '0px', '0px', '20px']} lg={6} md={6} sm={12}>
-          <RoundedImg height={['250px', '460px']} borderRadius={['0px', '0px', '0px', '20px']} lg={12} />
+      <SectionMax m='auto!important' p={4} pb={[6, 4]}>
+        <ImageWrapper padding={['0px', '0px', '0px', '20px']} lg={7} md={6} sm={12}>
+          <RoundedImg height={['250px', '460px']} borderRadius={['20px']} lg={12} />
         </ImageWrapper>
-        <TextContainer p={['3', '5']} lg={6} md={6} sm={12} >
-          <ActionWrapper lg={10} md={12} p={0}>
-            <H4 is='H1' color={'white'} mb={1} mt={2}> {hero.title} </H4>
-            <Row>
-              <InfoItem textColor='mdGrey' copy='1-3 mo.'> <StyledCalendar /> </InfoItem>
-              <InfoItem textColor='mdGrey' copy='Equipment optional.'> <StyledHome /> </InfoItem>
-              <InfoItem textColor='mdGrey'copy='Any skill'> <StyledSkill /> </InfoItem>
-            </Row>
-            <Body2 color={'lightGrey'} maxWidth={['100%']} mt={2} mb={3}>
+        <TextContainer lg={5} md={6} sm={12} >
+          <H4 is='H1' color={'white'} mb={1} mt={2}> {hero.title} </H4>
+          <Row>
+            <InfoItem textColor='mdGrey' copy='1-3 mo.'> <StyledCalendar /> </InfoItem>
+            <InfoItem textColor='mdGrey' copy='Equipment optional.'> <StyledHome /> </InfoItem>
+            <InfoItem textColor='mdGrey'copy='Any skill'> <StyledSkill /> </InfoItem>
+          </Row>
+          <Body2 color={'lightGrey'} maxWidth={['100%']} mt={2} mb={3}>
              A best in class online-fitness program. Thoughtfully crafted around your unique body type, goals, injuries, and more.
-            </Body2>
-            <Row between='xs'>
-              <Caption color='lightGrey' mb={2}> Select your program: </Caption>
-              <Caption mb={2} color={'teal'}> You save ${discountAmount}! </Caption>
-            </Row>
-            <SelectWrapper
-              onChange={option => {
-                setDiscount(option.label.props.strikeout - option.label.props.price)
-                setSku(option.value)
-              }}
-              mb={2}
-              options={options}
-              defaultValue={options[0]}
-              styles={{
-                control: base => ({
-                  ...base,
-                  height: 50,
-                  minHeight: 50,
-                  cursor: 'pointer'
-                }),
-                singleValue: (provided, state) => {
-                  const width = '100%'
-                  const paddingRight = 8
-                  return { ...provided, width, paddingRight }
-                },
-                option: (provided, state) => ({
-                  ...provided,
-                  cursor: 'pointer'
-                })
-              }}
-              isSearchable={false}
-              theme={theme => ({
-                ...theme,
-                borderRadius: 0,
-                colors: {
-                  ...theme.colors,
-                  primary25: '#F5F7F9',
-                  primary: '#DBEBF6'
-                }
-              })}
-            />
-            <Checkout bg='accent' color='white' width='100%' mb={0} sku={sku}>
+          </Body2>
+          <Row between='xs'>
+            <Caption color='lightGrey' mb={2}> Select your program: </Caption>
+            <Caption mb={2} color={'teal'}> You save ${discountAmount}! </Caption>
+          </Row>
+          <SelectWrapper
+            onChange={option => {
+              setDiscount(option.label.props.strikeout - option.label.props.price)
+              setSku(option.value)
+            }}
+            mb={2}
+            options={options}
+            defaultValue={options[0]}
+            styles={{
+              control: base => ({
+                ...base,
+                height: 50,
+                minHeight: 50,
+                cursor: 'pointer'
+              }),
+              singleValue: (provided, state) => {
+                const width = '100%'
+                const paddingRight = 8
+                return { ...provided, width, paddingRight }
+              },
+              option: (provided, state) => ({
+                ...provided,
+                cursor: 'pointer'
+              })
+            }}
+            isSearchable={false}
+            theme={theme => ({
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: '#F5F7F9',
+                primary: '#DBEBF6'
+              }
+            })}
+          />
+          <Checkout bg='accent' color='white' width='100%' mb={0} sku={sku}>
             Start training
-            </Checkout>
-          </ActionWrapper>
+          </Checkout>
         </TextContainer>
       </SectionMax>
     </HeroContainer>

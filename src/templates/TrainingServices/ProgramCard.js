@@ -30,10 +30,10 @@ const Title = styled(H5)`
 const ProgramCard = ({ service }) => {
   console.log('service', service)
   return (
-    <Col style={{ marginBottom: '40px' }}>
+    <Col style={{ marginBottom: '40px', whiteSpace: 'nowrap' }}>
       <Container>
         <Col xs={12}>
-          <Title mt={'0px'}>
+          <Title mt={'0px'} style={{ whiteSpace: 'normal' }}>
             {service.title}
           </Title>
           <PreviewCompatibleImage
@@ -43,7 +43,9 @@ const ProgramCard = ({ service }) => {
           />
         </Col>
       </Container>
-      <Body2 color={'mdGrey'}> {service.desc}</Body2>
+      <Col xs>
+        <Body2 color={'mdGrey'} style={{ whiteSpace: 'normal' }}> {service.desc}</Body2>
+      </Col>
     </Col>
   )
 }

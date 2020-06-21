@@ -73,7 +73,7 @@ const Program = ({
       marginBottom: '24px'
     }}
   >
-    <Col style={{ position: 'relative', padding: '0px' }} xs={12}>
+    <Col style={{ position: 'relative', padding: '0px', marginBottom: '8px' }} xs={12}>
       <div style={{ position: 'relative' }}>
         <ProductImage
           fluid={service.service__image.childImageSharp.fluid}
@@ -94,7 +94,7 @@ const Program = ({
         <InfoItem size={18} textColor='black' copy={service.env}> <StyledHome /> </InfoItem>
         <InfoItem size={18} textColor='black'copy={service.skill}> <StyledSkill /> </InfoItem>
       </Row>
-      <Body1 mt={0} color={'mdGrey'}> {service.desc}</Body1>
+      <Body2 mt={0} color={'mdGrey'}> {service.desc}</Body2>
       <Button
         width={'100%'}
         disabled={service.button_disabled}
@@ -114,7 +114,7 @@ const Program = ({
 const Services = ({ services }) => (
   <SectionWrapper>
     <SectionMax m='auto!important' style={{ justifyContent: 'center' }}>
-      <TitleWrapper mb={4}>
+      <TitleWrapper mb={3} mt={3}>
         <Overline textAlign={'center'}> V3 TRAINING PROGRAMS </Overline>
         <H3 mt={0} mb={3} textAlign={'center'}> Choose your program </H3>
       </TitleWrapper>

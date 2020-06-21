@@ -31,7 +31,7 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${props => props.theme.colors.black}!important;
-  opacity: .4;
+  opacity: .5;
 `
 const ContentContainer = styled(Col)`
   z-index:1;
@@ -43,8 +43,8 @@ const mailTo = (href) => {
 
 const Banner = (props) => {
   return (
-    <SectionWrapper style={{ maxWidth: '1400px', margin: 'auto', paddingRight: '0px', paddingLeft: '0px' }}>
-      <Container fluid={props.banner.bg__img.childImageSharp.fluid} borderRadius={['0px', '20px']}>
+    <SectionWrapper style={{ maxWidth: '1400px', margin: 'auto' }}>
+      <Container fluid={props.banner.bg__img.childImageSharp.fluid} borderRadius={['20px']}>
         <Overlay />
         <ContentContainer>
           <H3 mb={4} color={'white'}>
