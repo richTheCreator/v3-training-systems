@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
-import { H3, Body1 } from '../../components/Typography'
+import { H3, Body1, Overline } from '../../components/Typography'
 import ProgramCard from './ProgramCard'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { space } from 'styled-system'
@@ -16,8 +16,8 @@ const Program = ({ about, program, content, contentComponent }) => {
   return (
     <SectionWrapper>
       <SectionMax style={{ justifyContent: 'center' }} m='auto!important'>
-        <Col>
-          <AboutWrapper mb={6} middle='xs'>
+        <Col xs>
+          <AboutWrapper mb={4} middle='xs'>
             <Col sm={12} lg={4} style={{ padding: '0px' }}>
               <H3 mt={0} mb={1}>
                 {about.title}
@@ -29,11 +29,12 @@ const Program = ({ about, program, content, contentComponent }) => {
               </Body1>
             </Col>
           </AboutWrapper>
-          <Row style={{ marginTop: '-6px', zIndex: 2 }}>
+          <Overline mb={4}> WHAT'S INCLUDED? </Overline>
+          <Row style={{ marginTop: '-6px', zIndex: 2, overflowX: 'scroll', whiteSpace: 'nowrap', display: 'inline-block', width: '100%' }}>
             {program.map((service, idx) => (
-              <Col xs={12} md={6} lg={4}>
+              <div style={{ width: '300px', display: 'inline-block', marginRight: '16px', whiteSpace: 'nowrap', verticalAlign: 'top' }}>
                 <ProgramCard service={service.service} />
-              </Col>
+              </div>
             ))}
           </Row>
         </Col>

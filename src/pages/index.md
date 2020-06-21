@@ -2,8 +2,8 @@
 templateKey: index-page
 hero:
   subtitle: For any lifestyle, any environment, any goal, and anyone.
-  title: Fitness done right.
-  bg__img: /img/at-home-workout.jpg
+  title: Train like a pro. 
+  bg__img: /img/kg_usa.jpg
   dots__image: /img/dots.png
   blurbs:
     - pkg:
@@ -46,8 +46,8 @@ services:
         desc: A training experience crafted to your environment & lifestyle
         length: 1-3 mo
         env: Home or Gym
-        skill: Beginner
-        button_text: ⚡️Get started
+        skill: Any skill
+        button_text: ⚡️ Get started
         button_url:  /training/online-training
         button_subtext: 'Starting at $225/mo'
         badge:
@@ -56,7 +56,7 @@ services:
     - program:
         title: 8 Week Program
         service__image: /img/kg-boat1.jpg
-        desc: A training experience crafted to your environment & lifestyle
+        desc: An ebook with nutrition advice, workout routines, and more.
         length: 2 mo.
         env: Home or Gym
         skill: Beginner
@@ -68,7 +68,7 @@ services:
     - program:
         title: Personal Training
         service__image: /img/personal-training-round-rock.jpg
-        desc: A training experience crafted to your environment & lifestyle
+        desc: 1:1 personal training with Kevin Graves in Round Rock, TX.
         length: 1-6 mo.
         env: In person
         skill: Beginner
@@ -76,7 +76,7 @@ services:
         button_disabled: true
 
 banner:
-  title: It's time to put the work in
+  title: Train like a pro, with a pro.
   button_text: Start Training
   button_url: /training/online-training
   bg__img: /img/woman-lifting.jpg

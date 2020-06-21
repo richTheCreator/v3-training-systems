@@ -21,11 +21,11 @@ const HeroContainer = styled(Row)`
   background-color: ${props => props.theme.colors.greyBlue}
 `
 const RoundedImg = styled(Col)`
-  background-image: url('/img/lifting-weight-nike.jpg');
+  background-image: url('/img/kg_deadlift.jpg');
   background-size:cover;
-  background-position: center;
+  background-position: top center;
   border-radius:20px;
-  min-height:360px;
+  min-height:400px;
 `
 const Dots = styled.div`
   background-image: url('/img/dots-overlay-tall.png');
@@ -76,10 +76,10 @@ class Hero extends Component {
             </Body1>
             <Row>
               <CTAwrapper width={['100%', 'fit-content']} pr={[0, 2]}>
-                <Button width={['100%', 'auto']} mb={2} color={'white'} bg={'black'}> 💪 Start training </Button>
+                <Button width={['100%', 'auto']} mb={2} color={'white'} bg={'black'}> Start training </Button>
               </CTAwrapper>
               <CTAwrapper width={['100%', 'fit-content']}>
-                <Button width={['100%', 'auto']} color={'black'} bg={'white'}> 📱Or tap to call </Button>
+                <Button width={['100%', 'auto']} color={'black'} bg={'white'}> 📱 Or tap to call </Button>
               </CTAwrapper>
             </Row>
           </TextContainer>
