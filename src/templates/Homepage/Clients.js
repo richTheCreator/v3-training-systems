@@ -18,7 +18,7 @@ const Clients = ({ clientImages }) => {
       <SectionMax m='auto!important'>
         <Col xs={12} style={{ padding: '0px' }}>
           <Row>
-            <Col xs={12} lg={4} style={{ padding: '0px' }}>
+            <Col xs={12} lg={4}>
               <Overline> TRANSFORMATIONS </Overline>
               <H3 mt={0} mb={3}>
                 Game changing results

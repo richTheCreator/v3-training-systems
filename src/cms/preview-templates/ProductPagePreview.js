@@ -9,8 +9,8 @@ const ProductPagePreview = ({ entry, getAsset }) => {
   const entryTestimonials = entry.getIn(['data', 'testimonials'])
   const testimonials = entryTestimonials ? entryTestimonials.toJS() : []
 
-  // const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])
-  // const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : []
+  const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])
+  const pricingPlans = entryPricingPlans ? entryPricingPlans.toJS() : []
 
   return (
     <ProductPageTemplate
@@ -37,11 +37,11 @@ const ProductPagePreview = ({ entry, getAsset }) => {
       }}
       fullImage={entry.getIn(['data', 'full_image'])}
       testimonials={testimonials}
-      // pricing={{
-      //   heading: entry.getIn(['data', 'pricing', 'heading']),
-      //   description: entry.getIn(['data', 'pricing', 'description']),
-      //   plans: pricingPlans,
-      // }}
+      pricing={{
+        heading: entry.getIn(['data', 'pricing', 'heading']),
+        description: entry.getIn(['data', 'pricing', 'description']),
+        plans: pricingPlans
+      }}
     />
   )
 }

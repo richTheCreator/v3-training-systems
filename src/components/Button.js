@@ -12,6 +12,7 @@ const Container = styled.button`
   box-shadow: ${props => props.disabled ? 'none' : props.theme.shadows.md};
   align-self: center;
   border: 0px;
+  padding:0px 16px;
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   border-radius: ${props => props.theme.borderRadius.sm}px;
 `

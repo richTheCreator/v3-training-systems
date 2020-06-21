@@ -7,7 +7,9 @@ import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
 import Clients from './Homepage/Clients'
-import { Banner } from '../components'
+import {
+  Banner
+} from '../components'
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
@@ -15,11 +17,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Hero hero={frontmatter.hero} />
-      <Services services={frontmatter.services} hero={frontmatter.hero} />
-      <About about={frontmatter.about} />
-      <Clients clientImages={edges} />
-      <Banner banner={frontmatter.banner} />
+      <Hero hero={frontmatter.hero}/>
+      <Services services={frontmatter.services} hero={frontmatter.hero}/>
+      <About about={frontmatter.about}/>
+      <Clients clientImages={edges}/>
+      <Banner banner={frontmatter.banner}/>
     </>
   )
 }
@@ -78,8 +80,6 @@ export const pageQuery = graphql`
         }
         banner {
           title
-          button_url
-          button_text
           bg__img {
             childImageSharp {
               fluid(maxWidth: 600, quality: 100) {
@@ -120,3 +120,4 @@ export const pageQuery = graphql`
     }
   }
 `
+// { lable: Program, name: program, widget: list, fields: [{ label: Service, name: service, widget: object, fields: [{ label: Title, name: title, widget: text }, { label: Title, name: desc, widget: text }] }] }

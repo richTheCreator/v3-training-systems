@@ -6,13 +6,14 @@ import {
 import Hero from './TrainingServices/Hero'
 import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
-import ForYou from './TrainingServices/ForYou'
+import BannerExt from './TrainingServices/BannerExt'
+import HowItWorks from './TrainingServices/Howitworks'
 import Clients from './Homepage/Clients'
 import SEO from '../components/SEO/SEO'
+
 const TrainingPage = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
   const { edges } = data.clientImages
-  console.log('html', html)
   return (
     <>
       <SEO
@@ -20,10 +21,11 @@ const TrainingPage = ({ data }) => {
         desc={'1 or 3 month program tailored to you and your goals. Includes workout routines, nutrition plan, premium support, and more.'}
       />
       <Hero hero={frontmatter.hero} />
-      <Program content={html} program={frontmatter.program} />
+      <Program about={frontmatter.about} program={frontmatter.program} />
       <Comparison comparison={frontmatter.comparison} />
+      <HowItWorks how={frontmatter.how} />
       <Clients clientImages={edges} />
-      <ForYou foryou={frontmatter.foryou} />
+      <BannerExt banner={frontmatter.banner} />
     </>
   )
 }
@@ -57,13 +59,12 @@ export const pageQuery = graphql`
             }
           }
         }
-        foryou {
+        banner {
           title
-          desc
-          workout__image {
+          bg__img {
             childImageSharp {
-              fluid(maxWidth: 800, quality: 100) {
-                ...GatsbyImageSharpFluid
+              fluid(maxWidth: 600, quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
@@ -88,6 +89,16 @@ export const pageQuery = graphql`
             }
           }
         }
+        how {
+          title
+          desc
+          steps {
+            step {
+              title
+              desc
+            }
+          }
+        }
         program {
           service {
             title
@@ -100,6 +111,10 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        about {
+          title
+          desc
         }
         comparison {
           title

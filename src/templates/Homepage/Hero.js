@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { useSpring, useTrail, useChain, config, animated } from 'react-spring'
 import { Row, Col } from 'react-flexbox-grid'
 import {
-  space
+  space,
+  width
 } from 'styled-system'
 import { Link } from 'gatsby'
 import Bowser from 'bowser'
-import { Body1, H3 } from '../../components/Typography'
+import { Body1, H2 } from '../../components/Typography'
 import { SectionMax } from '../../components/Containers'
 import { BlockReveal } from '../../components/Animation'
 import { Button } from '../../components'
@@ -36,12 +37,16 @@ const Dots = styled.div`
   width: 200px;
 }
 `
-
+const CTAwrapper = styled(Col)`
+  ${width}
+  ${space}
+`
 const TextContainer = styled(Col)`
   ${space}
   z-index:1;
   align-self:center;
 `
+
 class Hero extends Component {
   constructor (props) {
     super(props)
@@ -64,18 +69,18 @@ class Hero extends Component {
       <HeroContainer>
         <SectionMax m='auto!important' style={{ position: 'relative' }}>
           <Dots />
-          <TextContainer p={5} lg={5} md={12} lgOffset={1}>
-            <H3 color={'black'} m={0}> {hero.title} </H3>
+          <TextContainer p={4} lg={6} md={12}>
+            <H2 color={'black'} m={0}> {hero.title} </H2>
             <Body1 maxWidth={['100%']} mb={4}>
-              Choose a program that works for your lifestyle, environment, and goals.
+              {hero.subtitle}
             </Body1>
-            <Row between='xs'>
-              <Col xs={12} md={6}>
-                <Button width={['100%']} mb={2} color={'white'} bg={'black'}> 💪Start training </Button>
-              </Col>
-              <Col xs={12} md={6}>
-                <Button width={['100%']} color={'black'} bg={'white'}> 📱Or tap to call </Button>
-              </Col>
+            <Row>
+              <CTAwrapper width={['100%', 'fit-content']} pr={[0, 2]}>
+                <Button width={['100%', 'auto']} mb={2} color={'white'} bg={'black'}> 💪 Start training </Button>
+              </CTAwrapper>
+              <CTAwrapper width={['100%', 'fit-content']}>
+                <Button width={['100%', 'auto']} color={'black'} bg={'white'}> 📱Or tap to call </Button>
+              </CTAwrapper>
             </Row>
           </TextContainer>
           <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />

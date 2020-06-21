@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import { space } from 'styled-system'
 import {
   Body1,
-  WithDecorator,
   H5,
   Body2,
-  H3
+  H3,
+  Overline
 } from '../../components/Typography'
 import { SectionWrapper, SectionMax } from '../../components/Containers'
 import { Button, Badge, InfoItem } from '../../components'
@@ -22,9 +22,7 @@ const ProductImage = styled(BackgroundImage)`
   background-size: cover;
   height:200px;
   border-radius: 4px;
-  &::before {
-    border-radius: 4px;
-  }
+  overflow:hidden;
 `
 const PromoBadge = styled(Badge)`
   position: absolute!important;
@@ -55,8 +53,13 @@ width:18px;
     stroke: ${props => props.theme.colors.black}
   }
 `
+const TitleWrapper = styled(Col)`
+  ${space}
+`
+
 const ProgramWrapper = styled(Col)`
 `
+
 const Program = ({
   service
 }) => (
@@ -82,7 +85,7 @@ const Program = ({
         }
       </div>
     </Col>
-    <Col xs={12} style={{ zIndex: 3, padding: '8px' }}>
+    <Col xs={12} style={{ zIndex: 3, padding: '0px' }}>
       <H5 mb={0} mt={1}>
         {service.title}
       </H5>
@@ -110,12 +113,18 @@ const Program = ({
 
 const Services = ({ services }) => (
   <SectionWrapper>
-    <SectionMax m='auto!important'>
-      {services.programs.map((service, idx) => (
-        <ProgramWrapper lg={4} md={6} sm={6} xs={12}>
-          <Program service={service.program} />
-        </ProgramWrapper>
-      ))}
+    <SectionMax m='auto!important' style={{ justifyContent: 'center' }}>
+      <TitleWrapper mb={4}>
+        <Overline textAlign={'center'}> V3 TRAINING PROGRAMS </Overline>
+        <H3 mt={0} mb={3} textAlign={'center'}> Choose your program </H3>
+      </TitleWrapper>
+      <Row>
+        {services.programs.map((service, idx) => (
+          <ProgramWrapper lg={4} md={6} sm={6} xs={12}>
+            <Program service={service.program} />
+          </ProgramWrapper>
+        ))}
+      </Row>
     </SectionMax>
   </SectionWrapper>
 )

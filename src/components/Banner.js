@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { color, space, gridArea } from 'styled-system'
+import { space, borderRadius } from 'styled-system'
 import BackgroundImage from 'gatsby-background-image'
 import { H3 } from './Typography'
 import { SectionWrapper } from './Containers'
@@ -9,9 +9,9 @@ import { Button } from './Button'
 
 const Container = styled(BackgroundImage)`
   ${space}
+  ${borderRadius}
   display:flex;
   flex-direction: row;
-  border-radius: ${props => props.theme.borderRadius.xl}px;
   width:100%;
   height:350px;
   background-position: center center;
@@ -20,10 +20,7 @@ const Container = styled(BackgroundImage)`
   align-items: center;
   position:relative;
   box-shadow: ${props => props.theme.shadows.md};
-  &::before {
-    border-radius: ${props => props.theme.borderRadius.xl}px!important;
-    content: "";
-  }
+  overflow: hidden
 `
 const Overlay = styled.div`
   position: absolute;
@@ -34,26 +31,26 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${props => props.theme.colors.black}!important;
-  border-radius: ${props => props.theme.borderRadius.xl}px;
   opacity: .4;
 `
 const ContentContainer = styled(Col)`
   z-index:1;
   text-align:center;
 `
+const mailTo = (href) => {
+  window.open('mailto:conquerfitness01@gmail.com?subject=V3%20Online%20Fitness%20Program%20-%20Customer%20Contact', '_blank')
+}
 
 const Banner = (props) => {
   return (
     <SectionWrapper style={{ maxWidth: '1400px', margin: 'auto', paddingRight: '0px', paddingLeft: '0px' }}>
-      <Container fluid={props.banner.bg__img.childImageSharp.fluid}>
+      <Container fluid={props.banner.bg__img.childImageSharp.fluid} borderRadius={['0px', '20px']}>
         <Overlay />
         <ContentContainer>
           <H3 mb={4} color={'white'}>
             {props.banner.title}
           </H3>
-          <Button url={props.banner.button_url} bg={'white'} color={'black'} width={['100%', 'auto']}>
-            {props.banner.button_text}
-          </Button>
+          {props.children}
         </ContentContainer>
       </Container>
     </SectionWrapper>

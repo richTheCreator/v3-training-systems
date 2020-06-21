@@ -1,8 +1,8 @@
 ---
 templateKey: index-page
 hero:
-  subtitle: Invest in your health and wellness like your future depends on it
-  title: Fitness programs designed for you
+  subtitle: For any lifestyle, any environment, any goal, and anyone.
+  title: Fitness done right.
   bg__img: /img/at-home-workout.jpg
   dots__image: /img/dots.png
   blurbs:
