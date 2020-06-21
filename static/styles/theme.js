@@ -30,7 +30,7 @@ const lineHeights = [
   '28px', // 4
   '32px', // 5
   '45px', // 6
-  '64px', // 7
+  '54px', // 7
   '78px', // 8
   '125px' // 9
 ]
@@ -60,7 +60,7 @@ const fontWeights = [
 
 const heights = ['100%', '100vh']
 
-const maxWidths = ['1400px', '1800px']
+const maxWidths = ['1200px', '1800px']
 
 // Colors
 const colors = {

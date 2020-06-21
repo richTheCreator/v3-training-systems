@@ -19,7 +19,7 @@ export const H1 = system(
     fontSize: [10, 11, 12],
     fontWeight: 2,
     color: 'white',
-    lineHeight: [7, 8, 9],
+    lineHeight: [7, 8],
     letterSpacing: 0
   },
   ...textStyles
