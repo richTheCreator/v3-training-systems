@@ -4,7 +4,7 @@ import { Row, Col } from 'react-flexbox-grid'
 import { space, borderRadius } from 'styled-system'
 import BackgroundImage from 'gatsby-background-image'
 import { H3 } from './Typography'
-import { SectionWrapper } from './Containers'
+import { SectionWrapper, SectionMax } from './Containers'
 import { Button } from './Button'
 
 const Container = styled(BackgroundImage)`
@@ -43,16 +43,18 @@ const mailTo = (href) => {
 
 const Banner = (props) => {
   return (
-    <SectionWrapper style={{ maxWidth: '1400px', margin: 'auto' }}>
-      <Container fluid={props.banner.bg__img.childImageSharp.fluid} borderRadius={['20px']}>
-        <Overlay />
-        <ContentContainer>
-          <H3 mb={4} color={'white'}>
-            {props.banner.title}
-          </H3>
-          {props.children}
-        </ContentContainer>
-      </Container>
+    <SectionWrapper style={{ justifyContent: 'center' }}>
+      <SectionMax>
+        <Container fluid={props.banner.bg__img.childImageSharp.fluid} borderRadius={['20px']}>
+          <Overlay />
+          <ContentContainer>
+            <H3 mb={4} color={'white'}>
+              {props.banner.title}
+            </H3>
+            {props.children}
+          </ContentContainer>
+        </Container>
+      </SectionMax>
     </SectionWrapper>
   )
 }

@@ -9,12 +9,9 @@ const mailTo = (href) => {
 const BannerExt = ({ banner }) => {
   return (
     <Banner banner={banner}>
-      <Row between='xs'>
+      <Row center='xs'>
         <Col xs={12} md={6}>
-          <Button onClick={() => mailTo()} width={['100%']} mb={2} color={'white'} bg={'black'}> Send e-mail </Button>
-        </Col>
-        <Col xs={12} md={6}>
-          <Button onClick={() => mailTo()} width={['100%']} mb={2} color={'black'} bg={'white'}> 📱Or tap to call </Button>
+          <Button onClick={() => mailTo()} width={['100%']} mb={2} color={'black'} bg={'white'}> Get Started </Button>
         </Col>
       </Row>
     </Banner>

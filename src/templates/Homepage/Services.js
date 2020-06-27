@@ -33,22 +33,25 @@ const ListWrapper = styled(Col)`
   ${space}
 `
 const StyledCalendar = styled(Calendar)`
-  height:18px;
-  width:18px;
+  height:24px;
+  width:24px;
+  padding-right:4px;
   path {
     stroke: ${props => props.theme.colors.black}
   }
 `
 const StyledHome = styled(HomeIcon)`
-height:18px;
-width:18px;
+height:24px;
+width:24px;
+padding-right:4px;
   path {
     stroke: ${props => props.theme.colors.black}
   }
 `
 const StyledSkill = styled(Skill)`
-height:18px;
-width:18px;
+height:24px;
+width:24px;
+padding-right:4px;
   path {
     stroke: ${props => props.theme.colors.black}
   }
@@ -90,9 +93,9 @@ const Program = ({
         {service.title}
       </H5>
       <Row>
-        <InfoItem size={18} textColor='black' copy={service.length}> <StyledCalendar /> </InfoItem>
-        <InfoItem size={18} textColor='black' copy={service.env}> <StyledHome /> </InfoItem>
-        <InfoItem size={18} textColor='black'copy={service.skill}> <StyledSkill /> </InfoItem>
+        <InfoItem size={24} textColor='black' copy={service.length}> <StyledCalendar /> </InfoItem>
+        <InfoItem size={24} textColor='black' copy={service.env}> <StyledHome /> </InfoItem>
+        <InfoItem size={24} textColor='black'copy={service.skill}> <StyledSkill /> </InfoItem>
       </Row>
       <Body2 mt={0} color={'mdGrey'}> {service.desc}</Body2>
       <Button
