@@ -2,7 +2,7 @@ import React from 'react'
 import {
   graphql
 } from 'gatsby'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import Hero from './Homepage/Hero'
 import About from './Homepage/About'
 import Services from './Homepage/Services'
@@ -22,6 +22,7 @@ const IndexPage = ({ data }) => {
       <About about={frontmatter.about}/>
       <Clients clientImages={edges}/>
       <Banner banner={frontmatter.banner}/>
+      <Footer/>
     </>
   )
 }

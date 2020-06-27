@@ -87,7 +87,7 @@ const Hero = ({ hero }) => {
   // }, [enabled])
   return (
     <HeroContainer>
-      <SectionMax m='auto!important' p={4} pb={[6, 4]}>
+      <SectionMax m='auto!important' p={[2, 4]} pb={[6, 4]}>
         <ImageWrapper padding={['0px', '0px', '0px', '20px']} lg={7} md={6} sm={12}>
           <RoundedImg height={['250px', '460px']} borderRadius={['20px']} lg={12} />
         </ImageWrapper>

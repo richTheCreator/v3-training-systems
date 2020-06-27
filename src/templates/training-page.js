@@ -8,6 +8,7 @@ import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
 import BannerExt from './TrainingServices/BannerExt'
 import HowItWorks from './TrainingServices/Howitworks'
+import Footer from '../components/Footer'
 import Clients from './Homepage/Clients'
 import SEO from '../components/SEO/SEO'
 
@@ -26,6 +27,7 @@ const TrainingPage = ({ data }) => {
       <HowItWorks how={frontmatter.how} />
       <Clients clientImages={edges} />
       <BannerExt banner={frontmatter.banner} />
+      <Footer/>
     </>
   )
 }
