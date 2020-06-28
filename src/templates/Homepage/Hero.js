@@ -83,7 +83,7 @@ class Hero extends Component {
               </CTAwrapper>
             </Row>
           </TextContainer>
-          <RoundedImg lg={6} />
+          <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
         </SectionMax>
       </HeroContainer>
     )
