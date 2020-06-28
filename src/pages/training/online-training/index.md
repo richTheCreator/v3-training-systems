@@ -3,7 +3,7 @@ templateKey: training-page
 title: Online Training Program
 about:
   title: A program designed for you
-  desc: Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs a retro fitted to you.
+  desc: Each program is tailored to the individual. Whether you're a lifetime athlete or just starting your fitness journey, our programs are tailored to you.
 how:
   title: How it works
   desc: Three simple steps that will change your fitness life forever
@@ -35,20 +35,15 @@ program:
   - service:
       title: RECOVERY
       service__image: /img/program-nutrition.png
-      desc: Teaching you how to track your calories, shop, and plan your weeks will be
-        the main mission for our nutrition program. Goals to reach your daily
-        required macronutrients.
+      desc: Rest and recovery is an essential part of a workout routine. Your after-exercise recovery routine has a big impact on your fitness gains and  performance.
   - service:
       title: CORRECTIVE EXERCISE
       service__image: /img/program-workout.png
-      desc: Monthly workouts will be provided and will progress over each month
-        ensuring that you reach your health and fitness goals
+      desc: Reduce the chance of injury, corrective imbalances already present in your body, and help increase strength.
   - service:
       title: STRESS MANAGEMENT
       service__image: /img/program-support.png
-      desc: Stress can have a huge negative impact on
-        client results, as it can affect recovery and the body's ability to
-        change.
+      desc: Stress can have a huge negative impact on client results, as it can affect recovery and the body's ability to change.
 pricing:
   title: Simple plans and pricing
   dots__image: /img/dots.png
@@ -57,12 +52,12 @@ pricing:
         main: true
         callout: SAVE 50%
         title: 3 MONTHS
-        price: $150
+        price: $550
         button_text: Start Program
         sku: SKU_3MONTH
     - plan:
         title: 1 MONTH
-        price: $100
+        price: $225
         sku: SKU_1MONTH
         button_text: Start Program
 guarantee:
@@ -78,20 +73,20 @@ comparison:
     - item:
         title: V3 ONLINE TRAINING
         includes:
-          - Custom routines tailored to you
-          - Unlimited support
-          - Custom routines tailored to you
-          - Unlimited support
+          - Progressive routines that evolve with you
+          - Premium support with a real human
+          - Full nutrition guidance
+          - High accountability
     - item:
         title: OTHER TRAINERS & APPS
         includes:
-          - Cookie cutter routines
+          - Cookie cutter routines & classes
           - Little to no support
-          - Cookie cutter routines
-          - Little to no support
+          - Unrealistic meal plans & ingredients
+          - Low accountability
 banner:
-  title: It's time to put the work in
-  bg__img: /img/woman-lifting.jpg
+  title: Let's crush your goals together
+  bg__img: /img/kg_pose_flag.jpeg
 hero:
   title: Online Training Program
   workout__image: /img/program-nutrition.png

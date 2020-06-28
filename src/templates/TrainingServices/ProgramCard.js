@@ -28,7 +28,6 @@ const Title = styled(H5)`
 `
 
 const ProgramCard = ({ service }) => {
-  console.log('service', service)
   return (
     <Col style={{ marginBottom: '40px', whiteSpace: 'nowrap' }}>
       <Container>

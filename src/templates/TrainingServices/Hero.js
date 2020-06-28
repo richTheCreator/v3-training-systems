@@ -16,8 +16,8 @@ import Calendar from '../../img/svg/calendar.svg'
 import Skill from '../../img/svg/zap.svg'
 
 const options = [
-  { value: 'SKU_3MONTH', label: <PriceItem program='3 Months' price={250} strikeout={500} /> },
-  { value: 'SKU_1MONTH', label: <PriceItem program='1 Month' price={150} strikeout={200} /> }
+  { value: 'SKU_3MONTH', label: <PriceItem program='3 Months' price={550} strikeout={825} /> },
+  { value: 'SKU_1MONTH', label: <PriceItem program='1 Month' price={225} strikeout={275} /> }
 ]
 
 const HeroContainer = styled(Row)`
@@ -31,9 +31,8 @@ const HeroContainer = styled(Row)`
 const RoundedImg = styled(Col)`
   ${borderRadius}
   ${height}
-  background-image: url('/img/lifting-weight-nike.jpg');
+  background-image: url('/img/kg_deadlift.jpg');
   background-size:cover;
-  background-position: center;
   width:100%;
   box-shadow: ${props => props.theme.shadows.md}
   overflow: hidden

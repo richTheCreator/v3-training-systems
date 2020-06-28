@@ -12,6 +12,7 @@ import { Body1, H2 } from '../../components/Typography'
 import { SectionMax } from '../../components/Containers'
 import { BlockReveal } from '../../components/Animation'
 import { Button } from '../../components'
+import useSiteMetadata from '../../components/SiteMetadata'
 
 const HeroContainer = styled(Row)`
   ${space}
@@ -21,7 +22,7 @@ const HeroContainer = styled(Row)`
   background-color: ${props => props.theme.colors.greyBlue}
 `
 const RoundedImg = styled(Col)`
-  background-image: url('/img/kg_deadlift.jpg');
+  background-image: url('/img/kg_flex_flag.jpeg');
   background-size:cover;
   background-position: top center;
   border-radius:20px;
@@ -46,48 +47,35 @@ const TextContainer = styled(Col)`
   z-index:1;
   align-self:center;
 `
+const callKG = () => {
+  window.open('tel:+15126302038', '_self')
+}
 
-class Hero extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      browser: undefined
-    }
-  }
+const Hero = ({ hero }) => {
+  const { menuLinks } = useSiteMetadata()
 
-  componentWillMount () {
-    if (typeof window !== 'undefined') {
-      const browser = Bowser.getParser(window.navigator.userAgent)
-      this.setState({ browser })
-      console.log('did', browser)
-    }
-  }
-
-  render () {
-    const { hero } = this.props
-    return (
-      <HeroContainer>
-        <SectionMax m='auto!important' style={{ position: 'relative' }}>
-          <Dots />
-          <TextContainer p={4} lg={6} md={12}>
-            <H2 color={'black'} m={0}> {hero.title} </H2>
-            <Body1 maxWidth={['100%']} mb={4}>
-              {hero.subtitle}
-            </Body1>
-            <Row>
-              <CTAwrapper width={['100%', 'fit-content']} pr={[0, 2]}>
-                <Button width={['100%', 'auto']} mb={2} color={'white'} bg={'black'}> Start training </Button>
-              </CTAwrapper>
-              <CTAwrapper width={['100%', 'fit-content']}>
-                <Button width={['100%', 'auto']} color={'black'} bg={'white'}> 📱 Or tap to call </Button>
-              </CTAwrapper>
-            </Row>
-          </TextContainer>
-          <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
-        </SectionMax>
-      </HeroContainer>
-    )
-  }
+  return (
+    <HeroContainer>
+      <SectionMax m='auto!important' style={{ position: 'relative' }}>
+        <Dots />
+        <TextContainer p={4} lg={6} md={12}>
+          <H2 color={'black'} m={0}> {hero.title} </H2>
+          <Body1 maxWidth={['100%']} mb={4}>
+            {hero.subtitle}
+          </Body1>
+          <Row>
+            <CTAwrapper width={['100%', 'fit-content']} pr={[0, 2]}>
+              <Button url={menuLinks[1].link} width={['100%', 'auto']} mb={2} color={'white'} bg={'black'}> Start training </Button>
+            </CTAwrapper>
+            <CTAwrapper width={['100%', 'fit-content']}>
+              <Button onClick={() => callKG()} width={['100%', 'auto']} color={'black'} bg={'white'}> 📱 Or tap to call </Button>
+            </CTAwrapper>
+          </Row>
+        </TextContainer>
+        <RoundedImg className={'hidden-xs hidden-sm hidden-md'} lg={6} />
+      </SectionMax>
+    </HeroContainer>
+  )
 }
 
 export default Hero
