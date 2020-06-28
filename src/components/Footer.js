@@ -83,7 +83,7 @@ const Footer = () => {
             <Overline textAlign={['left', 'right']} mb={3} color='mdGrey'> GET IN TOUCH </Overline>
             <Row end='md' start='xs'>
               <CTAWrapper width={'100%'}>
-                <ContactCTA mb={3} width={'100%'} url='tel:+18506484200' text={'Call V3TS'}>
+                <ContactCTA mb={3} width={'100%'} url='tel:+15126302038' text={'Call V3TS'}>
                   <Phone_Icon style={{ width: '100%', fill: 'white', paddingRight: '8px' }} />
                 </ContactCTA>
                 <ContactCTA url='mailto:conquerfitness01@gmail.com?subject=V3%20Online%20Fitness%20Program%20-%20Customer%20Contact' mb={4} text={'Email V3TS'}>
@@ -92,11 +92,11 @@ const Footer = () => {
               </CTAWrapper>
             </Row>
             <Row end='md' start='xs'>
-              <a href='https://www.facebook.com/kevin.graves.1293' title='instagram'>
-                <IG_Logo style={{ fill: 'white', paddingRight: '12px' }} />
+              <a href='https://www.facebook.com/conquerfitnesstx/' title='instagram'>
+                <FB_Logo style={{ fill: 'white', paddingRight: '12px' }} />
               </a>
               <a href='https://www.instagram.com/v3_training_systems/' title='instagram'>
-                <FB_Logo style={{ fill: 'white' }} />
+                <IG_Logo style={{ fill: 'white' }} />
               </a>
             </Row>
           </Col>

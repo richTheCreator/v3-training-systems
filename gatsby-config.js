@@ -3,7 +3,7 @@ var website = require('./src/components/SEO/config')
 const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://www.v3ts.netlify.com',
+  URL: NETLIFY_SITE_URL = 'https://www.v3-trainingsystems.com',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
   CONTEXT: NETLIFY_ENV = NODE_ENV
 } = process.env
@@ -27,15 +27,15 @@ module.exports = {
       link: '/'
     },
     {
-      name: 'Online Training',
+      name: 'ONLINE TRAINING',
       link: '/training/online-training'
     },
     {
-      name: 'Personal Training',
+      name: 'PERSONAL TRAINING',
       link: '/'
     },
     {
-      name: '8 Week Program',
+      name: '8WK PROGRAM',
       link: '/'
     }
     ]

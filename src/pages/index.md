@@ -2,7 +2,7 @@
 templateKey: index-page
 hero:
   subtitle: For any lifestyle, any environment, any goal, and anyone.
-  title: Train like a pro. 
+  title: Train like a pro.
   bg__img: /img/kg_usa.jpg
   dots__image: /img/dots.png
   blurbs:
@@ -19,20 +19,20 @@ hero:
 about:
   title: Kevin Graves
   flex__image: /img/KG-Flex.png
-  bio: When other websites give you text, they’re not sending the best. They’re not sending you, they’re sending words that have lots of problems and they’re bringing those problems with us. They’re bringing mistakes. They’re bringing misspellings. They’re typists… And some, I assume, are good words. We have so many things that we have to do better... and certainly ipsum is one of them.
+  bio: I’ve been training for over ten years and wouldn’t dream of doing anything else.  My approach to training is to help you build a lifestyle that will provide long-term results.  The health and fitness industry is saturated with conflicting information, misinformation, fad diets, and bad exercise programs; this leaves the general public confused and misinformed.  I provide a science-based approach to exercise and nutrition that teaches you the right way to attain your goals.  
   callouts:
     - callout:
-        count: "10+"
+        count: "12+"
         desc: Years Experience
     - callout:
-        count: "3x"
+        count: "4x"
         desc: Natural Competitor
     - callout:
         count: "1k+"
         desc: Clients Trained
     - callout:
-        count: "18"
-        desc: Pro Athletes Trained
+        count: "7yrs"
+        desc: US Airforce
 transformations:
   title: Kevin Graves
   body: Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is. Something about how dope and strong and big and weird KG is.
@@ -42,7 +42,7 @@ services:
   programs:
     - program:
         title: Online Training
-        service__image: /img/online-workout-phone.jpg
+        service__image: /img/kg_deadlift.jpg
         desc: A training experience crafted to your environment & lifestyle
         length: 1-3 mo
         env: Home or Gym
@@ -59,7 +59,7 @@ services:
         desc: An ebook with nutrition advice, workout routines, and more.
         length: 2 mo.
         env: Home or Gym
-        skill: Beginner
+        skill: Any skill
         button_text: Coming Soon
         button_disabled: true
         badge:
@@ -68,10 +68,10 @@ services:
     - program:
         title: Personal Training
         service__image: /img/personal-training-round-rock.jpg
-        desc: 1:1 personal training with Kevin Graves in Round Rock, TX.
+        desc: 1:1 personal training with Kevin Graves in Cedar Park, TX.
         length: 1-6 mo.
         env: In person
-        skill: Beginner
+        skill: Any skill
         button_text: Unavailable
         button_disabled: true
 
@@ -79,5 +79,5 @@ banner:
   title: Train like a pro, with a pro.
   button_text: Start Training
   button_url: /training/online-training
-  bg__img: /img/woman-lifting.jpg
+  bg__img: /img/kg_pose_flag.jpeg
 ---

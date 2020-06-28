@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { Row, Col } from 'react-flexbox-grid'
 import { useSpring, useTransition, useChain, animated } from 'react-spring'
-import { justifyContent } from 'styled-system'
+import { justifyContent, fontSize, fontWeight } from 'styled-system'
 import { InfoItem } from '../components'
 import styled from 'styled-components'
+
 import Guaranteed from '../img/svg/guaranteed.svg'
 import Skill from '../img/svg/skill-levels.svg'
 import Workouts from '../img/svg/workouts-env.svg'
@@ -35,17 +36,18 @@ const InfoBanner = styled.div`
   white-space: nowrap;
 `
 const LinkStyle = styled(Link)`
+  ${fontSize}
+  ${fontWeight}
   vertical-align: middle;
   display: table-cell;
   height: 55px;
   padding: 0px 24px;
   text-decoration: none;
-  font-size: ${props => props.theme.fontSizes[4]};
-  font-weight: ${props => props.theme.fontWeights[2]};
   color: ${props => props.theme.colors.black};
   letter-spacing: ${props => props.theme.letterSpacings[8]};
 `
-const SmallButton = styled.div`
+const SmallButton = styled(Link)`
+  text-decoration: none;
   border-radius: 15px;
   background: ${props => props.theme.colors.accent};
   color: ${props => props.theme.colors.white};
@@ -88,7 +90,7 @@ const AnimatedMenu = animated(makeClassComponent(MenuList))
 const AnimatedLink = animated(makeClassComponent(LinkStyle))
 
 const NavbarLG = ({ menuLinks, theme }) => (
-  <Row className='hidden-xs hidden-sm' middle='xs' style={{ height: '100%', width: '100%' }}>
+  <Row className='hidden-xs hidden-sm hidden-md' middle='xs' style={{ height: '100%', width: '100%' }}>
     <Col xs={-1}>
       <Link to='/' className='navbar-item' title='Logo'>
         <svg
@@ -109,11 +111,11 @@ const NavbarLG = ({ menuLinks, theme }) => (
         {menuLinks.map(navItems =>
           navItems.name !== 'Home' ? (
             <Row style={{ display: 'table' }}>
-              <LinkStyle to={navItems.link}>{navItems.name}</LinkStyle>
+              <LinkStyle fontSize={3} fontWeight={2} to={navItems.link}>{navItems.name}</LinkStyle>
             </Row>
           ) : null
         )}
-        <SmallButton> Start training </SmallButton>
+        <SmallButton to={menuLinks[1].link}> Start training </SmallButton>
       </Row>
     </Col>
   </Row>
@@ -121,7 +123,7 @@ const NavbarLG = ({ menuLinks, theme }) => (
 const NavbarSM = ({ menuLinks, toggleMenu }) => (
   <Row
     style={{ height: '100%', width: '100%' }}
-    className='hidden-xl hidden-lg hidden-md'
+    className='hidden-xl hidden-lg'
     middle='xs'
   >
     <Col>
@@ -161,6 +163,12 @@ const Navbar = ({ menuLinks }) => {
     setMenu(expanded => !expanded)
   }
 
+  const menuClick = (e, to) => {
+    console.log('to-----', to)
+    e.preventDefault()
+    navigate(to)
+    toggleMenu()
+  }
   // Animation helpers
   const menuRef = useRef()
   const springMenu = useSpring({
@@ -212,8 +220,8 @@ const Navbar = ({ menuLinks }) => {
         style={{ ...springMenu }}
       >
         {transitions.map(({ item, key, props }) => (
-          <Row style={{ display: 'table', margin: '8px 0' }}>
-            <AnimatedLink key={key} style={props} to={item.link}>
+          <Row style={{ display: 'table', margin: '24px 0' }}>
+            <AnimatedLink fontSize={9} fontWeight={3} key={key} style={props} onClick={(e) => menuClick(e, item.link)}>
               {item.name}
             </AnimatedLink>
           </Row>

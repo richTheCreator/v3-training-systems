@@ -29,12 +29,11 @@ const Program = ({ about, program, content, contentComponent }) => {
               </Body1>
             </Col>
           </AboutWrapper>
-          <Overline mb={4}> WHAT'S INCLUDED? </Overline>
-          <Row style={{ marginTop: '-6px', zIndex: 2, overflowX: 'scroll', whiteSpace: 'nowrap', display: 'inline-block', width: '100%' }}>
+          <Row>
             {program.map((service, idx) => (
-              <div style={{ width: '300px', display: 'inline-block', marginRight: '16px', whiteSpace: 'nowrap', verticalAlign: 'top' }}>
+              <Col xs={12} sm={6} md={6} lg={4}>
                 <ProgramCard service={service.service} />
-              </div>
+              </Col>
             ))}
           </Row>
         </Col>

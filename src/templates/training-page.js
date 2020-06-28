@@ -6,7 +6,7 @@ import {
 import Hero from './TrainingServices/Hero'
 import Program from './TrainingServices/Program'
 import Comparison from './TrainingServices/Comparisson'
-import BannerExt from './TrainingServices/BannerExt'
+import { Banner } from '../components'
 import HowItWorks from './TrainingServices/Howitworks'
 import Footer from '../components/Footer'
 import Clients from './Homepage/Clients'
@@ -26,7 +26,7 @@ const TrainingPage = ({ data }) => {
       <Comparison comparison={frontmatter.comparison} />
       <HowItWorks how={frontmatter.how} />
       <Clients clientImages={edges} />
-      <BannerExt banner={frontmatter.banner} />
+      <Banner banner={frontmatter.banner} />
       <Footer/>
     </>
   )
