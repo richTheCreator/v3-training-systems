@@ -28,22 +28,22 @@ program:
       service__image: /img/program-workout.png
       desc: Monthly workouts that progress over each month on your way to your goals
   - service:
-      title: PREMIUM SUPPORT
-      service__image: /img/program-support.png
-      desc: Direct access to me through phone calls, text messaging, email and
-        services like FaceTime and Skype.
-  - service:
       title: RECOVERY
-      service__image: /img/program-nutrition.png
+      service__image: /img/program-recovery.png
       desc: Rest and recovery is an essential part of a workout routine. Your after-exercise recovery routine has a big impact on your fitness gains and  performance.
   - service:
       title: CORRECTIVE EXERCISE
-      service__image: /img/program-workout.png
+      service__image: /img/program-corrective.png
       desc: Reduce the chance of injury, corrective imbalances already present in your body, and help increase strength.
   - service:
       title: STRESS MANAGEMENT
       service__image: /img/program-support.png
       desc: Stress can have a huge negative impact on client results, as it can affect recovery and the body's ability to change.
+  - service:
+      title: PREMIUM SUPPORT
+      service__image: /img/program-support.png
+      desc: Direct access to me through phone calls, text messaging, email and
+        services like FaceTime and Skype.
 pricing:
   title: Simple plans and pricing
   dots__image: /img/dots.png

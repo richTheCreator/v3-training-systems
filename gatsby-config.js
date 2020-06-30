@@ -23,7 +23,7 @@ module.exports = {
     // twitter: website.twitter,
     // facebook: website.facebook,
     menuLinks: [{
-      name: 'Home',
+      name: 'HOME',
       link: '/'
     },
     {

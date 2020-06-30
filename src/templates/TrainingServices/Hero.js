@@ -91,11 +91,11 @@ const Hero = ({ hero }) => {
           <RoundedImg height={['250px', '460px']} borderRadius={['20px']} lg={12} />
         </ImageWrapper>
         <TextContainer lg={5} md={6} sm={12} >
-          <H4 is='H1' color={'white'} mb={1} mt={2}> {hero.title} </H4>
+          <H4 is='H1' fontSize={['24px', '32px']} color={'white'} mb={1} mt={2}> {hero.title} </H4>
           <Row>
-            <InfoItem textColor='mdGrey' copy='1-3 mo.'> <StyledCalendar /> </InfoItem>
-            <InfoItem textColor='mdGrey' copy='Equipment optional.'> <StyledHome /> </InfoItem>
-            <InfoItem textColor='mdGrey'copy='Any skill'> <StyledSkill /> </InfoItem>
+            <InfoItem size='24px' textColor='mdGrey' copy='1-3 mo.'> <StyledCalendar /> </InfoItem>
+            <InfoItem size='24px' textColor='mdGrey' copy='Home or gym'> <StyledHome /> </InfoItem>
+            <InfoItem size='24px' textColor='mdGrey'copy='Any skill'> <StyledSkill /> </InfoItem>
           </Row>
           <Body2 color={'lightGrey'} maxWidth={['100%']} mt={2} mb={3}>
              A best in class online-fitness program. Thoughtfully crafted around your unique body type, goals, injuries, and more.

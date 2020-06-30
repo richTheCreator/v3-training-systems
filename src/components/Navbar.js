@@ -111,7 +111,7 @@ const NavbarLG = ({ menuLinks, theme }) => (
         {menuLinks.map(navItems =>
           navItems.name !== 'Home' ? (
             <Row style={{ display: 'table' }}>
-              <LinkStyle fontSize={3} fontWeight={2} to={navItems.link}>{navItems.name}</LinkStyle>
+              <LinkStyle fontSize={2} fontWeight={2} to={navItems.link}>{navItems.name}</LinkStyle>
             </Row>
           ) : null
         )}
@@ -164,7 +164,6 @@ const Navbar = ({ menuLinks }) => {
   }
 
   const menuClick = (e, to) => {
-    console.log('to-----', to)
     e.preventDefault()
     navigate(to)
     toggleMenu()
@@ -221,7 +220,7 @@ const Navbar = ({ menuLinks }) => {
       >
         {transitions.map(({ item, key, props }) => (
           <Row style={{ display: 'table', margin: '24px 0' }}>
-            <AnimatedLink fontSize={9} fontWeight={3} key={key} style={props} onClick={(e) => menuClick(e, item.link)}>
+            <AnimatedLink fontSize={8} fontWeight={3} key={key} style={props} onClick={(e) => menuClick(e, item.link)}>
               {item.name}
             </AnimatedLink>
           </Row>
