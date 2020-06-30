@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
   title: 'V3 Training Systems', // Navigation and Site Title
   description: 'Custom workout programs for at home or in the gym.',
-  url: 'https://v3-trainingsystems.com', // Domain of your site. No trailing slash!
+  url: 'https://www.v3-trainingsystems.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   ogLanguage: 'en_US', // Facebook Language
   banner: '/img/og-image.jpg' // Used for SEO
@@ -10,7 +10,7 @@ module.exports = {
   // headline: 'Writing and publishing content for LekoArts', // Headline for schema.org JSONLD
 
   // JSONLD / Manifest
-  // favicon: 'src/favicon.png', // Used for manifest favicon generation
+  // favicon: 'img/favicon-32x32.png' // Used for manifest favicon generation
   // shortName: 'Prismic', // shortname for manifest. MUST be shorter than 12 characters
   // author: 'LekoArts', // Author for schemaORGJSONLD
   // themeColor: '#3D63AE',

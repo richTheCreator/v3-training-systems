@@ -30,8 +30,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: ${props => props.theme.colors.black}!important;
-  opacity: .5;
+  background-image:linear-gradient(to right,#000000,#00000000)
 `
 const ContentContainer = styled(Col)`
   z-index:1;
